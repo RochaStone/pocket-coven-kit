@@ -1,0 +1,76 @@
+# Words and phrases from the original game that must never appear in anything this kit generates or ships.
+# Checked by tests/unit/forbidden.test.ts against every preset build, the committed catalog and seed, and the app source.
+# Plain lines match anywhere, ignoring case. Lines starting "sha256:" are the hash of a lowercased name or identifier,
+# so this public file never prints a real person's name or a private project id.
+
+# brand and world names
+Merwitch
+Baby Merwitch
+Thriving Era
+Rocheverse
+seashell
+Kairos
+Owner's Vanity
+
+# her rooms and places
+Pearl Palace
+Pearl Café
+Pearl Cafe
+Matcha Café
+Champagne Grotto
+Moon Deck
+Mermaid Lagoon
+Crystal Reef
+Shell Beach
+Coven Lounge
+Sound Sanctuary
+Matcha Bar
+Bali
+
+# her items, familiars and rewards
+Oyster Bed
+Disco Shell
+Black Pearl
+Golden Scallop
+Pearl Seahorse
+Bat Crab
+Naan Bread
+Pomeranian
+Coven Charm
+Full Moon Pearl
+New Moon Shard
+Glowshroom
+Padel
+
+# her flavour lines
+paid position
+ancestrally supported
+accepting compliments
+available for apologies
+frankly elite snack spread
+Questions were not asked
+Productivity has left the building
+dramatic hair flip
+would like a parade
+gossip break
+percent more psychic
+centimetres taller
+strawberry iced matcha
+bone broth
+Sees everything. Says little.
+A classic for a reason
+wider attitude
+
+# people and private identifiers (hashed)
+sha256:feab242a7baacaeb2f82898939b6c4b32c528f7c0dce59c5078835b46a0e309d
+sha256:f1ed827790a615542f9bff69afd74917efd3af71d1b5fb9baccdb3cc8f0c0a30
+sha256:0fe613e527c1ac5632c1a38def54f6a9ec523ebc79153c3595ce1fff7c1d756b
+sha256:df93620f0091161f109e45ed80f99bd14741169e0ed855ff0aa47c8e10efb020
+sha256:9c0e126a9f0375702fc470f76553b6d09047271297fc6ca114e56b0120906f5c
+sha256:6220b3e1f255f8e29b87488abab1bde126a6bbb44c62bf9b297b3d20347f8b4e
+sha256:341868f71bc6af9f8e7b19d67152d447eb2f63dffd7f1d359383c412f189e93b
+sha256:88bf31488ddf9d2f638b02f39b01aa7d737e4bca132d6bf1e3a23e31c96ef7b8
+sha256:494414ded24da13c451b13b424928821351c78fce49f93d9e1b55f102790c206
+sha256:7ad5e1046dd0d562facf20417cdb94efec29160186487c01cd23bd6993db6e6f
+sha256:47c65b2912d02c647e198ea4a386d2c453c8a11c9dbf1a3cc8c6a250a291539c
+sha256:41654e538dba0e5d2b1973751b4bbb087277e4e2188b48e5ca4f2ca531b7c277

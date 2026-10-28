@@ -1,0 +1,446 @@
+{
+  "id": "city-witch",
+  "label": "City Witch",
+  "description": "A rooftop above a sleeping city, seen through a plum CRT. Brass, lamplight, slate, ivy and pixel sigils. Night without the neon.",
+  "coven": {
+    "name": "The Lamplight Coven",
+    "tagline": "A rooftop world for witches who keep city hours."
+  },
+  "currency": {
+    "singular": "token",
+    "plural": "tokens"
+  },
+  "displayFont": "fraunces",
+  "motif": "cyberpunk",
+  "palette": {
+    "ground": "#2a1626",
+    "groundDeep": "#160a14",
+    "paper": "#f3efe8",
+    "ink": "#1f1c24",
+    "accent": "#86682a",
+    "alt": "#46605f",
+    "mystic": "#7a4a7a",
+    "coin": "#86682a",
+    "warn": "#a8433a",
+    "sky": "#2c1a2e",
+    "skyDeep": "#150b17",
+    "wall": "#4a2c45",
+    "wallDeep": "#2f1a2c",
+    "floor": "#5a5048",
+    "wood": "#5a4232",
+    "leaf": "#5a7a5a",
+    "leafDeep": "#34503a",
+    "water": "#4a5a6a",
+    "stone": "#5e4a5c",
+    "glow": "#f0c27a"
+  },
+  "metal": "#c4a256",
+  "wardrobeColours": [
+    {
+      "name": "Brass",
+      "hex": "#a8863a",
+      "trim": "#2a2630"
+    },
+    {
+      "name": "Soot",
+      "hex": "#2a2630",
+      "trim": "#c9b48a"
+    },
+    {
+      "name": "Velvet",
+      "hex": "#5a2a4a",
+      "trim": "#d9c39a"
+    },
+    {
+      "name": "Slate",
+      "hex": "#5a6270",
+      "trim": "#e6e2da"
+    },
+    {
+      "name": "Ivy",
+      "hex": "#3f5a42",
+      "trim": "#d8cfb8"
+    },
+    {
+      "name": "Lamplight",
+      "hex": "#e0b86a",
+      "trim": "#3a2c20"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "rooftop",
+      "name": "The Rooftop Garden",
+      "backdrop": "rooftop_garden",
+      "blurb": "Tomatoes in tins, chimney pots, the whole skyline.",
+      "activities": [
+        "garden",
+        "stargaze"
+      ]
+    },
+    {
+      "id": "lane",
+      "name": "Lantern Lane",
+      "backdrop": "lantern_lane",
+      "blurb": "A cobbled lane where every cat knows your name.",
+      "activities": [
+        "lantern_walk",
+        "visit_neighbours"
+      ]
+    },
+    {
+      "id": "library",
+      "name": "The Night Library",
+      "backdrop": "library",
+      "blurb": "Open after midnight. Members only. You are a member.",
+      "activities": [
+        "spellbook",
+        "write_almanac"
+      ]
+    },
+    {
+      "id": "apothecary",
+      "name": "Corner Apothecary",
+      "backdrop": "apothecary",
+      "blurb": "Brass scales, glass drawers, a bell over the door.",
+      "activities": [
+        "brew_potion",
+        "crystal_cleanse"
+      ]
+    },
+    {
+      "id": "cafe",
+      "name": "The Late Café",
+      "backdrop": "tea_room",
+      "blurb": "Steamed windows and the last slice of pie.",
+      "activities": [
+        "hot_cocoa",
+        "pie",
+        "tavern_cards"
+      ]
+    },
+    {
+      "id": "bathhouse",
+      "name": "The Old Bathhouse",
+      "backdrop": "bath_house",
+      "blurb": "Tiled, steamy, wonderfully echoey.",
+      "activities": [
+        "bath",
+        "stretch",
+        "sing"
+      ]
+    }
+  ],
+  "ceremonies": [
+    {
+      "id": "rooftop_circle",
+      "name": "Rooftop Circle",
+      "room": "rooftop"
+    },
+    {
+      "id": "lamplighting",
+      "name": "The Lamplighting",
+      "room": "lane"
+    }
+  ],
+  "moonRoom": "rooftop",
+  "familiars": [
+    "cat",
+    "raven",
+    "fox",
+    "moth",
+    "rabbit",
+    "snake"
+  ],
+  "familiarColours": [
+    "ink",
+    "dusk",
+    "ginger",
+    "cream",
+    "plum",
+    "moss"
+  ],
+  "witchNames": [
+    "Ivy",
+    "Vera",
+    "Opal",
+    "Margo",
+    "Edie",
+    "Nell",
+    "Greta",
+    "Jinx",
+    "Hattie",
+    "Mabel",
+    "Ottilie",
+    "Delphine"
+  ],
+  "titles": [
+    "Keeper of the Keys",
+    "Rooftop Gardener",
+    "Lamp Lighter",
+    "Night Librarian",
+    "Alley Oracle",
+    "Tram Witch",
+    "Chimney Sweep",
+    "Corner Alchemist",
+    "Late Shift Seer",
+    "Pigeon Whisperer",
+    "Back Door Witch",
+    "Skyline Reader"
+  ],
+  "furniture": [
+    {
+      "style": "bed",
+      "name": "Iron Bedstead",
+      "price": 140,
+      "rarity": "rare",
+      "description": "Brass knobs, slightly squeaky, perfect."
+    },
+    {
+      "style": "armchair",
+      "name": "Thrifted Armchair",
+      "price": 70,
+      "rarity": "common",
+      "description": "Velvet worn shiny at the arms."
+    },
+    {
+      "style": "bookcase",
+      "name": "Apple Crate Shelves",
+      "price": 60,
+      "rarity": "common",
+      "description": "Stacked crooked, holding everything."
+    },
+    {
+      "style": "table",
+      "name": "Café Table",
+      "price": 75,
+      "rarity": "common",
+      "description": "Marble top, wobbly leg, folded beer mat."
+    },
+    {
+      "style": "lamp",
+      "name": "Brass Desk Lamp",
+      "price": 80,
+      "rarity": "common",
+      "description": "Green shade, warm pool of light."
+    },
+    {
+      "style": "wardrobe",
+      "name": "Junk Shop Wardrobe",
+      "price": 130,
+      "rarity": "rare",
+      "description": "Opens onto somewhere else on Thursdays."
+    }
+  ],
+  "decor": [
+    {
+      "style": "plant",
+      "name": "Trailing Ivy",
+      "price": 40,
+      "rarity": "common",
+      "description": "Climbs anything that holds still."
+    },
+    {
+      "style": "lantern",
+      "name": "Street Lantern",
+      "price": 70,
+      "rarity": "rare",
+      "description": "Rescued from a skip. Still glowing."
+    },
+    {
+      "style": "candles",
+      "name": "Bottle Candles",
+      "price": 35,
+      "rarity": "common",
+      "description": "Wax dripped down every side."
+    },
+    {
+      "style": "clock",
+      "name": "Station Clock",
+      "price": 90,
+      "rarity": "rare",
+      "description": "Big, round, always right."
+    },
+    {
+      "style": "mirror",
+      "name": "Gilt Mirror",
+      "price": 75,
+      "rarity": "common",
+      "description": "Flecked with age, flattering anyway."
+    },
+    {
+      "style": "jars",
+      "name": "Spice Tins",
+      "price": 40,
+      "rarity": "common",
+      "description": "Every tin from a different country."
+    }
+  ],
+  "collectibles": [
+    {
+      "style": "feather",
+      "name": "Pigeon Feather",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#8a8f9a",
+      "description": "Iridescent if you look properly."
+    },
+    {
+      "style": "coin",
+      "name": "Lucky Penny",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#b07a4a",
+      "description": "Heads up. Always heads up."
+    },
+    {
+      "style": "leaf",
+      "name": "Plane Leaf",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#b38a3a",
+      "description": "From the tree on the corner."
+    },
+    {
+      "style": "sprig",
+      "name": "Ivy Sprig",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#3f5a42",
+      "description": "Snipped from the railings."
+    },
+    {
+      "style": "glass",
+      "name": "Lamp Glass",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#e0b86a",
+      "description": "Amber glass from an old gas lamp."
+    },
+    {
+      "style": "crystal",
+      "name": "Smoky Quartz",
+      "tier": "gem",
+      "rarity": "rare",
+      "colour": "#6a5a52",
+      "description": "Grounding, for city nerves."
+    },
+    {
+      "style": "key",
+      "name": "Brass Key",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#c4a256",
+      "description": "Fits a door you have walked past a hundred times."
+    },
+    {
+      "style": "key",
+      "name": "Skeleton Key",
+      "tier": "rare",
+      "rarity": "mythic",
+      "colour": "#4a4450",
+      "description": "Opens every lock in the city. Once."
+    }
+  ],
+  "rewards": {
+    "fullMoon": {
+      "style": "moonstone",
+      "name": "Full Moon Token",
+      "colour": "#e6e2da",
+      "description": "Only minted on a full moon over the rooftops."
+    },
+    "newMoon": {
+      "style": "coin",
+      "name": "New Moon Ticket",
+      "colour": "#2a2630",
+      "description": "Admits one to a fresh start."
+    },
+    "charm": {
+      "style": "charm",
+      "name": "City Charm",
+      "colour": "#c4a256",
+      "description": "A tiny brass key per witch on one ring."
+    }
+  },
+  "treats": [
+    {
+      "id": "treat_coffee",
+      "style": "cup",
+      "name": "Late night coffee",
+      "cost": 8,
+      "effects": {
+        "nourishment": 15,
+        "joy": 15,
+        "energy": 10
+      }
+    },
+    {
+      "id": "treat_noodles",
+      "style": "bowl",
+      "name": "Noodle soup",
+      "cost": 6,
+      "effects": {
+        "nourishment": 30,
+        "energy": 5
+      }
+    },
+    {
+      "id": "treat_bagel",
+      "style": "bread",
+      "name": "Warm bagel",
+      "cost": 5,
+      "effects": {
+        "nourishment": 25,
+        "joy": 8
+      }
+    },
+    {
+      "id": "treat_flowers",
+      "style": "bouquet",
+      "name": "Corner shop flowers",
+      "cost": 10,
+      "effects": {
+        "joy": 25,
+        "magic": 5
+      }
+    }
+  ],
+  "goals": {
+    "nourish": {
+      "name": "Supper Club",
+      "description": "Eat and drink well together",
+      "target": 30
+    },
+    "rituals": {
+      "name": "Circle Week",
+      "description": "Complete ceremonies together",
+      "target": 3
+    },
+    "gifts": {
+      "name": "Doorstep Drops",
+      "description": "Send gifts to each other",
+      "target": 15
+    },
+    "activities": {
+      "name": "City Hours",
+      "description": "Do anything at all, together",
+      "target": 60
+    }
+  },
+  "flavour": {
+    "moods": {
+      "thriving": "{name} {is} owning the rooftop like it is a stage.",
+      "happy": "{name} {is} leaning on the railing, watching the city twinkle.",
+      "sleepy": "{name} {is} fading fast. The iron bedstead and a good pillow, please.",
+      "hungry": "{name} {is} thinking about noodles with great intensity.",
+      "bored": "{name} {has} watched the same pigeon for ten minutes. Take {them} somewhere.",
+      "magical": "{name} {is} buzzing. The streetlamps flicker as {they} walk past.",
+      "offended": "{name} {has} put {their} headphones on and turned to the window. A note under the door might work."
+    },
+    "joined": "{name} has joined the coven. Another light on in the building.",
+    "ritualComplete": "Somewhere below, every streetlamp brightened at once.",
+    "dailyTitle": "Left on the doormat",
+    "dailyBody": "Through the letterbox this morning: today's tokens and a little find from the street.",
+    "welcome": "The rooftop is yours, {name}"
+  }
+}

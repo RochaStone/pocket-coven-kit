@@ -1,0 +1,35 @@
+# dependencies and builds
+node_modules/
+.next
+.next-*
+out/
+dist/*.zip
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+
+# secrets: never commit
+.env
+.env.*
+!.env.example
+*.local
+
+# local Supabase (config.toml is generated from config.template.toml by scripts/setup-local.mjs)
+supabase/config.toml
+supabase/.temp
+supabase/.branches
+
+# test output
+test-results
+playwright-report
+screenshots/
+
+# misc
+__pycache__/
+*.pyc
+.venv/
+state/
+*.log
+.DS_Store
+.pre-commit-config.yaml
+scripts/tmp-*

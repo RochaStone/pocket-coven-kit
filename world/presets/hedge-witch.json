@@ -1,0 +1,446 @@
+{
+  "id": "hedge-witch",
+  "label": "Hedge Witch",
+  "description": "A cottage at the edge of the wood. Moss greens, toadstools, a kettle that never quite cools.",
+  "coven": {
+    "name": "The Hedgerow Coven",
+    "tagline": "A little cottage world at the edge of the wood."
+  },
+  "currency": {
+    "singular": "acorn",
+    "plural": "acorns"
+  },
+  "displayFont": "fraunces",
+  "motif": "analog",
+  "palette": {
+    "ground": "#3d4a2f",
+    "groundDeep": "#232c1b",
+    "paper": "#f6f0e1",
+    "ink": "#2b2a1f",
+    "accent": "#7a4e2d",
+    "alt": "#56703c",
+    "mystic": "#6d5a8a",
+    "coin": "#9a6e22",
+    "warn": "#a8433a",
+    "sky": "#c9d8c0",
+    "skyDeep": "#8fa88a",
+    "wall": "#e9dcc0",
+    "wallDeep": "#c9b48f",
+    "floor": "#8a6a45",
+    "wood": "#6b4a2e",
+    "leaf": "#6f8f4a",
+    "leafDeep": "#3f5a2c",
+    "water": "#8fb3a8",
+    "stone": "#a49e8f",
+    "glow": "#f2c76b"
+  },
+  "metal": "#b8862f",
+  "wardrobeColours": [
+    {
+      "name": "Moss",
+      "hex": "#5f7a43",
+      "trim": "#e9dcc0"
+    },
+    {
+      "name": "Bramble",
+      "hex": "#6b3a4a",
+      "trim": "#d9b48f"
+    },
+    {
+      "name": "Bark",
+      "hex": "#6b4a2e",
+      "trim": "#e0c9a0"
+    },
+    {
+      "name": "Fern",
+      "hex": "#8aa35a",
+      "trim": "#3f5a2c"
+    },
+    {
+      "name": "Heather",
+      "hex": "#8a6aa0",
+      "trim": "#efe3f0"
+    },
+    {
+      "name": "Toadstool",
+      "hex": "#b04a3a",
+      "trim": "#f6efe0"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "cottage",
+      "name": "Thornback Cottage",
+      "backdrop": "cottage_room",
+      "blurb": "Your bedroom: patchwork quilt, a window full of ivy.",
+      "activities": [
+        "nap",
+        "herbal_tea",
+        "cuddle"
+      ]
+    },
+    {
+      "id": "glade",
+      "name": "The Mossy Glade",
+      "backdrop": "forest_glade",
+      "blurb": "Ferns, birdsong and paths that move when you are not looking.",
+      "activities": [
+        "forage",
+        "sing"
+      ]
+    },
+    {
+      "id": "ring",
+      "name": "Toadstool Ring",
+      "backdrop": "mushroom_ring",
+      "blurb": "Where the coven gathers when the moon is up.",
+      "activities": [
+        "moon_bath",
+        "read_cards"
+      ]
+    },
+    {
+      "id": "garden",
+      "name": "The Physic Garden",
+      "backdrop": "herb_garden",
+      "blurb": "Rosemary, feverfew, and one very bossy marrow.",
+      "activities": [
+        "garden",
+        "dig"
+      ]
+    },
+    {
+      "id": "apothecary",
+      "name": "Hollow Oak Apothecary",
+      "backdrop": "apothecary",
+      "blurb": "Jars, labels, and a shop counter inside an old oak.",
+      "activities": [
+        "brew_potion",
+        "market_stall"
+      ]
+    },
+    {
+      "id": "hearth",
+      "name": "The Hearth Room",
+      "backdrop": "hearth_kitchen",
+      "blurb": "Stew on the fire, gossip at the table.",
+      "activities": [
+        "stew",
+        "gossip",
+        "elderflower_toast"
+      ]
+    }
+  ],
+  "ceremonies": [
+    {
+      "id": "hedgerow_circle",
+      "name": "Hedgerow Circle",
+      "room": "ring"
+    },
+    {
+      "id": "harvest_supper",
+      "name": "Harvest Supper",
+      "room": "hearth"
+    }
+  ],
+  "moonRoom": "ring",
+  "familiars": [
+    "cat",
+    "toad",
+    "owl",
+    "rabbit",
+    "moth",
+    "fox"
+  ],
+  "familiarColours": [
+    "ink",
+    "ginger",
+    "moss",
+    "cream",
+    "dusk",
+    "plum"
+  ],
+  "witchNames": [
+    "Bramble",
+    "Fern",
+    "Sorrel",
+    "Wren",
+    "Hazel",
+    "Juniper",
+    "Nettle",
+    "Rowan",
+    "Tansy",
+    "Briar",
+    "Clover",
+    "Linden"
+  ],
+  "titles": [
+    "Keeper of the Kettle",
+    "Hedge Wanderer",
+    "Herb Whisperer",
+    "Moss Listener",
+    "Toadstool Scholar",
+    "Bramble Tamer",
+    "Hearth Keeper",
+    "Path Finder",
+    "Seed Sower",
+    "Root Reader",
+    "Owl Friend",
+    "Gate Keeper"
+  ],
+  "furniture": [
+    {
+      "style": "bed",
+      "name": "Patchwork Bed",
+      "price": 150,
+      "rarity": "rare",
+      "description": "Six quilts deep. Nobody gets up on time."
+    },
+    {
+      "style": "armchair",
+      "name": "Mossy Armchair",
+      "price": 70,
+      "rarity": "common",
+      "description": "Sit down. Stay a while. Possibly forever."
+    },
+    {
+      "style": "bookcase",
+      "name": "Crooked Bookcase",
+      "price": 90,
+      "rarity": "common",
+      "description": "Spellbooks, seed catalogues and a jar of buttons."
+    },
+    {
+      "style": "table",
+      "name": "Oak Table",
+      "price": 80,
+      "rarity": "common",
+      "description": "Ring marks from a hundred teapots."
+    },
+    {
+      "style": "cauldron",
+      "name": "Iron Cauldron",
+      "price": 130,
+      "rarity": "rare",
+      "description": "Bubbles when it is happy."
+    },
+    {
+      "style": "dresser",
+      "name": "Painted Dresser",
+      "price": 110,
+      "rarity": "common",
+      "description": "Every drawer sticks a little differently."
+    }
+  ],
+  "decor": [
+    {
+      "style": "candles",
+      "name": "Beeswax Candles",
+      "price": 35,
+      "rarity": "common",
+      "description": "Smell faintly of summer."
+    },
+    {
+      "style": "plant",
+      "name": "Potted Fern",
+      "price": 40,
+      "rarity": "common",
+      "description": "Thrives on neglect and compliments."
+    },
+    {
+      "style": "jars",
+      "name": "Herb Jars",
+      "price": 45,
+      "rarity": "common",
+      "description": "Labelled in three different handwritings."
+    },
+    {
+      "style": "wreath",
+      "name": "Ivy Wreath",
+      "price": 55,
+      "rarity": "common",
+      "description": "Hung on the door to keep the gossip in."
+    },
+    {
+      "style": "lantern",
+      "name": "Toadstool Lantern",
+      "price": 65,
+      "rarity": "rare",
+      "description": "A soft red glow with white spots."
+    },
+    {
+      "style": "broom",
+      "name": "Birch Broom",
+      "price": 60,
+      "rarity": "common",
+      "description": "Sweeps the floor and, on good nights, the sky."
+    }
+  ],
+  "collectibles": [
+    {
+      "style": "acorn",
+      "name": "Lucky Acorn",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#9a6e22",
+      "description": "Fat, glossy and quietly smug."
+    },
+    {
+      "style": "feather",
+      "name": "Jay Feather",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#4f7fb3",
+      "description": "A flash of blue from the hedge."
+    },
+    {
+      "style": "leaf",
+      "name": "Golden Oak Leaf",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#c9952f",
+      "description": "Pressed flat. Still warm somehow."
+    },
+    {
+      "style": "berry",
+      "name": "Rosehip",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#b04a3a",
+      "description": "Good for tea, better for luck."
+    },
+    {
+      "style": "crystal",
+      "name": "Moss Agate",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#6f8f4a",
+      "description": "A whole forest frozen in stone."
+    },
+    {
+      "style": "stone",
+      "name": "Hag Stone",
+      "tier": "gem",
+      "rarity": "rare",
+      "colour": "#a49e8f",
+      "description": "Look through the hole. See true things."
+    },
+    {
+      "style": "mushroom",
+      "name": "Fairy Ring Cap",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#d9643a",
+      "description": "Do not eat. Do admire."
+    },
+    {
+      "style": "key",
+      "name": "Old Iron Key",
+      "tier": "rare",
+      "rarity": "mythic",
+      "colour": "#5a5048",
+      "description": "Opens a door nobody has found yet."
+    }
+  ],
+  "rewards": {
+    "fullMoon": {
+      "style": "moonstone",
+      "name": "Moon-silvered Acorn",
+      "colour": "#dfe4ef",
+      "description": "Only falls on a full moon. Glows faintly."
+    },
+    "newMoon": {
+      "style": "stone",
+      "name": "Dark Moon Seed",
+      "colour": "#3a3550",
+      "description": "Plant an intention. See what grows."
+    },
+    "charm": {
+      "style": "charm",
+      "name": "Hedge Charm",
+      "colour": "#9a6e22",
+      "description": "A twist of ivy, a bead per witch. Earned together."
+    }
+  },
+  "treats": [
+    {
+      "id": "treat_tea",
+      "style": "cup",
+      "name": "Nettle tea",
+      "cost": 8,
+      "effects": {
+        "nourishment": 15,
+        "joy": 15,
+        "energy": 10
+      }
+    },
+    {
+      "id": "treat_pie",
+      "style": "pie",
+      "name": "Blackberry pie",
+      "cost": 6,
+      "effects": {
+        "nourishment": 30,
+        "energy": 5
+      }
+    },
+    {
+      "id": "treat_honey",
+      "style": "jar",
+      "name": "Wild honey",
+      "cost": 5,
+      "effects": {
+        "nourishment": 25,
+        "joy": 8
+      }
+    },
+    {
+      "id": "treat_posy",
+      "style": "bouquet",
+      "name": "Lavender posy",
+      "cost": 10,
+      "effects": {
+        "joy": 25,
+        "magic": 5
+      }
+    }
+  ],
+  "goals": {
+    "nourish": {
+      "name": "Soup Season",
+      "description": "Eat and drink well together",
+      "target": 30
+    },
+    "rituals": {
+      "name": "Circle Week",
+      "description": "Complete ceremonies together",
+      "target": 3
+    },
+    "gifts": {
+      "name": "Generous Hedgerow",
+      "description": "Send gifts to each other",
+      "target": 15
+    },
+    "activities": {
+      "name": "Busy Bees",
+      "description": "Do anything at all, together",
+      "target": 60
+    }
+  },
+  "flavour": {
+    "moods": {
+      "thriving": "{name} {is} glowing like a lamp in a cottage window.",
+      "happy": "{name} {is} pottering about, humming to the kettle.",
+      "sleepy": "{name}'s eyelids are drooping. The quilt is turned down and waiting.",
+      "hungry": "{name} keeps wandering past the pantry door. Something to eat, please.",
+      "bored": "{name} {is} drumming {their} fingers on the windowsill. Time for an adventure in the wood.",
+      "magical": "{name} {is} fizzing with magic. The dried herbs are swaying on their own.",
+      "offended": "{name} {has} pulled {their} hood right down and gone quiet. A kind word and a warm drink would help."
+    },
+    "joined": "{name} has joined the coven. Another chair at the hearth.",
+    "ritualComplete": "The hedge rustled its approval.",
+    "dailyTitle": "Something on the doorstep",
+    "dailyBody": "A basket on the step: today's acorns and a little find from the wood.",
+    "welcome": "The cottage is yours, {name}"
+  }
+}

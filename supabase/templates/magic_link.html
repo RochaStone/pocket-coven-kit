@@ -1,0 +1,11 @@
+<!-- Optional: paste into Supabase > Authentication > Email Templates > Magic Link if you turn on email sign-in. -->
+<div style="font-family: Georgia, 'Times New Roman', serif; background:#f6f0e1; padding:32px 16px; color:#2b2a1f;">
+  <div style="max-width:420px; margin:0 auto; background:#ffffff; border-radius:12px; padding:28px; border:2px solid #2b2a1f; text-align:center;">
+    <h1 style="margin:0 0 12px; font-size:26px;">Your coven is waiting</h1>
+    <p style="margin:0 0 20px; font-size:15px;">Tap the button to come in.</p>
+    <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#7a4e2d; color:#ffffff; text-decoration:none; font-weight:bold; padding:12px 26px; border-radius:999px;">Open my coven</a>
+    <p style="margin:24px 0 6px; font-size:13px;">Opening this on a different phone or app? Type this code instead:</p>
+    <p style="margin:0; font-size:28px; font-weight:bold; letter-spacing:8px;">{{ .Token }}</p>
+    <p style="margin:22px 0 0; font-size:11px; color:#6b6a5f;">This link and code work once and expire soon. If you did not ask for this, you can ignore it.</p>
+  </div>
+</div>

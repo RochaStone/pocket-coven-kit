@@ -1,0 +1,446 @@
+{
+  "id": "sea-witch",
+  "label": "Sea Witch",
+  "description": "Tide pools, driftwood and a cave that sings when the wind is right. Teal water, grey stone, salt in your hair.",
+  "coven": {
+    "name": "The Driftwood Coven",
+    "tagline": "A salt-and-stone world on a wild northern shore."
+  },
+  "currency": {
+    "singular": "driftstone",
+    "plural": "driftstones"
+  },
+  "displayFont": "cormorant",
+  "motif": "analog",
+  "palette": {
+    "ground": "#1f4a4f",
+    "groundDeep": "#11302f",
+    "paper": "#f2f1ea",
+    "ink": "#18302f",
+    "accent": "#2b736e",
+    "alt": "#7a5e40",
+    "mystic": "#46668a",
+    "coin": "#86683a",
+    "warn": "#a8433a",
+    "sky": "#bfdcd6",
+    "skyDeep": "#7fb3ad",
+    "wall": "#d9cdb8",
+    "wallDeep": "#b3a385",
+    "floor": "#c9b08a",
+    "wood": "#8a7055",
+    "leaf": "#4f8a70",
+    "leafDeep": "#2f5a4a",
+    "water": "#3f8f8f",
+    "stone": "#8a9a96",
+    "glow": "#f2d69b"
+  },
+  "metal": "#b39a6a",
+  "wardrobeColours": [
+    {
+      "name": "Kelp",
+      "hex": "#3f6a50",
+      "trim": "#d9cdb8"
+    },
+    {
+      "name": "Tide",
+      "hex": "#2f7f7a",
+      "trim": "#e6efe9"
+    },
+    {
+      "name": "Driftwood",
+      "hex": "#9a8064",
+      "trim": "#efe6d6"
+    },
+    {
+      "name": "Storm",
+      "hex": "#4a5a6a",
+      "trim": "#cfd8de"
+    },
+    {
+      "name": "Seafoam",
+      "hex": "#a6cfc2",
+      "trim": "#2f5a4a"
+    },
+    {
+      "name": "Rust",
+      "hex": "#a85a3a",
+      "trim": "#efe3d0"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "tide_pools",
+      "name": "The Tide Pools",
+      "backdrop": "tide_pool",
+      "blurb": "Little worlds in every hollow of the rock.",
+      "activities": [
+        "rock_pool",
+        "scry"
+      ]
+    },
+    {
+      "id": "shore",
+      "name": "Driftwood Shore",
+      "backdrop": "driftwood_shore",
+      "blurb": "Grey sand, bleached wood, a fire pit for evenings.",
+      "activities": [
+        "swim",
+        "dig",
+        "feast"
+      ]
+    },
+    {
+      "id": "cave",
+      "name": "The Singing Cave",
+      "backdrop": "sea_cave",
+      "blurb": "The wind plays it like a flute.",
+      "activities": [
+        "cast_spell",
+        "sing"
+      ]
+    },
+    {
+      "id": "loft",
+      "name": "The Net Loft",
+      "backdrop": "cottage_room",
+      "blurb": "Your room: hammock, lamp, nets drying in the rafters.",
+      "activities": [
+        "nap",
+        "mend"
+      ]
+    },
+    {
+      "id": "apothecary",
+      "name": "Salt Apothecary",
+      "backdrop": "apothecary",
+      "blurb": "Seaweed tinctures and storm-glass jars.",
+      "activities": [
+        "brew_potion",
+        "crystal_cleanse"
+      ]
+    },
+    {
+      "id": "snug",
+      "name": "The Harbour Snug",
+      "backdrop": "tea_room",
+      "blurb": "Chowder, wool jumpers and tall tales.",
+      "activities": [
+        "soup",
+        "gossip",
+        "tavern_cards"
+      ]
+    }
+  ],
+  "ceremonies": [
+    {
+      "id": "tide_turning",
+      "name": "Tide Turning",
+      "room": "shore"
+    },
+    {
+      "id": "storm_calling",
+      "name": "Storm Calling",
+      "room": "cave"
+    }
+  ],
+  "moonRoom": "tide_pools",
+  "familiars": [
+    "raven",
+    "snake",
+    "toad",
+    "cat",
+    "moth",
+    "owl"
+  ],
+  "familiarColours": [
+    "ink",
+    "moss",
+    "dusk",
+    "cream",
+    "ginger",
+    "plum"
+  ],
+  "witchNames": [
+    "Brine",
+    "Morwenna",
+    "Isla",
+    "Nerys",
+    "Tamsin",
+    "Kelda",
+    "Wynne",
+    "Muriel",
+    "Freya",
+    "Ondine",
+    "Rhian",
+    "Elowen"
+  ],
+  "titles": [
+    "Keeper of the Tide",
+    "Storm Reader",
+    "Rock Pool Scholar",
+    "Net Mender",
+    "Wind Listener",
+    "Salt Witch",
+    "Lamp Keeper",
+    "Current Caller",
+    "Fog Walker",
+    "Wreck Diver",
+    "Gull Friend",
+    "Weather Eye"
+  ],
+  "furniture": [
+    {
+      "style": "bed",
+      "name": "Hammock Bed",
+      "price": 130,
+      "rarity": "rare",
+      "description": "Rocks you to sleep like a small boat."
+    },
+    {
+      "style": "armchair",
+      "name": "Driftwood Chair",
+      "price": 75,
+      "rarity": "common",
+      "description": "Every curve shaped by the sea."
+    },
+    {
+      "style": "table",
+      "name": "Sea Chest Table",
+      "price": 90,
+      "rarity": "common",
+      "description": "Smells of tar and old maps."
+    },
+    {
+      "style": "bookcase",
+      "name": "Chart Shelf",
+      "price": 95,
+      "rarity": "common",
+      "description": "Tide tables, sea stories, one cookbook."
+    },
+    {
+      "style": "lamp",
+      "name": "Storm Lamp",
+      "price": 70,
+      "rarity": "common",
+      "description": "Never blows out. Has tried."
+    },
+    {
+      "style": "bench",
+      "name": "Boat Bench",
+      "price": 110,
+      "rarity": "rare",
+      "description": "Half a rowing boat, turned into a seat."
+    }
+  ],
+  "decor": [
+    {
+      "style": "lantern",
+      "name": "Glass Float Lamp",
+      "price": 60,
+      "rarity": "common",
+      "description": "A fishing float with a candle inside."
+    },
+    {
+      "style": "plant",
+      "name": "Sea Holly Pot",
+      "price": 40,
+      "rarity": "common",
+      "description": "Spiky, silvery, unbothered by salt."
+    },
+    {
+      "style": "jars",
+      "name": "Storm Glass",
+      "price": 85,
+      "rarity": "rare",
+      "description": "The crystals inside forecast the weather."
+    },
+    {
+      "style": "garland",
+      "name": "Rope Garland",
+      "price": 35,
+      "rarity": "common",
+      "description": "Knots tied by every witch in the coven."
+    },
+    {
+      "style": "candles",
+      "name": "Tallow Candles",
+      "price": 30,
+      "rarity": "common",
+      "description": "Smoky, honest light."
+    },
+    {
+      "style": "mirror",
+      "name": "Porthole Mirror",
+      "price": 75,
+      "rarity": "common",
+      "description": "Brass rim, slightly green."
+    }
+  ],
+  "collectibles": [
+    {
+      "style": "sprig",
+      "name": "Kelp Ribbon",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#4f8a70",
+      "description": "Long, glossy, smells of the deep."
+    },
+    {
+      "style": "feather",
+      "name": "Gull Feather",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#dfe4e2",
+      "description": "Taken in fair trade for a chip."
+    },
+    {
+      "style": "stone",
+      "name": "Smooth Pebble",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#8a9a96",
+      "description": "Worn perfect by a thousand tides."
+    },
+    {
+      "style": "glass",
+      "name": "Fishing Float",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#5aa39a",
+      "description": "Green glass ball, escaped from a net."
+    },
+    {
+      "style": "crystal",
+      "name": "Amber Bead",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#d9973a",
+      "description": "Old sunlight, washed ashore."
+    },
+    {
+      "style": "coin",
+      "name": "Old Coin",
+      "tier": "gem",
+      "rarity": "rare",
+      "colour": "#b39a6a",
+      "description": "From a ship that never arrived."
+    },
+    {
+      "style": "bottle",
+      "name": "Message Bottle",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#6fa39a",
+      "description": "The note inside is just a recipe."
+    },
+    {
+      "style": "key",
+      "name": "Ship's Key",
+      "tier": "rare",
+      "rarity": "mythic",
+      "colour": "#7a6a4a",
+      "description": "Opens a cabin somewhere under the waves."
+    }
+  ],
+  "rewards": {
+    "fullMoon": {
+      "style": "moonstone",
+      "name": "Moon Tide Stone",
+      "colour": "#dfe8ea",
+      "description": "Only washes up on a full-moon tide."
+    },
+    "newMoon": {
+      "style": "glass",
+      "name": "Deep Water Glass",
+      "colour": "#1f4a4f",
+      "description": "Dark as the sea on a new moon night."
+    },
+    "charm": {
+      "style": "charm",
+      "name": "Sea Charm",
+      "colour": "#b39a6a",
+      "description": "A knot per witch, tied in one rope."
+    }
+  },
+  "treats": [
+    {
+      "id": "treat_tea",
+      "style": "cup",
+      "name": "Strong builder's tea",
+      "cost": 8,
+      "effects": {
+        "nourishment": 15,
+        "joy": 15,
+        "energy": 10
+      }
+    },
+    {
+      "id": "treat_chowder",
+      "style": "bowl",
+      "name": "Smoky chowder",
+      "cost": 6,
+      "effects": {
+        "nourishment": 30,
+        "energy": 5
+      }
+    },
+    {
+      "id": "treat_bread",
+      "style": "bread",
+      "name": "Seaweed bread",
+      "cost": 5,
+      "effects": {
+        "nourishment": 25,
+        "joy": 8
+      }
+    },
+    {
+      "id": "treat_thrift",
+      "style": "bouquet",
+      "name": "Sea thrift posy",
+      "cost": 10,
+      "effects": {
+        "joy": 25,
+        "magic": 5
+      }
+    }
+  ],
+  "goals": {
+    "nourish": {
+      "name": "Chowder Season",
+      "description": "Eat and drink well together",
+      "target": 30
+    },
+    "rituals": {
+      "name": "Circle Week",
+      "description": "Complete ceremonies together",
+      "target": 3
+    },
+    "gifts": {
+      "name": "Washed Ashore",
+      "description": "Send gifts to each other",
+      "target": 15
+    },
+    "activities": {
+      "name": "All Hands",
+      "description": "Do anything at all, together",
+      "target": 60
+    }
+  },
+  "flavour": {
+    "moods": {
+      "thriving": "{name} {is} wind-flushed and wild with joy.",
+      "happy": "{name} {is} mending a net on the step, watching the boats.",
+      "sleepy": "{name} keeps yawning at the waves. The hammock is swaying hopefully.",
+      "hungry": "{name} {is} eyeing the chowder pot like a gull eyes a chip.",
+      "bored": "{name} {is} skimming stones and sighing. Time for a swim or a story.",
+      "magical": "{name} {is} humming with sea magic. The tide is listening.",
+      "offended": "{name} {has} turned up {their} collar and walked off down the shore. Give {them} a while and a hot drink."
+    },
+    "joined": "{name} has joined the coven. The tide brought someone good.",
+    "ritualComplete": "The sea went very quiet, then very loud.",
+    "dailyTitle": "Washed up on the step",
+    "dailyBody": "Waiting by the door at low tide: today's driftstones and a small find from the shore.",
+    "welcome": "The shore is yours, {name}"
+  }
+}

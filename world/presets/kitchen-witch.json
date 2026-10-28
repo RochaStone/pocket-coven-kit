@@ -1,0 +1,446 @@
+{
+  "id": "kitchen-witch",
+  "label": "Kitchen Witch",
+  "description": "A warm hearth, copper pans, herbs drying from the beams, and a scrapbook blog of every recipe. Magic you can eat.",
+  "coven": {
+    "name": "The Copper Kettle Coven",
+    "tagline": "A warm kitchen world where the magic is mostly soup."
+  },
+  "currency": {
+    "singular": "copper",
+    "plural": "coppers"
+  },
+  "displayFont": "fraunces",
+  "motif": "y2k-blog",
+  "palette": {
+    "ground": "#5a3524",
+    "groundDeep": "#3a2117",
+    "paper": "#fbf3e6",
+    "ink": "#3a2418",
+    "accent": "#a5552f",
+    "alt": "#5f7a3d",
+    "mystic": "#7f4256",
+    "coin": "#9a6e22",
+    "warn": "#a8433a",
+    "sky": "#f2dcc0",
+    "skyDeep": "#d9b48f",
+    "wall": "#f0dfc4",
+    "wallDeep": "#d8bf98",
+    "floor": "#9a6a44",
+    "wood": "#7a4a2e",
+    "leaf": "#7a9a52",
+    "leafDeep": "#4a6a32",
+    "water": "#9ab8b0",
+    "stone": "#b7a99a",
+    "glow": "#ffc86b"
+  },
+  "metal": "#c07a4a",
+  "wardrobeColours": [
+    {
+      "name": "Copper",
+      "hex": "#b0603a",
+      "trim": "#f6e3c8"
+    },
+    {
+      "name": "Saffron",
+      "hex": "#d9a03a",
+      "trim": "#5a3524"
+    },
+    {
+      "name": "Sage",
+      "hex": "#8aa07a",
+      "trim": "#f3ecdc"
+    },
+    {
+      "name": "Damson",
+      "hex": "#6a3a4a",
+      "trim": "#e9cfa8"
+    },
+    {
+      "name": "Flour",
+      "hex": "#f3ebdc",
+      "trim": "#8a5a3a"
+    },
+    {
+      "name": "Rosehip",
+      "hex": "#b8484a",
+      "trim": "#f6e8d8"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "hearth",
+      "name": "The Hearth",
+      "backdrop": "hearth_kitchen",
+      "blurb": "The fire is lit. The pot is on. The gossip is warm.",
+      "activities": [
+        "soup",
+        "bake_bread",
+        "gossip"
+      ]
+    },
+    {
+      "id": "pantry",
+      "name": "The Pantry",
+      "backdrop": "pantry",
+      "blurb": "Jars to the ceiling, labelled with love.",
+      "activities": [
+        "honey_cake",
+        "brew_potion"
+      ]
+    },
+    {
+      "id": "kitchen_garden",
+      "name": "The Kitchen Garden",
+      "backdrop": "herb_garden",
+      "blurb": "Thyme, chives, and a very serious rhubarb patch.",
+      "activities": [
+        "garden",
+        "forage"
+      ]
+    },
+    {
+      "id": "tea_room",
+      "name": "The Tea Room",
+      "backdrop": "tea_room",
+      "blurb": "Mismatched cups, real leaves, honest readings.",
+      "activities": [
+        "herbal_tea",
+        "read_cards"
+      ]
+    },
+    {
+      "id": "market",
+      "name": "Saturday Market",
+      "backdrop": "market",
+      "blurb": "Striped awnings and the best jam in the county.",
+      "activities": [
+        "market_stall",
+        "visit_neighbours"
+      ]
+    },
+    {
+      "id": "snug",
+      "name": "The Snug",
+      "backdrop": "cottage_room",
+      "blurb": "Your room: a quilt, a cat, a stack of recipe books.",
+      "activities": [
+        "nap",
+        "feast",
+        "elderflower_toast"
+      ]
+    }
+  ],
+  "ceremonies": [
+    {
+      "id": "bread_blessing",
+      "name": "Bread Blessing",
+      "room": "hearth"
+    },
+    {
+      "id": "tea_leaf_circle",
+      "name": "Tea Leaf Circle",
+      "room": "tea_room"
+    }
+  ],
+  "moonRoom": "kitchen_garden",
+  "familiars": [
+    "cat",
+    "rabbit",
+    "fox",
+    "toad",
+    "owl",
+    "raven"
+  ],
+  "familiarColours": [
+    "ginger",
+    "cream",
+    "ink",
+    "moss",
+    "dusk",
+    "plum"
+  ],
+  "witchNames": [
+    "Clove",
+    "Ginger",
+    "Saffron",
+    "Maple",
+    "Honey",
+    "Basil",
+    "Pepper",
+    "Marjoram",
+    "Fennel",
+    "Poppy",
+    "Nutmeg",
+    "Quince"
+  ],
+  "titles": [
+    "Keeper of the Pot",
+    "Bread Whisperer",
+    "Spice Reader",
+    "Jam Maker",
+    "Tea Leaf Reader",
+    "Herb Gatherer",
+    "Kettle Keeper",
+    "Pie Oracle",
+    "Pantry Witch",
+    "Market Queen",
+    "Soup Sage",
+    "Honey Keeper"
+  ],
+  "furniture": [
+    {
+      "style": "bed",
+      "name": "Feather Bed",
+      "price": 140,
+      "rarity": "rare",
+      "description": "Sinks you in like a warm loaf."
+    },
+    {
+      "style": "armchair",
+      "name": "Rocking Chair",
+      "price": 70,
+      "rarity": "common",
+      "description": "Creaks in a comforting rhythm."
+    },
+    {
+      "style": "table",
+      "name": "Scrubbed Pine Table",
+      "price": 80,
+      "rarity": "common",
+      "description": "Flour in every groove."
+    },
+    {
+      "style": "dresser",
+      "name": "Welsh Dresser",
+      "price": 120,
+      "rarity": "rare",
+      "description": "Every plate a different pattern."
+    },
+    {
+      "style": "cauldron",
+      "name": "Copper Stockpot",
+      "price": 110,
+      "rarity": "common",
+      "description": "Has never once been empty."
+    },
+    {
+      "style": "bench",
+      "name": "Settle Bench",
+      "price": 65,
+      "rarity": "common",
+      "description": "Seats three, or two and a cat."
+    }
+  ],
+  "decor": [
+    {
+      "style": "jars",
+      "name": "Preserve Jars",
+      "price": 40,
+      "rarity": "common",
+      "description": "Plum, quince, and one mystery jar."
+    },
+    {
+      "style": "plant",
+      "name": "Windowsill Basil",
+      "price": 35,
+      "rarity": "common",
+      "description": "Pinched daily, thriving anyway."
+    },
+    {
+      "style": "garland",
+      "name": "Drying Herbs",
+      "price": 45,
+      "rarity": "common",
+      "description": "Lavender and bay hung from the beam."
+    },
+    {
+      "style": "candles",
+      "name": "Kitchen Candles",
+      "price": 35,
+      "rarity": "common",
+      "description": "For power cuts and atmosphere."
+    },
+    {
+      "style": "clock",
+      "name": "Kitchen Clock",
+      "price": 60,
+      "rarity": "common",
+      "description": "Always five minutes slow, on purpose."
+    },
+    {
+      "style": "lantern",
+      "name": "Copper Lantern",
+      "price": 70,
+      "rarity": "rare",
+      "description": "Throws a warm, freckled light."
+    }
+  ],
+  "collectibles": [
+    {
+      "style": "sprig",
+      "name": "Wild Garlic",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#7a9a52",
+      "description": "Smells like spring and bravery."
+    },
+    {
+      "style": "berry",
+      "name": "Blackberry",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#3a2440",
+      "description": "The best one is always just out of reach."
+    },
+    {
+      "style": "leaf",
+      "name": "Bay Leaf",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#6f8a4a",
+      "description": "Write a wish on it. Burn it. Wait."
+    },
+    {
+      "style": "feather",
+      "name": "Hen's Feather",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#c98a4a",
+      "description": "A souvenir from a very opinionated hen."
+    },
+    {
+      "style": "coin",
+      "name": "Copper Penny",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#c07a4a",
+      "description": "Found in the flour bin. Lucky."
+    },
+    {
+      "style": "crystal",
+      "name": "Salt Crystal",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#f3ebdc",
+      "description": "For protection and for chips."
+    },
+    {
+      "style": "bottle",
+      "name": "Vanilla Tincture",
+      "tier": "gem",
+      "rarity": "rare",
+      "colour": "#7a4a2e",
+      "description": "Three drops makes anything better."
+    },
+    {
+      "style": "key",
+      "name": "Grandmother's Key",
+      "tier": "rare",
+      "rarity": "mythic",
+      "colour": "#7a5a3a",
+      "description": "Opens the recipe tin. Finally."
+    }
+  ],
+  "rewards": {
+    "fullMoon": {
+      "style": "bottle",
+      "name": "Full Moon Honey",
+      "colour": "#e0a83a",
+      "description": "Gathered by moonlight. Tastes of it too."
+    },
+    "newMoon": {
+      "style": "glass",
+      "name": "New Moon Salt",
+      "colour": "#e9e4dc",
+      "description": "A pinch for every fresh start."
+    },
+    "charm": {
+      "style": "charm",
+      "name": "Kitchen Charm",
+      "colour": "#c07a4a",
+      "description": "A copper spoon per witch on one red thread."
+    }
+  },
+  "treats": [
+    {
+      "id": "treat_tea",
+      "style": "cup",
+      "name": "Mint tea",
+      "cost": 8,
+      "effects": {
+        "nourishment": 15,
+        "joy": 15,
+        "energy": 10
+      }
+    },
+    {
+      "id": "treat_soup",
+      "style": "bowl",
+      "name": "Leek and potato soup",
+      "cost": 6,
+      "effects": {
+        "nourishment": 30,
+        "energy": 5
+      }
+    },
+    {
+      "id": "treat_loaf",
+      "style": "bread",
+      "name": "Warm cob loaf",
+      "cost": 5,
+      "effects": {
+        "nourishment": 25,
+        "joy": 8
+      }
+    },
+    {
+      "id": "treat_posy",
+      "style": "bouquet",
+      "name": "Herb posy",
+      "cost": 10,
+      "effects": {
+        "joy": 25,
+        "magic": 5
+      }
+    }
+  ],
+  "goals": {
+    "nourish": {
+      "name": "Feast Week",
+      "description": "Eat and drink well together",
+      "target": 30
+    },
+    "rituals": {
+      "name": "Circle Week",
+      "description": "Complete ceremonies together",
+      "target": 3
+    },
+    "gifts": {
+      "name": "Bring a Plate",
+      "description": "Send gifts to each other",
+      "target": 15
+    },
+    "activities": {
+      "name": "Busy Kitchen",
+      "description": "Do anything at all, together",
+      "target": 60
+    }
+  },
+  "flavour": {
+    "moods": {
+      "thriving": "{name} {is} rosy and warm as a fresh loaf.",
+      "happy": "{name} {is} happily wiping down the table, singing under {their} breath.",
+      "sleepy": "{name} {is} leaning on the dresser, eyes half shut. Bedtime for this cook.",
+      "hungry": "{name} {has} opened the bread bin three times. Feed this witch.",
+      "bored": "{name} {has} alphabetised the spice rack. Twice. Give {them} something to do.",
+      "magical": "{name} {is} sparking. The spoons are stirring themselves.",
+      "offended": "{name} {is} kneading {their} dough very hard and not talking. Bring {them} tea and an apology."
+    },
+    "joined": "{name} has joined the coven. Somebody set another place.",
+    "ritualComplete": "The bread rose in agreement.",
+    "dailyTitle": "Fresh from the oven",
+    "dailyBody": "Tucked under the tea towel: today's coppers and a little something from the pantry shelf.",
+    "welcome": "The kitchen is yours, {name}"
+  }
+}

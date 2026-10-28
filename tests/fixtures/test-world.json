@@ -1,0 +1,127 @@
+{
+  "coven": {
+    "name": "The Test Coven",
+    "tagline": "Seven witches, all fictional."
+  },
+  "theme": "hedge-witch",
+  "motif": "analog",
+  "currency": {
+    "singular": "acorn",
+    "plural": "acorns"
+  },
+  "timezone": "UTC",
+  "rooms": [
+    {
+      "id": "cottage",
+      "name": "Thornback Cottage",
+      "backdrop": "cottage_room",
+      "blurb": "Your bedroom: patchwork quilt, a window full of ivy.",
+      "activities": [
+        "nap",
+        "herbal_tea",
+        "cuddle"
+      ]
+    },
+    {
+      "id": "glade",
+      "name": "The Mossy Glade",
+      "backdrop": "forest_glade",
+      "blurb": "Ferns, birdsong and paths that move when you are not looking.",
+      "activities": [
+        "forage",
+        "sing"
+      ]
+    },
+    {
+      "id": "ring",
+      "name": "Toadstool Ring",
+      "backdrop": "mushroom_ring",
+      "blurb": "Where the coven gathers when the moon is up.",
+      "activities": [
+        "moon_bath",
+        "read_cards"
+      ]
+    },
+    {
+      "id": "garden",
+      "name": "The Physic Garden",
+      "backdrop": "herb_garden",
+      "blurb": "Rosemary, feverfew, and one very bossy marrow.",
+      "activities": [
+        "garden",
+        "dig"
+      ]
+    },
+    {
+      "id": "apothecary",
+      "name": "Hollow Oak Apothecary",
+      "backdrop": "apothecary",
+      "blurb": "Jars, labels, and a shop counter inside an old oak.",
+      "activities": [
+        "brew_potion",
+        "market_stall"
+      ]
+    },
+    {
+      "id": "hearth",
+      "name": "The Hearth Room",
+      "backdrop": "hearth_kitchen",
+      "blurb": "Stew on the fire, gossip at the table.",
+      "activities": [
+        "stew",
+        "gossip",
+        "elderflower_toast"
+      ]
+    }
+  ],
+  "ceremonies": [
+    {
+      "id": "hedgerow_circle",
+      "name": "Hedgerow Circle",
+      "room": "ring"
+    },
+    {
+      "id": "harvest_supper",
+      "name": "Harvest Supper",
+      "room": "hearth"
+    }
+  ],
+  "moonRoom": "ring",
+  "familiars": [
+    "cat",
+    "toad",
+    "owl",
+    "rabbit",
+    "moth",
+    "fox"
+  ],
+  "witches": {
+    "count": 7,
+    "defaultPronouns": "she",
+    "slots": [
+      {
+        "name": "Ada"
+      },
+      {
+        "name": "Bea",
+        "pronouns": "they"
+      },
+      {
+        "name": "Cass"
+      },
+      {
+        "name": "Dot",
+        "young": true
+      },
+      {
+        "name": "Eve"
+      },
+      {
+        "name": "Fay"
+      },
+      {
+        "name": "Gwen"
+      }
+    ]
+  }
+}

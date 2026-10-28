@@ -1,0 +1,446 @@
+{
+  "id": "moon-coven",
+  "label": "Moon Coven",
+  "description": "An observatory at the top of a hill. Midnight blues, silver light, a telescope that is always pointed somewhere interesting.",
+  "coven": {
+    "name": "The Silver Hour",
+    "tagline": "A pocket observatory for witches who stay up late."
+  },
+  "currency": {
+    "singular": "moonstone",
+    "plural": "moonstones"
+  },
+  "displayFont": "cormorant",
+  "motif": "analog",
+  "palette": {
+    "ground": "#1c2140",
+    "groundDeep": "#0f1229",
+    "paper": "#eef0f7",
+    "ink": "#1d2142",
+    "accent": "#3b4a8f",
+    "alt": "#4f7396",
+    "mystic": "#7a6cbf",
+    "coin": "#5d6788",
+    "warn": "#a8433a",
+    "sky": "#26305c",
+    "skyDeep": "#141a3a",
+    "wall": "#3a4270",
+    "wallDeep": "#262d55",
+    "floor": "#4a4f7a",
+    "wood": "#3c3550",
+    "leaf": "#4f6f7a",
+    "leafDeep": "#2f4652",
+    "water": "#4a6a9a",
+    "stone": "#8d93b0",
+    "glow": "#e8ecff"
+  },
+  "metal": "#c9cfe0",
+  "wardrobeColours": [
+    {
+      "name": "Midnight",
+      "hex": "#232a5a",
+      "trim": "#c9cfe8"
+    },
+    {
+      "name": "Silver",
+      "hex": "#9aa3bd",
+      "trim": "#2a3060"
+    },
+    {
+      "name": "Dusk",
+      "hex": "#5a4a8a",
+      "trim": "#e3dcff"
+    },
+    {
+      "name": "Starlight",
+      "hex": "#e8e6f2",
+      "trim": "#3b4a8f"
+    },
+    {
+      "name": "Eclipse",
+      "hex": "#1e1e2e",
+      "trim": "#b9bfd0"
+    },
+    {
+      "name": "Tide",
+      "hex": "#3f5f8a",
+      "trim": "#dfe8f5"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "observatory",
+      "name": "The Observatory",
+      "backdrop": "observatory",
+      "blurb": "A brass telescope and a ceiling that opens.",
+      "activities": [
+        "stargaze",
+        "write_almanac"
+      ]
+    },
+    {
+      "id": "roof",
+      "name": "The Silver Roof",
+      "backdrop": "starfield_roof",
+      "blurb": "Flat leads, warm blankets, the whole sky.",
+      "activities": [
+        "moon_bath",
+        "dance"
+      ]
+    },
+    {
+      "id": "library",
+      "name": "The Star Library",
+      "backdrop": "library",
+      "blurb": "Every book is about the sky, eventually.",
+      "activities": [
+        "spellbook",
+        "story_night"
+      ]
+    },
+    {
+      "id": "night_garden",
+      "name": "The Night Garden",
+      "backdrop": "herb_garden",
+      "blurb": "Moonflowers that only open for you.",
+      "activities": [
+        "garden",
+        "candle_magic"
+      ]
+    },
+    {
+      "id": "baths",
+      "name": "Moonwater Baths",
+      "backdrop": "bath_house",
+      "blurb": "Warm water under a skylight.",
+      "activities": [
+        "bath",
+        "scry"
+      ]
+    },
+    {
+      "id": "parlour",
+      "name": "The Velvet Parlour",
+      "backdrop": "cottage_room",
+      "blurb": "Your room: deep chairs, low lamps, a cat-shaped dent in the cushion.",
+      "activities": [
+        "nap",
+        "hot_cocoa",
+        "gossip",
+        "elderflower_toast"
+      ]
+    }
+  ],
+  "ceremonies": [
+    {
+      "id": "lunar_circle",
+      "name": "Lunar Circle",
+      "room": "roof"
+    },
+    {
+      "id": "star_count",
+      "name": "The Star Count",
+      "room": "observatory"
+    }
+  ],
+  "moonRoom": "roof",
+  "familiars": [
+    "owl",
+    "moth",
+    "cat",
+    "raven",
+    "snake",
+    "rabbit"
+  ],
+  "familiarColours": [
+    "dusk",
+    "cream",
+    "ink",
+    "plum",
+    "moss",
+    "ginger"
+  ],
+  "witchNames": [
+    "Vesper",
+    "Astra",
+    "Nyx",
+    "Lune",
+    "Orla",
+    "Estelle",
+    "Mira",
+    "Noor",
+    "Sable",
+    "Elara",
+    "Ione",
+    "Thea"
+  ],
+  "titles": [
+    "Keeper of the Lens",
+    "Star Counter",
+    "Night Reader",
+    "Tide Watcher",
+    "Moon Gardener",
+    "Almanac Writer",
+    "Comet Chaser",
+    "Lamp Lighter",
+    "Dream Keeper",
+    "Night Owl",
+    "Silver Tongue",
+    "Sky Mapper"
+  ],
+  "furniture": [
+    {
+      "style": "bed",
+      "name": "Canopy Bed",
+      "price": 160,
+      "rarity": "rare",
+      "description": "Stars embroidered on the inside of the curtains."
+    },
+    {
+      "style": "armchair",
+      "name": "Velvet Wingback",
+      "price": 90,
+      "rarity": "common",
+      "description": "For reading, plotting and dozing."
+    },
+    {
+      "style": "bookcase",
+      "name": "Star Atlas Shelf",
+      "price": 100,
+      "rarity": "common",
+      "description": "Atlases, almanacs, one novel hidden at the back."
+    },
+    {
+      "style": "table",
+      "name": "Map Table",
+      "price": 85,
+      "rarity": "common",
+      "description": "Covered in charts weighed down with teacups."
+    },
+    {
+      "style": "lamp",
+      "name": "Moon Lamp",
+      "price": 70,
+      "rarity": "common",
+      "description": "Phases slowly through the night."
+    },
+    {
+      "style": "wardrobe",
+      "name": "Midnight Armoire",
+      "price": 140,
+      "rarity": "rare",
+      "description": "Opens onto a smell of cedar and starlight."
+    }
+  ],
+  "decor": [
+    {
+      "style": "candles",
+      "name": "Silver Tapers",
+      "price": 40,
+      "rarity": "common",
+      "description": "Tall, thin, slightly theatrical."
+    },
+    {
+      "style": "crystal_ball",
+      "name": "Scrying Globe",
+      "price": 120,
+      "rarity": "rare",
+      "description": "Shows the weather, the future, and sometimes the neighbours."
+    },
+    {
+      "style": "clock",
+      "name": "Star Clock",
+      "price": 75,
+      "rarity": "common",
+      "description": "Tells the time by the constellations."
+    },
+    {
+      "style": "plant",
+      "name": "Moonflower Pot",
+      "price": 45,
+      "rarity": "common",
+      "description": "Opens at dusk. Very punctual."
+    },
+    {
+      "style": "mirror",
+      "name": "Silver Mirror",
+      "price": 85,
+      "rarity": "common",
+      "description": "Flattering in candlelight. Honest at noon."
+    },
+    {
+      "style": "garland",
+      "name": "Star Garland",
+      "price": 35,
+      "rarity": "common",
+      "description": "Paper stars on a silver thread."
+    }
+  ],
+  "collectibles": [
+    {
+      "style": "crystal",
+      "name": "Star Fragment",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#e8ecff",
+      "description": "Fell last night. Still a little warm."
+    },
+    {
+      "style": "feather",
+      "name": "Night Feather",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#2a2e4a",
+      "description": "From an owl who will not say which."
+    },
+    {
+      "style": "leaf",
+      "name": "Silver Leaf",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#b9bfd0",
+      "description": "Picked under a full moon. Never wilts."
+    },
+    {
+      "style": "bottle",
+      "name": "Bottled Dew",
+      "tier": "forage",
+      "rarity": "common",
+      "colour": "#9ab8e0",
+      "description": "Collected before dawn. Very fancy water."
+    },
+    {
+      "style": "moonstone",
+      "name": "Moonstone",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#e6eaf5",
+      "description": "Holds a sliver of moonlight."
+    },
+    {
+      "style": "crystal",
+      "name": "Lunar Quartz",
+      "tier": "gem",
+      "rarity": "rare",
+      "colour": "#b3a6e8",
+      "description": "Hums at night."
+    },
+    {
+      "style": "glass",
+      "name": "Comet Glass",
+      "tier": "gem",
+      "rarity": "common",
+      "colour": "#6f8fd0",
+      "description": "A tail of light, trapped in green-blue glass."
+    },
+    {
+      "style": "key",
+      "name": "Silver Key",
+      "tier": "rare",
+      "rarity": "mythic",
+      "colour": "#c9cfe0",
+      "description": "Fits the observatory dome. Nobody knows why."
+    }
+  ],
+  "rewards": {
+    "fullMoon": {
+      "style": "charm",
+      "name": "Full Moon Locket",
+      "colour": "#e6eaf5",
+      "description": "Only opens on a full moon. Glows silver."
+    },
+    "newMoon": {
+      "style": "bottle",
+      "name": "New Moon Ink",
+      "colour": "#1e1e2e",
+      "description": "Write an intention with it. It stays written."
+    },
+    "charm": {
+      "style": "charm",
+      "name": "Lunar Charm",
+      "colour": "#9aa3bd",
+      "description": "One crescent per witch on a silver thread."
+    }
+  },
+  "treats": [
+    {
+      "id": "treat_cocoa",
+      "style": "cup",
+      "name": "Midnight cocoa",
+      "cost": 8,
+      "effects": {
+        "nourishment": 15,
+        "joy": 15,
+        "energy": 10
+      }
+    },
+    {
+      "id": "treat_soup",
+      "style": "bowl",
+      "name": "Star anise broth",
+      "cost": 6,
+      "effects": {
+        "nourishment": 30,
+        "energy": 5
+      }
+    },
+    {
+      "id": "treat_bun",
+      "style": "bread",
+      "name": "Crescent bun",
+      "cost": 5,
+      "effects": {
+        "nourishment": 25,
+        "joy": 8
+      }
+    },
+    {
+      "id": "treat_flowers",
+      "style": "bouquet",
+      "name": "Moonflower posy",
+      "cost": 10,
+      "effects": {
+        "joy": 25,
+        "magic": 5
+      }
+    }
+  ],
+  "goals": {
+    "nourish": {
+      "name": "Cocoa Club",
+      "description": "Eat and drink well together",
+      "target": 30
+    },
+    "rituals": {
+      "name": "Circle Week",
+      "description": "Complete ceremonies together",
+      "target": 3
+    },
+    "gifts": {
+      "name": "Silver Linings",
+      "description": "Send gifts to each other",
+      "target": 15
+    },
+    "activities": {
+      "name": "Night Shift",
+      "description": "Do anything at all, together",
+      "target": 60
+    }
+  },
+  "flavour": {
+    "moods": {
+      "thriving": "{name} {is} bright as a full moon over still water.",
+      "happy": "{name} {is} at ease, tracing constellations on the window glass.",
+      "sleepy": "{name} keeps nodding off over the star charts. The canopy bed is calling.",
+      "hungry": "{name} could eat a whole crescent bun. Possibly two.",
+      "bored": "{name} {has} counted every star in the window twice. A new sky, please.",
+      "magical": "{name} {is} shimmering. The telescope keeps turning toward {them}.",
+      "offended": "{name} {has} drawn {their} velvet curtains tight. Patience and cocoa will open them."
+    },
+    "joined": "{name} has joined the coven. A new name in the star book.",
+    "ritualComplete": "The moon took note.",
+    "dailyTitle": "A gift from the night",
+    "dailyBody": "Left on the sill before dawn: today's moonstones and a small treasure from the dark.",
+    "welcome": "The observatory is yours, {name}"
+  }
+}
