@@ -35,6 +35,7 @@ async function shot(route, file, on = page) {
 }
 
 await shot("/gallery/hero", "hero.png", heroPage);
+await shot("/gallery/painted", "start-painted.png", heroPage);
 await shot("/gallery/triptych", "triptych.png");
 for (const id of ["hedge-witch", "moon-coven", "kitchen-witch", "sea-witch", "city-witch"]) await shot(`/gallery/presets/${id}`, `presets/${id}.png`);
 await browser.close();

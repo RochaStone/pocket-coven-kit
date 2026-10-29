@@ -103,8 +103,8 @@ export const WORLD: WorldMeta = {
 
 export const CHARACTERS: CharacterDef[] = [
   {
-    "id": "brine",
-    "name": "Brine",
+    "id": "themerwitch",
+    "name": "the mer-witch",
     "title": "Keeper of the Tide",
     "pronouns": {
       "subject": "they",
@@ -117,27 +117,31 @@ export const CHARACTERS: CharacterDef[] = [
     "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
-      "skin": "#f6dcc8",
-      "hairColor": "#6b4428",
+      "skin": "#F6D5C0",
+      "hairColor": "#F48CC4",
       "hairStyle": "long_waves",
-      "eyeColor": "#5a3a22",
+      "eyeColor": "#7B4FD6",
       "freckles": false,
       "familiarColour": "ink",
-      "familiarAcc": "bell"
+      "familiarAcc": "bow"
     },
     "equipped": {
-      "outfit": "outfit_cloak",
-      "hat": "hat_pointed",
+      "outfit": "outfit_mer_tail",
+      "hat": "hat_crown",
       "boots": "boots_lace_up",
       "companion": "fam_cat",
-      "necklace": "neck_moon_pendant"
+      "necklace": "neck_pearls",
+      "earrings": "ear_fins",
+      "hair_acc": "hair_shell_clip"
     },
     "starterItems": [
-      "outfit_cloak",
-      "hat_pointed",
+      "outfit_mer_tail",
+      "hat_crown",
       "boots_lace_up",
       "fam_cat",
-      "neck_moon_pendant",
+      "neck_pearls",
+      "ear_fins",
+      "hair_shell_clip",
       "hat_hood",
       "furn_bed",
       "decor_lantern"
@@ -1213,6 +1217,86 @@ export const ITEMS: ItemDef[] = [
       "colours": [
         "#2F6A4A",
         "#F7D488"
+      ]
+    }
+  },
+  {
+    "id": "outfit_mer_tail",
+    "name": "Mer Tail",
+    "category": "outfit",
+    "slot": "outfit",
+    "price": 200,
+    "rarity": "rare",
+    "description": "Pink at the waist, sea-blue at the fin. Swims beautifully, walks with flair.",
+    "art": {
+      "style": "mer_tail",
+      "colours": [
+        "#F58FC4",
+        "#8FD3E8"
+      ]
+    }
+  },
+  {
+    "id": "hat_crown",
+    "name": "Gold Crown",
+    "category": "hat",
+    "slot": "hat",
+    "price": 150,
+    "rarity": "rare",
+    "description": "Gold points, pearl tips and one pink gem at the front.",
+    "art": {
+      "style": "crown",
+      "colours": [
+        "#F0C86A",
+        "#E0559A"
+      ]
+    }
+  },
+  {
+    "id": "neck_pearls",
+    "name": "Pearl Strand",
+    "category": "jewellery",
+    "slot": "necklace",
+    "price": 120,
+    "rarity": "common",
+    "description": "A strand of pearls with a little bow at the middle.",
+    "art": {
+      "style": "pearls",
+      "colours": [
+        "#FFF7F4",
+        "#F27DB4"
+      ]
+    }
+  },
+  {
+    "id": "ear_fins",
+    "name": "Fin Ears",
+    "category": "jewellery",
+    "slot": "earrings",
+    "price": 60,
+    "rarity": "common",
+    "description": "Fin ears that flutter at good news.",
+    "art": {
+      "style": "fins",
+      "colours": [
+        "#F7A8CF",
+        "#FFF7F4"
+      ]
+    }
+  },
+  {
+    "id": "hair_shell_clip",
+    "name": "Shell Clip",
+    "category": "hair_acc",
+    "slot": "hair_acc",
+    "price": 40,
+    "rarity": "common",
+    "description": "A scallop shell with a pearl at its hinge.",
+    "art": {
+      "style": "shell_clip",
+      "colours": [
+        "#F9B8D3",
+        "#FFF7F4"
       ]
     }
   }

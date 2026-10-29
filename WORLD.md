@@ -28,7 +28,7 @@ A fresh install ships the painted world. Start a fresh file from it with `npm ru
 | `familiars` | no | 1 to 8 of `cat`, `owl`, `moth`, `fox`, `toad`, `raven`, `snake`, `rabbit`. Defaults to the preset's six. |
 | `witches.count` | no | 2 to 12 witches, including you. Defaults to 5. The first witch is the owner's. |
 | `witches.defaultPronouns` | no | `she`, `they` or `he` for witches with no pronouns set. Defaults to `they`. Everyone can change her own in the game. |
-| `witches.slots` | no | Up to `count` entries, in order: `{ "name", "title", "pronouns", "young" }`. All optional. Names default to the preset's fictional names, and everyone can rename herself in the game. `young: true` keeps adults-only activities away from that witch. |
+| `witches.slots` | no | Up to `count` entries, in order: `{ "name", "title", "pronouns", "young", "look", "wear" }`. All optional. `look` sets how she starts (see A witch, below) and `wear` what she starts wearing. Names default to the preset's fictional names, and everyone can rename herself in the game. `young: true` keeps adults-only activities away from that witch. |
 | `flavour` | no | Replace any of the preset's lines: `moods` (`thriving`, `happy`, `sleepy`, `hungry`, `bored`, `magical`, `offended`), `joined` (when someone claims her witch, uses `{name}`), `ritualComplete`, `dailyTitle`, `dailyBody`, `welcome` (uses `{name}`). |
 
 ## A room
@@ -49,6 +49,23 @@ A fresh install ships the painted world. Start a fresh file from it with `npm ru
 - `painting`: painted theme only. One of the painted rooms below, or `mine/your-picture.jpg` for your own picture in `public/world/mine/` (letters, numbers, dashes and underscores; .jpg, .png or .webp). Rooms without one take the painted rooms in order. `npm run build:world` checks the picture is there.
 - `backdrop`: one of the 18 drawn scenes below, used by the flat theme. Defaults to the preset's backdrop for that position.
 - `activities`: 2 to 6 ids from the library below. Use the object form to rename one or give it your own flavour lines.
+
+## A witch
+
+The painted world's first witch is the mer-witch:
+
+```json
+{
+  "name": "the mer-witch",
+  "look": { "skin": "#F6D5C0", "hairColor": "#F48CC4", "hairStyle": "long_waves", "eyeColor": "#7B4FD6", "familiarColour": "ink", "familiarAcc": "bow" },
+  "wear": { "outfit": "mer_tail", "hat": "crown", "necklace": "pearls", "earrings": "fins", "hair_acc": "shell_clip" }
+}
+```
+
+- `look`: `skin`, `hairColor`, `eyeColor` as hex; `hairStyle` one of `long_waves`, `bob`, `straight_long`, `curls`, `braid`, `pixie`, `buns`, `pigtails`; `freckles` true or false; `familiarColour` one of `ink`, `cream`, `ginger`, `moss`, `dusk`, `plum`; `familiarAcc` one of `none`, `bell`, `bow`, `hat`.
+- `wear`: a style for any of `outfit`, `boots`, `hat`, `necklace`, `earrings`, `hair_acc`. Any wardrobe style works (`cloak`, `pointed`, `moon_pendant` and the rest), plus the signature pieces: `mer_tail` (a tail in place of legs and boots), `crown`, `pearls`, `fins`, `shell_clip`.
+- For your own colours, give an object: `{ "style": "mer_tail", "colours": ["#3FB8B0", "#B9B3F5"], "name": "Lagoon Tail" }` (the main colour, then the trim; the tail fades from one to the other).
+- Every piece a witch starts in is hers to keep, and joins the wardrobe so others can buy it. Everyone can restyle their own witch in the game.
 
 ## Flavour lines
 

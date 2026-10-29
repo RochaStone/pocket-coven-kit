@@ -141,6 +141,18 @@ export function paintedStarterConfig() {
     ],
     moonRoom: "deck",
     familiars: ["cat", "owl", "moth", "toad", "rabbit", "fox"],
-    witches: { count: 5, defaultPronouns: "they" as const },
+    witches: {
+      count: 5,
+      defaultPronouns: "they" as const,
+      slots: [
+        // The first witch (yours) starts as the mer-witch: pink hair, gold crown, shell clip, pearls, fin ears and a tail.
+        // Rename her, recolour her, or swap any piece; everyone can restyle their own witch in the game.
+        {
+          name: "the mer-witch",
+          look: { skin: "#F6D5C0", hairColor: "#F48CC4", hairStyle: "long_waves" as const, eyeColor: "#7B4FD6", freckles: false, familiarColour: "ink" as const, familiarAcc: "bow" as const },
+          wear: { outfit: "mer_tail", hat: "crown", necklace: "pearls", earrings: "fins", hair_acc: "shell_clip" },
+        },
+      ],
+    },
   };
 }

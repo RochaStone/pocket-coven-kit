@@ -1,8 +1,8 @@
 // The world builder: coven.config.json + a theme preset + the shared library  ->  a complete World.
 // Pure function (no file system), so tests can build every preset in memory.
-import { ACHIEVEMENT_LIBRARY, ACTIVITY_LIBRARY, FAMILIAR_INFO, ORACLE_DECK, WARDROBE_STYLES } from "./library.ts";
+import { ACHIEVEMENT_LIBRARY, ACTIVITY_LIBRARY, FAMILIAR_INFO, ORACLE_DECK, SIGNATURE_STYLES, WARDROBE_STYLES } from "./library.ts";
 import type { Preset, PresetCollectible } from "./presets.ts";
-import { roomIdOf, slugify, type CovenConfig, type PronounChoice } from "./schema.ts";
+import { roomIdOf, slugify, type CovenConfig, type PronounChoice, type WearChoice, type WearSlot } from "./schema.ts";
 import { DEFAULT_CHROME } from "./style.ts";
 import { resolveArt } from "./painted.ts";
 import {
@@ -66,6 +66,11 @@ const WEARABLE_DESCRIPTIONS: Record<string, string> = {
   ribbon: "A velvet bow tied big.",
   sprig: "A fresh sprig tucked behind the ear.",
   clip: "A crescent clip that holds a wild fringe.",
+  mer_tail: "Pink at the waist, sea-blue at the fin. Swims beautifully, walks with flair.",
+  crown: "Gold points, pearl tips and one pink gem at the front.",
+  pearls: "A strand of pearls with a little bow at the middle.",
+  fins: "Fin ears that flutter at good news.",
+  shell_clip: "A scallop shell with a pearl at its hinge.",
   pins: "Little stars scattered through a bun.",
 };
 
@@ -213,6 +218,26 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
   sharedEvents.full_moon = { name: "Full Moon Ceremony", locationId: moonRoom, minParticipants: 2, effects: { magic: 40, social: 30, joy: 20 }, coins: 60, xp: 40, lootItemId: fullMoonId, moonPhase: "full" };
   sharedEvents.new_moon = { name: "New Moon Intentions", locationId: moonRoom, minParticipants: 2, effects: { magic: 35, energy: 20, social: 25 }, coins: 50, xp: 35, lootItemId: newMoonId, moonPhase: "new" };
 
+  // Pieces a witch's config asks for: a shared style as it is, or a signature piece (or your own colours) made for her.
+  const made = new Map<string, string>();
+  const wearItem = (slot: WearSlot, choice: WearChoice): string => {
+    const style = typeof choice === "string" ? choice : choice.style;
+    const own: { colours?: [string, string]; name?: string } = typeof choice === "string" ? {} : choice;
+    const shared = WARDROBE_STYLES[slot].find((x) => x.style === style);
+    if (shared && !own.colours && !own.name) return items.find((it) => it.slot === slot && it.art.style === style)!.id;
+    const sig = SIGNATURE_STYLES[slot].find((x) => x.style === style);
+    const base = (sig ?? shared)!;
+    const colours = own.colours ? [...own.colours] : sig ? [...sig.colours] : [palette.accent, palette.paper];
+    const name = own.name?.trim() || base.name;
+    const key = `${slot}|${style}|${colours.join()}|${name}`;
+    if (!made.has(key)) {
+      const id = uniqueId(`${SLOT_PREFIX[slot]}_${style}`, itemIds);
+      items.push({ id, name, category: SLOT_CATEGORY[slot], slot, price: base.price, rarity: base.price >= 150 ? "rare" : "common", description: WEARABLE_DESCRIPTIONS[style] ?? "", art: { style, colours } });
+      made.set(key, id);
+    }
+    return made.get(key)!;
+  };
+
   // ── witches ────────────────────────────────────────────────────────────
   const count = config.witches?.count ?? 5;
   const defaultPronouns = config.witches?.defaultPronouns ?? "they";
@@ -225,6 +250,7 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
     const equipped: Equipped = { outfit: wear("outfit", i), hat: wear("hat", i), boots: wear("boots", i), companion: familiarIds[i % familiarIds.length] };
     if (i % 2 === 0) equipped.necklace = wear("necklace", i);
     if (i % 3 === 1) equipped.hair_acc = wear("hair_acc", i);
+    for (const [ws, choice] of Object.entries(slot.wear ?? {})) equipped[ws as WearSlot] = wearItem(ws as WearSlot, choice as WearChoice);
     const starter = new Set<string>([...Object.values(equipped) as string[], wear("hat", i + 2), furnitureIds[i % furnitureIds.length], decorIds[i % decorIds.length]]);
     return {
       id: witchId(name, witchIds),
@@ -243,6 +269,7 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
         freckles: i % 3 === 2,
         familiarColour: preset.familiarColours[i % preset.familiarColours.length],
         familiarAcc: FAMILIAR_ACCESSORIES[(i % (FAMILIAR_ACCESSORIES.length - 1)) + 1],
+        ...slot.look,
       },
       equipped,
       starterItems: [...starter],

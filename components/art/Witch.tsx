@@ -5,6 +5,7 @@ import type { AnimationKey, Equipped, FamiliarSpecies, Look, Mood } from "@/lib/
 import { darken, INK, lighten, mix, starPath } from "./colour";
 import { useArt, useItem, useItemArt } from "./ArtContext";
 import { FamiliarInline } from "./Familiar";
+import { Crown, FinEars, MerTail, Pearls, ShellClip } from "./Signature";
 
 export interface WitchProps {
   characterId?: string;
@@ -130,7 +131,7 @@ function Face({ mood, eye, skin, freckles }: { mood: Mood; eye: string; skin: st
   );
 }
 
-function Outfit({ id }: { id?: string }) {
+function Outfit({ id, skin }: { id?: string; skin: string }) {
   const a = useItemArt(id);
   const M = a?.colours[0] ?? "#6b5a7a";
   const T = a?.colours[1] ?? "#efe6d6";
@@ -143,6 +144,8 @@ function Outfit({ id }: { id?: string }) {
     </g>
   );
   switch (a?.style) {
+    case "mer_tail":
+      return <MerTail M={M} T={T} skin={skin} />;
     case "cloak":
       return (
         <g>
@@ -270,6 +273,8 @@ function Hat({ id }: { id?: string }) {
   const line = darken(M, 0.5);
   const s = { fill: M, stroke: line, strokeWidth: 2, strokeLinejoin: "round" as const };
   switch (a.style) {
+    case "crown":
+      return <Crown gold={M} gem={T} />;
     case "pointed":
       return (
         <g>
@@ -321,6 +326,7 @@ function Necklace({ id }: { id?: string }) {
   const a = useItemArt(id);
   if (!a) return null;
   const [metal, gem] = a.colours;
+  if (a.style === "pearls") return <Pearls pearl={metal} bow={gem} />;
   const line = darken(metal, 0.5);
   return (
     <g>
@@ -344,6 +350,7 @@ function Earrings({ id }: { id?: string }) {
   const a = useItemArt(id);
   if (!a) return null;
   const [metal, gem] = a.colours;
+  if (a.style === "fins") return <FinEars M={metal} />;
   return (
     <g>
       {[58, 142].map((x) => (
@@ -384,6 +391,7 @@ function HairAcc({ id }: { id?: string }) {
           <circle cx={1} cy={-6} r={2.4} fill={M} />
         </g>
       )}
+      {a.style === "shell_clip" && <ShellClip M={M} pearl={T} />}
       {a.style === "clip" && <path d="M6 -8 A10 10 0 1 0 6 8 A7 7 0 1 1 6 -8 Z" fill={M} stroke={line} strokeWidth={1.2} />}
       {a.style === "pins" && [[0, 0], [-8, 10], [6, 14]].map(([x, y]) => <path key={`${x}${y}`} d={starPath(x, y, 4.4)} fill={M} stroke={line} strokeWidth={0.8} />)}
     </g>
@@ -402,13 +410,15 @@ function Figure({ look, equipped, mood, petName, action }: WitchProps) {
   const hatArt = useItemArt(equipped.hat);
   const hood = hatArt?.style === "hood";
   const famItem = useItem(equipped.companion);
+  // A tail replaces legs and boots.
+  const tail = useItemArt(equipped.outfit)?.style === "mer_tail";
   return (
     <g transform="translate(0 12)">
       <ellipse cx={104} cy={231} rx={58} ry={7} fill="#000" opacity={0.14} />
       {hood && <HoodBack M={hatArt.colours[0]} />}
       {!hood && <HairBack style={look.hairStyle} c={look.hairColor} tie={palette.accent} />}
-      <Boots id={equipped.boots} />
-      <Outfit id={equipped.outfit} />
+      {!tail && <Boots id={equipped.boots} />}
+      <Outfit id={equipped.outfit} skin={skin} />
       <circle cx={66} cy={172} r={6} fill={skin} stroke={skinLine} strokeWidth={1.6} />
       <circle cx={134} cy={172} r={6} fill={skin} stroke={skinLine} strokeWidth={1.6} />
       <rect x={93} y={124} width={14} height={12} fill={skin} stroke={skinLine} strokeWidth={1.4} />

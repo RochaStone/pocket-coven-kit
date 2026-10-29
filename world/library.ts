@@ -208,3 +208,14 @@ export const FURNITURE_STYLES = ["bed", "armchair", "bookcase", "table", "cauldr
 export const DECOR_STYLES = ["candles", "plant", "jars", "lantern", "wreath", "garland", "crystal_ball", "broom", "clock", "mirror", "pumpkin", "star_tree"] as const;
 export const COLLECTIBLE_STYLES = ["acorn", "feather", "crystal", "mushroom", "stone", "key", "moonstone", "leaf", "charm", "coin", "bottle", "berry", "glass", "sprig"] as const;
 export const TREAT_STYLES = ["cup", "pie", "jar", "bouquet", "bread", "bowl"] as const;
+
+// Signature pieces: drawn only when a witch's config wears one (witches.slots[].wear), then sold in the wardrobe too.
+// Each has default colours; a config can give its own.
+export const SIGNATURE_STYLES = {
+  outfit: [{ style: "mer_tail", name: "Mer Tail", price: 200, colours: ["#F58FC4", "#8FD3E8"] }],
+  hat: [{ style: "crown", name: "Gold Crown", price: 150, colours: ["#F0C86A", "#E0559A"] }],
+  necklace: [{ style: "pearls", name: "Pearl Strand", price: 120, colours: ["#FFF7F4", "#F27DB4"] }],
+  earrings: [{ style: "fins", name: "Fin Ears", price: 60, colours: ["#F7A8CF", "#FFF7F4"] }],
+  hair_acc: [{ style: "shell_clip", name: "Shell Clip", price: 40, colours: ["#F9B8D3", "#FFF7F4"] }],
+  boots: [],
+} as const satisfies Record<keyof typeof WARDROBE_STYLES, readonly { style: string; name: string; price: number; colours: readonly string[] }[]>;

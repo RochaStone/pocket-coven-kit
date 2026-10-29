@@ -29,7 +29,8 @@ Hand-painted scenes by Rochelle Livingstone, shared under the art licence in `pu
 
 | File | What it is | Rendered from |
 |---|---|---|
-| docs/img/hero.png | 1600 x 900. The pocket-coven.exe window: the painted map with a label on every room, the painted bedchamber with a witch and her cat, blog sidebar | /gallery/hero |
+| docs/img/hero.png | 1600 x 900. The pocket-coven.exe window: the painted map with a label on every room, the painted bedchamber with the mer-witch and her cat, blog sidebar | /gallery/hero |
+| docs/img/start-painted.png | Start here, step 3: the painted map in its compact, and the candlelit grotto with the mer-witch and a second witch | /gallery/painted |
 | docs/img/triptych.png | The same world's compact in analog, cyberpunk and y2k-blog | /gallery/triptych |
 | docs/img/presets/hedge-witch.png | Hedge Witch, first room | /gallery/presets/hedge-witch |
 | docs/img/presets/moon-coven.png | Moon Coven, first room | /gallery/presets/moon-coven |

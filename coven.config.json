@@ -222,6 +222,27 @@
   ],
   "witches": {
     "count": 5,
-    "defaultPronouns": "they"
+    "defaultPronouns": "they",
+    "slots": [
+      {
+        "name": "the mer-witch",
+        "look": {
+          "skin": "#F6D5C0",
+          "hairColor": "#F48CC4",
+          "hairStyle": "long_waves",
+          "eyeColor": "#7B4FD6",
+          "freckles": false,
+          "familiarColour": "ink",
+          "familiarAcc": "bow"
+        },
+        "wear": {
+          "outfit": "mer_tail",
+          "hat": "crown",
+          "necklace": "pearls",
+          "earrings": "fins",
+          "hair_acc": "shell_clip"
+        }
+      }
+    ]
   }
 }

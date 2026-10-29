@@ -1,8 +1,8 @@
 // coven.config.json: the one file a founder edits (usually through the guided setup).
 // WORLD.md documents every key. parseConfig() returns a typed config or throws ConfigError with every problem listed.
-import { ACTIVITY_LIBRARY } from "./library.ts";
+import { ACTIVITY_LIBRARY, SIGNATURE_STYLES, WARDROBE_STYLES } from "./library.ts";
 import { isMapRef, isPictureRef, isSpot, PAINTINGS, PAINTED_MAP, type ArtConfig } from "./painted.ts";
-import { ART_THEMES, BACKDROPS, FAMILIAR_SPECIES, MOTIFS, type BackdropKind, type FamiliarSpecies, type Flavour, type Mood, type Motif, type ThemePalette } from "../lib/game/types.ts";
+import { ART_THEMES, BACKDROPS, FAMILIAR_ACCESSORIES, FAMILIAR_COLOURWAYS, FAMILIAR_SPECIES, HAIR_STYLES, MOTIFS, type FamiliarAccessory, type FamiliarColourway, type HairStyle, type BackdropKind, type FamiliarSpecies, type Flavour, type Mood, type Motif, type ThemePalette } from "../lib/game/types.ts";
 
 export const PRESET_IDS = ["hedge-witch", "moon-coven", "kitchen-witch", "sea-witch", "city-witch"] as const;
 export type PresetId = (typeof PRESET_IDS)[number];
@@ -30,8 +30,15 @@ export interface CeremonyConfig {
   room: string; // a room id
 }
 
+export type WearSlot = keyof typeof WARDROBE_STYLES;
+export type WearChoice = string | { style: string; colours?: [string, string]; name?: string };
+
 export interface WitchSlotConfig {
   name?: string;
+  // How she looks to begin with (everyone can change it in the game).
+  look?: { skin?: string; hairColor?: string; hairStyle?: HairStyle; eyeColor?: string; freckles?: boolean; familiarColour?: FamiliarColourway; familiarAcc?: FamiliarAccessory };
+  // What she wears to begin with: a style name per slot, or { style, colours, name } for your own colours.
+  wear?: Partial<Record<WearSlot, WearChoice>>;
   title?: string;
   pronouns?: PronounChoice;
   young?: boolean; // young witches never see adults-only activities
@@ -85,6 +92,41 @@ function validTimezone(tz: string): boolean {
   } catch {
     return false;
   }
+}
+
+// Every style a slot can wear: the shared wardrobe plus the signature pieces.
+export const wearStyles = (slot: WearSlot): string[] => [...WARDROBE_STYLES[slot].map((x) => x.style), ...SIGNATURE_STYLES[slot].map((x) => x.style)];
+
+function lookProblems(look: unknown, where: string): string[] {
+  if (look === undefined) return [];
+  if (!isObj(look)) return [`${where} must be an object.`];
+  const p: string[] = [];
+  for (const k of ["skin", "hairColor", "eyeColor"] as const) if (look[k] !== undefined && !(typeof look[k] === "string" && HEX.test(look[k] as string))) p.push(`${where}.${k} must be a hex colour like #f48cc4.`);
+  if (look.hairStyle !== undefined && !HAIR_STYLES.includes(look.hairStyle as HairStyle)) p.push(`${where}.hairStyle must be one of ${HAIR_STYLES.join(", ")}.`);
+  if (look.freckles !== undefined && typeof look.freckles !== "boolean") p.push(`${where}.freckles must be true or false.`);
+  if (look.familiarColour !== undefined && !FAMILIAR_COLOURWAYS.includes(look.familiarColour as FamiliarColourway)) p.push(`${where}.familiarColour must be one of ${FAMILIAR_COLOURWAYS.join(", ")}.`);
+  if (look.familiarAcc !== undefined && !FAMILIAR_ACCESSORIES.includes(look.familiarAcc as FamiliarAccessory)) p.push(`${where}.familiarAcc must be one of ${FAMILIAR_ACCESSORIES.join(", ")}.`);
+  return p;
+}
+
+function wearProblems(wear: unknown, where: string): string[] {
+  if (wear === undefined) return [];
+  if (!isObj(wear)) return [`${where} must be an object of slots, for example { "hat": "crown" }.`];
+  const p: string[] = [];
+  for (const [slot, choice] of Object.entries(wear)) {
+    if (!(slot in WARDROBE_STYLES)) {
+      p.push(`${where}: "${slot}" is not a slot. Use ${Object.keys(WARDROBE_STYLES).join(", ")}.`);
+      continue;
+    }
+    const style = typeof choice === "string" ? choice : isObj(choice) ? choice.style : undefined;
+    if (typeof style !== "string" || !wearStyles(slot as WearSlot).includes(style)) p.push(`${where}.${slot}: choose one of ${wearStyles(slot as WearSlot).join(", ")}.`);
+    if (isObj(choice)) {
+      const c = choice.colours;
+      if (c !== undefined && !(Array.isArray(c) && c.length === 2 && c.every((h) => typeof h === "string" && HEX.test(h)))) p.push(`${where}.${slot}.colours must be two hex colours, the main one and the trim.`);
+      if (choice.name !== undefined && !str(choice.name, 40)) p.push(`${where}.${slot}.name must be 1 to 40 characters.`);
+    }
+  }
+  return p;
 }
 
 export function parseConfig(raw: unknown): CovenConfig {
@@ -228,6 +270,7 @@ export function parseConfig(raw: unknown): CovenConfig {
             if (s.title !== undefined && !str(s.title, 40)) p.push(`witches.slots[${i}].title must be 1 to 40 characters.`);
             if (s.pronouns !== undefined && !["she", "they", "he"].includes(s.pronouns as string)) p.push(`witches.slots[${i}].pronouns must be "she", "they" or "he".`);
             if (s.young !== undefined && typeof s.young !== "boolean") p.push(`witches.slots[${i}].young must be true or false.`);
+            p.push(...lookProblems(s.look, `witches.slots[${i}].look`), ...wearProblems(s.wear, `witches.slots[${i}].wear`));
           });
       }
     }

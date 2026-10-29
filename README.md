@@ -2,11 +2,11 @@
 
 *Free tools from the Rocheverse.*
 
-![pocket-coven.exe: the painted shell map with a label on every room, the painted bedchamber with a witch and her cat standing in it, and a blog sidebar with a hit counter](docs/img/hero.png)
+![pocket-coven.exe: the painted shell map with a label on every room, the painted bedchamber with the mer-witch and her cat standing in it, and a blog sidebar with a hit counter](docs/img/hero.png)
 
 Build your own witchy pocket world.
 Name your coven, theme your rooms, pick your familiars and outfits, invite your people.
-Your world opens painted: a lantern-lit map and eight painted rooms, ready the moment you install it.
+Your world opens painted: a lantern-lit map, eight painted rooms, and your first witch already dressed as the mer-witch, ready the moment you install it.
 
 It is a tiny multiplayer game for your community.
 Everyone gets their own witch, with a familiar, a wardrobe and a room of her own.
@@ -51,7 +51,9 @@ You will see "added" and a number of packages. A few yellow "warn" lines are nor
 ```sh
 npm run gallery
 ```
-Open [localhost:3000/gallery/painted](http://localhost:3000/gallery/painted) in your browser. You will see the painted map with a label on every room, and a room with two witches standing in it. Press Control and C in the terminal to stop it.
+Open [localhost:3000/gallery/painted](http://localhost:3000/gallery/painted) in your browser. You will see the painted map with a label on every room, and a room with your first two witches standing in it: the mer-witch and a friend. Press Control and C in the terminal to stop it.
+
+![what you will see: the painted map with its room labels, and the candlelit grotto with the mer-witch in her crown and tail beside a second witch](docs/img/start-painted.png)
 
 ![step 4](docs/img/step-04.svg) **Make it yours with Claude.** Open Claude Code in the kit folder:
 ```sh
@@ -71,6 +73,7 @@ Want to play before you deploy? `npm run demo` starts a whole coven on your comp
 
 A fresh install opens on **The Moonshell Coven**: a lantern-lit shell world with eight painted rooms on a painted map.
 A starlit bedchamber, a tea leaf terrace, a candlelit grotto, a wishing spring, a glimmer reef, a hammock cove, a glass conservatory and a stargazer's deck, with sand dollars for money.
+Your first witch starts as **the mer-witch**: pink hair, a gold crown with a pink gem, a shell clip, pearls, fin ears and a tail from pink to sea-blue. Rename her, recolour her, or swap any piece in `coven.config.json` (`witches.slots`), and everyone restyles their own witch in the game.
 Every name, line and witch is yours to change. Six more paintings ship spare, so any room can wear a different one.
 
 **Make it yours:** swap any painting for your own picture. Drop it into `public/world/mine/`, point the room at it in `coven.config.json` (`"painting": "mine/my-garden.jpg"`), and run `npm run build:world`. Your own map works the same way, and `scripts/place-hotspots.html` (open it in your browser) lets you click where each room's label sits.
@@ -158,7 +161,7 @@ When it finishes it prints a login. Run `npm run dev` and open [localhost:3000](
 - **The game.** Needs that fall over time and never to zero, seven moods, cooldowns, a ledger for your money, a seven-slot wardrobe, a room to decorate on a grid, live presence, chat with stickers, gifts, a daily oracle card, weekly coven goals, ceremonies that need two witches or more, full and new moon ceremonies on the real moon, family logins for a grown-up and a young witch, and an Owner screen for invites, moderation and settings.
 - **The world builder.** `coven.config.json` plus a theme preset becomes the game's whole catalogue and its database seed. 18 room backdrops, 40 activities to choose from, 16 oracle cards.
 - **The painted world.** A painted map and fourteen painted rooms, under the art licence below. Room labels sit wherever `coven.config.json` says, and `scripts/place-hotspots.html` sets them with a click.
-- **The drawings.** Original drawings made in code: a witch builder (eight hairstyles, skin, eyes, freckles, moods, every wardrobe piece), a familiar builder (cat, owl, moth, fox, toad, raven, snake, rabbit, in six colours with a bell, a bow or a tiny hat), 30 or more wearables per world, furniture, treasures and treats.
+- **The drawings.** Original drawings made in code, including the mer-witch's signature pieces (tail, crown, pearls, fin ears, shell clip) that any witch can wear: a witch builder (eight hairstyles, skin, eyes, freckles, moods, every wardrobe piece), a familiar builder (cat, owl, moth, fox, toad, raven, snake, rabbit, in six colours with a bell, a bow or a tiny hat), 30 or more wearables per world, furniture, treasures and treats.
 - **Safety.** Every action is checked on the server. Players can read only what their coven may see and can never write a row directly. Invite links are single-use and stored only as a scrambled fingerprint.
 - **Tests.** The world builder, every preset, the config checks, the painted and flat themes, the hotspot placer, the art size budget, pronoun-neutral flavour text, a scan of every shipped file so nothing private from my own coven leaks in, and 45 database tests of the game engine. `tests/TESTING.md` has the details.
 
