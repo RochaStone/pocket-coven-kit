@@ -16,3 +16,4 @@ This block is written and re-added by `next dev`: verify at `node_modules/next/d
 - Before finishing: `npm run lint && npm run typecheck && npm test`, then `./scripts/security-check.sh`.
 - SKILL.md is the founder's guided setup. Follow its tone rules: one question at a time, plain words, no em dashes.
 - The painted world (the default look) lives in `public/world/painted/` under its own art licence (`LICENSE-ART.md` there), not MIT. Never add pictures of people. Room pictures are chosen in `coven.config.json` (`art`, and `painting` per room); `world/painted.ts` holds the list and the map spots.
+- `components/art/mer/` is the original mer-witch figure, ported line for line. Keep it exact: `tests/unit/starter-witch.test.ts` fingerprints every shape in four moods. Never name her world in code (the forbidden-word scan reads components).

@@ -12,7 +12,7 @@ npm test          # unit tests, then the database tests if TEST_DATABASE_URL is 
 - `tests/unit/catalog.test.ts`: the committed world passes its checks, matches `coven.config.json`, and matches `supabase/seed.sql`; pronouns render correctly for she, they and he; mood, decay and level rules.
 - `tests/unit/forbidden.test.ts`: nothing listed in `tests/forbidden-content.txt` (the original game's rooms, items, brand and flavour lines, plus hashed names and ids) appears in any preset's generated output, the committed catalog and seed, or the app, art, engine and scripts.
 - `tests/unit/motif.test.ts`: the compact renders in all three motif families, each with its signature.
-- `tests/unit/starter-witch.test.ts`: a fresh install's first witch is the mer-witch and the owner's witch; she wears and owns the tail, crown, pearls, fin ears and shell clip; the kit's own Witch draws them (a tail in place of legs and boots); the other witches start ordinary; the signature pieces join the painted world's wardrobe and never appear in the drawn presets; renaming, recolouring and swapping her pieces through `witches.slots` builds cleanly; wrong looks and pieces are explained.
+- `tests/unit/starter-witch.test.ts`: a fresh install's first witch is the mer-witch and the owner's witch; she wears and owns the tail, crown, pearls, fin ears and shell clip; she is drawn with the original mer-witch figure (`components/art/mer`); a fingerprint of every shape she is drawn with, in four moods, matches the original's own SVG; each mood carries its own face and effects; her mini portrait uses the same figure; the other witches start ordinary; the signature pieces join the painted world's wardrobe and never appear in the drawn presets; renaming, recolouring and swapping her pieces through `witches.slots` builds cleanly; wrong looks and pieces are explained.
 - `tests/unit/painted.test.ts`: a fresh install is painted; the painted world builds with a painting and a map spot for every room; one key (`art.theme`) switches to the flat drawn world and back, and the map renders as a picture with eight labels or as drawn tiles; the five presets and files with no `art` block stay flat; every room's painted backdrop renders and its picture is in `public/`; hotspot positions, room ids, map and painting names are checked (no paths outside `public/world/mine/`, no web addresses); the hotspot placer's saved file passes the kit's checks and builds; a scan of every shipped file, file name and picture for private names and places (the hashed list in `tests/forbidden-content.txt`); the art budget (each painting 1600 px or less on the long side, 320 KB or less, no metadata, the set under 4 MB).
 
 ## Database tests (`tests/db`, 45 tests of the real engine)
@@ -25,6 +25,13 @@ TEST_DATABASE_URL=postgres://postgres@localhost:5432/pocket_coven_test npm test
 ```
 Without `TEST_DATABASE_URL`, `npm test` says they were skipped.
 They were run and passed (45 of 45) against Postgres 17 while building this kit, and again (45 of 45) after the painted world was added.
+
+## The mer-witch against the original
+
+The starter witch was ported line for line from the original pocket coven art. Checked while building:
+- Rendered the same way (headless Chrome, 1000 x 1300, reduced motion), the kit's four moods and the original's own SVG are pixel-identical (0.000% of pixels differ).
+- Shape by shape, the kit draws everything the original draws; the original only adds four gradient stops it never uses.
+- Against the original PNGs (captured with animations paused at their first frame), the kit differs on 0.13% to 0.19% of pixels, the same as the original's own SVG against those PNGs.
 
 ## The painted theme in a browser
 

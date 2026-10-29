@@ -210,12 +210,12 @@ export const COLLECTIBLE_STYLES = ["acorn", "feather", "crystal", "mushroom", "s
 export const TREAT_STYLES = ["cup", "pie", "jar", "bouquet", "bread", "bowl"] as const;
 
 // Signature pieces: drawn only when a witch's config wears one (witches.slots[].wear), then sold in the wardrobe too.
-// Each has default colours; a config can give its own.
+// Each has default colours (the original mer-witch's, so she draws exactly); a config can give its own.
 export const SIGNATURE_STYLES = {
-  outfit: [{ style: "mer_tail", name: "Mer Tail", price: 200, colours: ["#F58FC4", "#8FD3E8"] }],
-  hat: [{ style: "crown", name: "Gold Crown", price: 150, colours: ["#F0C86A", "#E0559A"] }],
-  necklace: [{ style: "pearls", name: "Pearl Strand", price: 120, colours: ["#FFF7F4", "#F27DB4"] }],
-  earrings: [{ style: "fins", name: "Fin Ears", price: 60, colours: ["#F7A8CF", "#FFF7F4"] }],
-  hair_acc: [{ style: "shell_clip", name: "Shell Clip", price: 40, colours: ["#F9B8D3", "#FFF7F4"] }],
+  outfit: [{ style: "mer_tail", name: "Mer Tail", price: 200, colours: ["#ff9fd0", "#7fe3e0"] }],
+  hat: [{ style: "crown", name: "Gold Crown", price: 150, colours: ["#f2cd78", "#ff8fc8"] }],
+  necklace: [{ style: "pearls", name: "Pearl Strand", price: 120, colours: ["#fffaf6", "#b98aa8"] }],
+  earrings: [{ style: "fins", name: "Fin Ears", price: 60, colours: ["#ffc4e6", "#fff7f4"] }],
+  hair_acc: [{ style: "shell_clip", name: "Shell Clip", price: 40, colours: ["#ffd9ea", "#ff9fcb"] }],
   boots: [],
 } as const satisfies Record<keyof typeof WARDROBE_STYLES, readonly { style: string; name: string; price: number; colours: readonly string[] }[]>;

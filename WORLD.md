@@ -63,7 +63,8 @@ The painted world's first witch is the mer-witch:
 ```
 
 - `look`: `skin`, `hairColor`, `eyeColor` as hex; `hairStyle` one of `long_waves`, `bob`, `straight_long`, `curls`, `braid`, `pixie`, `buns`, `pigtails`; `freckles` true or false; `familiarColour` one of `ink`, `cream`, `ginger`, `moss`, `dusk`, `plum`; `familiarAcc` one of `none`, `bell`, `bow`, `hat`.
-- `wear`: a style for any of `outfit`, `boots`, `hat`, `necklace`, `earrings`, `hair_acc`. Any wardrobe style works (`cloak`, `pointed`, `moon_pendant` and the rest), plus the signature pieces: `mer_tail` (a tail in place of legs and boots), `crown`, `pearls`, `fins`, `shell_clip`.
+- `wear`: a style for any of `outfit`, `boots`, `hat`, `necklace`, `earrings`, `hair_acc`. Any wardrobe style works (`cloak`, `pointed`, `moon_pendant` and the rest), plus the signature pieces: `mer_tail`, `crown`, `pearls`, `fins`, `shell_clip`.
+- A witch in `mer_tail` is drawn with the original mer-witch figure: her face, eyes, hair and moods, with the tail in place of legs. Every hair style and any other piece still works on her. Dress her in any other outfit and she takes the kit's own witch figure.
 - For your own colours, give an object: `{ "style": "mer_tail", "colours": ["#3FB8B0", "#B9B3F5"], "name": "Lagoon Tail" }` (the main colour, then the trim; the tail fades from one to the other).
 - Every piece a witch starts in is hers to keep, and joins the wardrobe so others can buy it. Everyone can restyle their own witch in the game.
 

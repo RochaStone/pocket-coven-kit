@@ -93,7 +93,7 @@ The paintings that ship with the kit are shared under their own art licence (`pu
 ```sh
 npm run gallery
 ```
-Tell her to open http://localhost:3000/gallery (her witches, familiars, wardrobe), http://localhost:3000/gallery/painted (the painted map and a room) and http://localhost:3000/gallery/scenes (every painted room and drawn backdrop). Ask what she would change. Edit the config, rebuild, refresh. Repeat until she smiles.
+Tell her to open http://localhost:3000/gallery (her witches, familiars, wardrobe), http://localhost:3000/gallery/starter (her own witch in every mood), http://localhost:3000/gallery/painted (the painted map and a room) and http://localhost:3000/gallery/scenes (every painted room and drawn backdrop). Ask what she would change. Edit the config, rebuild, refresh. Repeat until she smiles.
 If she has Docker Desktop and wants to play before deploying, offer `npm run demo` (it uses the Hedge Witch demo world, then `npm run build:world` brings hers back).
 
 ## Step 5: put it online, on her accounts

@@ -5,7 +5,10 @@ import type { AnimationKey, Equipped, FamiliarSpecies, Look, Mood } from "@/lib/
 import { darken, INK, lighten, mix, starPath } from "./colour";
 import { useArt, useItem, useItemArt } from "./ArtContext";
 import { FamiliarInline } from "./Familiar";
-import { Crown, FinEars, MerTail, Pearls, ShellClip } from "./Signature";
+import { Crown } from "./mer/Body";
+import { Earrings, HairAcc, MER_HEAD, Necklace } from "./Trinkets";
+import { MerFigure } from "./mer/MerFigure";
+
 
 export interface WitchProps {
   characterId?: string;
@@ -131,7 +134,7 @@ function Face({ mood, eye, skin, freckles }: { mood: Mood; eye: string; skin: st
   );
 }
 
-function Outfit({ id, skin }: { id?: string; skin: string }) {
+function Outfit({ id }: { id?: string }) {
   const a = useItemArt(id);
   const M = a?.colours[0] ?? "#6b5a7a";
   const T = a?.colours[1] ?? "#efe6d6";
@@ -144,8 +147,6 @@ function Outfit({ id, skin }: { id?: string; skin: string }) {
     </g>
   );
   switch (a?.style) {
-    case "mer_tail":
-      return <MerTail M={M} T={T} skin={skin} />;
     case "cloak":
       return (
         <g>
@@ -274,7 +275,13 @@ function Hat({ id }: { id?: string }) {
   const s = { fill: M, stroke: line, strokeWidth: 2, strokeLinejoin: "round" as const };
   switch (a.style) {
     case "crown":
-      return <Crown gold={M} gem={T} />;
+      return (
+        <g transform={MER_HEAD}>
+          <g transform="translate(100 40)">
+            <Crown gold={M} gem={T} />
+          </g>
+        </g>
+      );
     case "pointed":
       return (
         <g>
@@ -322,82 +329,6 @@ function Hat({ id }: { id?: string }) {
   }
 }
 
-function Necklace({ id }: { id?: string }) {
-  const a = useItemArt(id);
-  if (!a) return null;
-  const [metal, gem] = a.colours;
-  if (a.style === "pearls") return <Pearls pearl={metal} bow={gem} />;
-  const line = darken(metal, 0.5);
-  return (
-    <g>
-      <path d="M86 130 Q100 146 114 130" stroke={metal} strokeWidth={1.8} fill="none" />
-      <g transform="translate(100 146)">
-        {a.style === "moon_pendant" && <path d="M4 -6 A7 7 0 1 0 4 6 A5 5 0 1 1 4 -6 Z" fill={metal} stroke={line} strokeWidth={1} />}
-        {a.style === "crystal" && <path d="M0 -7 L5 -2 L3 7 L-3 7 L-5 -2 Z" fill={gem} stroke={line} strokeWidth={1} />}
-        {a.style === "acorn" && (
-          <g>
-            <ellipse cx={0} cy={2} rx={4.5} ry={5.5} fill={gem} stroke={line} strokeWidth={1} />
-            <path d="M-5.5 -1 Q0 -8 5.5 -1 Z" fill={metal} stroke={line} strokeWidth={1} />
-          </g>
-        )}
-        {a.style === "key" && <path d="M0 -6 a3 3 0 1 1 0.1 0 M0 -3 L0 7 M0 4 L3 4 M0 7 L3 7" stroke={metal} strokeWidth={2} fill="none" />}
-      </g>
-    </g>
-  );
-}
-
-function Earrings({ id }: { id?: string }) {
-  const a = useItemArt(id);
-  if (!a) return null;
-  const [metal, gem] = a.colours;
-  if (a.style === "fins") return <FinEars M={metal} />;
-  return (
-    <g>
-      {[58, 142].map((x) => (
-        <g key={x} transform={`translate(${x} 110)`}>
-          {a.style === "hoops" && <circle cx={0} cy={4} r={5} fill="none" stroke={metal} strokeWidth={2} />}
-          {a.style === "stars" && <path d={starPath(0, 3, 4.2)} fill={metal} />}
-          {a.style === "drops" && (
-            <g>
-              <path d="M0 0 L0 5" stroke={metal} strokeWidth={1.4} />
-              <circle cx={0} cy={8} r={3.2} fill={gem} stroke={darken(gem, 0.4)} strokeWidth={0.8} />
-            </g>
-          )}
-          {a.style === "leaves" && <path d="M0 0 C5 4 5 10 0 13 C-5 10 -5 4 0 0 Z" fill={gem} stroke={metal} strokeWidth={1} />}
-        </g>
-      ))}
-    </g>
-  );
-}
-
-function HairAcc({ id }: { id?: string }) {
-  const a = useItemArt(id);
-  if (!a) return null;
-  const [M, T] = a.colours;
-  const line = darken(M, 0.5);
-  return (
-    <g transform="translate(136 78)">
-      {a.style === "ribbon" && (
-        <g>
-          <path d="M0 0 L-14 -9 L-14 9 Z M0 0 L14 -9 L14 9 Z" fill={M} stroke={line} strokeWidth={1.4} strokeLinejoin="round" />
-          <circle r={3.6} fill={T} stroke={line} strokeWidth={1} />
-        </g>
-      )}
-      {a.style === "sprig" && (
-        <g>
-          <path d="M-6 8 L8 -10" stroke="#4f6a3a" strokeWidth={2} />
-          {[[-2, 2], [2, -3], [5, -8]].map(([x, y]) => <ellipse key={`${x}${y}`} cx={x + 4} cy={y} rx={4} ry={2} fill="#6f8f4a" transform={`rotate(-30 ${x + 4} ${y})`} />)}
-          <circle cx={-3} cy={-1} r={2.4} fill={M} />
-          <circle cx={1} cy={-6} r={2.4} fill={M} />
-        </g>
-      )}
-      {a.style === "shell_clip" && <ShellClip M={M} pearl={T} />}
-      {a.style === "clip" && <path d="M6 -8 A10 10 0 1 0 6 8 A7 7 0 1 1 6 -8 Z" fill={M} stroke={line} strokeWidth={1.2} />}
-      {a.style === "pins" && [[0, 0], [-8, 10], [6, 14]].map(([x, y]) => <path key={`${x}${y}`} d={starPath(x, y, 4.4)} fill={M} stroke={line} strokeWidth={0.8} />)}
-    </g>
-  );
-}
-
 const ACTION_CLASS: Partial<Record<AnimationKey, string>> = {
   dance: "anim-sway", play: "anim-hop", swim: "anim-sway", spell: "anim-hop", toast: "anim-hop", sing: "anim-sway",
   sleep: "anim-breathe", cuddle: "anim-breathe", bathe: "anim-breathe",
@@ -418,7 +349,7 @@ function Figure({ look, equipped, mood, petName, action }: WitchProps) {
       {hood && <HoodBack M={hatArt.colours[0]} />}
       {!hood && <HairBack style={look.hairStyle} c={look.hairColor} tie={palette.accent} />}
       {!tail && <Boots id={equipped.boots} />}
-      <Outfit id={equipped.outfit} skin={skin} />
+      <Outfit id={equipped.outfit} />
       <circle cx={66} cy={172} r={6} fill={skin} stroke={skinLine} strokeWidth={1.6} />
       <circle cx={134} cy={172} r={6} fill={skin} stroke={skinLine} strokeWidth={1.6} />
       <rect x={93} y={124} width={14} height={12} fill={skin} stroke={skinLine} strokeWidth={1.4} />
@@ -454,9 +385,15 @@ function Figure({ look, equipped, mood, petName, action }: WitchProps) {
   );
 }
 
+const KIT_PARTS = { Hat, Necklace, Earrings, HairAcc };
+// A witch in a mer tail is drawn with the original mer-witch figure (components/art/mer), same width as this one.
+const useMer = (props: WitchProps) => useItemArt(props.equipped.outfit)?.style === "mer_tail";
+
 export function Witch(props: WitchProps) {
   const { size = 220, animate = true, action = null, className, title } = props;
   const cls = action ? ACTION_CLASS[action] ?? "anim-hop" : animate ? "anim-idle" : undefined;
+  const mer = useMer(props);
+  if (mer) return <MerFigure {...props} size={size * 1.3} kit={{ ...KIT_PARTS, actionClass: action ? cls : undefined }} />;
   return (
     <svg width={size} height={size * 1.25} viewBox="0 -2 210 262" className={className} role="img" aria-label={title ?? "A witch"}>
       <g className={cls} style={{ transformOrigin: "100px 230px", transformBox: "view-box" }}>
@@ -469,6 +406,8 @@ export function Witch(props: WitchProps) {
 // Head and shoulders, for chat, the roster and the map.
 export function MiniWitch(props: WitchProps) {
   const { size = 48, className, title } = props;
+  const mer = useMer(props);
+  if (mer) return <MerFigure {...props} size={size} animate={false} crop kit={KIT_PARTS} />;
   return (
     <svg width={size} height={size} viewBox="22 -4 156 156" className={className} role="img" aria-label={title ?? "A witch"}>
       <Figure {...props} equipped={{ ...props.equipped, companion: undefined }} />

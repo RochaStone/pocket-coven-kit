@@ -73,7 +73,7 @@ Want to play before you deploy? `npm run demo` starts a whole coven on your comp
 
 A fresh install opens on **The Moonshell Coven**: a lantern-lit shell world with eight painted rooms on a painted map.
 A starlit bedchamber, a tea leaf terrace, a candlelit grotto, a wishing spring, a glimmer reef, a hammock cove, a glass conservatory and a stargazer's deck, with sand dollars for money.
-Your first witch starts as **the mer-witch**: pink hair, a gold crown with a pink gem, a shell clip, pearls, fin ears and a tail from pink to sea-blue. Rename her, recolour her, or swap any piece in `coven.config.json` (`witches.slots`), and everyone restyles their own witch in the game.
+Your first witch starts as **the mer-witch**, drawn exactly as in my own game: big purple eyes, pointed pink bangs, a gold crown with a pink gem, a shell clip, pearls, fin ears and a tail from pink to aqua. See her in every mood at [localhost:3000/gallery/starter](http://localhost:3000/gallery/starter). Rename her, recolour her, or swap any piece in `coven.config.json` (`witches.slots`), and everyone restyles their own witch in the game.
 Every name, line and witch is yours to change. Six more paintings ship spare, so any room can wear a different one.
 
 **Make it yours:** swap any painting for your own picture. Drop it into `public/world/mine/`, point the room at it in `coven.config.json` (`"painting": "mine/my-garden.jpg"`), and run `npm run build:world`. Your own map works the same way, and `scripts/place-hotspots.html` (open it in your browser) lets you click where each room's label sits.

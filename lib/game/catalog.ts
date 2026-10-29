@@ -117,10 +117,10 @@ export const CHARACTERS: CharacterDef[] = [
     "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
-      "skin": "#F6D5C0",
-      "hairColor": "#F48CC4",
+      "skin": "#f9d6c3",
+      "hairColor": "#ff8fc8",
       "hairStyle": "long_waves",
-      "eyeColor": "#7B4FD6",
+      "eyeColor": "#8a4fe0",
       "freckles": false,
       "familiarColour": "ink",
       "familiarAcc": "bow"
@@ -1231,8 +1231,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "mer_tail",
       "colours": [
-        "#F58FC4",
-        "#8FD3E8"
+        "#ff9fd0",
+        "#7fe3e0"
       ]
     }
   },
@@ -1247,8 +1247,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "crown",
       "colours": [
-        "#F0C86A",
-        "#E0559A"
+        "#f2cd78",
+        "#ff8fc8"
       ]
     }
   },
@@ -1263,8 +1263,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "pearls",
       "colours": [
-        "#FFF7F4",
-        "#F27DB4"
+        "#fffaf6",
+        "#b98aa8"
       ]
     }
   },
@@ -1279,8 +1279,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "fins",
       "colours": [
-        "#F7A8CF",
-        "#FFF7F4"
+        "#ffc4e6",
+        "#fff7f4"
       ]
     }
   },
@@ -1295,8 +1295,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "shell_clip",
       "colours": [
-        "#F9B8D3",
-        "#FFF7F4"
+        "#ffd9ea",
+        "#ff9fcb"
       ]
     }
   }

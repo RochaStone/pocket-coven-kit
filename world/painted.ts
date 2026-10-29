@@ -149,7 +149,7 @@ export function paintedStarterConfig() {
         // Rename her, recolour her, or swap any piece; everyone can restyle their own witch in the game.
         {
           name: "the mer-witch",
-          look: { skin: "#F6D5C0", hairColor: "#F48CC4", hairStyle: "long_waves" as const, eyeColor: "#7B4FD6", freckles: false, familiarColour: "ink" as const, familiarAcc: "bow" as const },
+          look: { skin: "#f9d6c3", hairColor: "#ff8fc8", hairStyle: "long_waves" as const, eyeColor: "#8a4fe0", freckles: false, familiarColour: "ink" as const, familiarAcc: "bow" as const },
           wear: { outfit: "mer_tail", hat: "crown", necklace: "pearls", earrings: "fins", hair_acc: "shell_clip" },
         },
       ],
