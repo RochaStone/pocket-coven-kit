@@ -12,6 +12,7 @@ npm test          # unit tests, then the database tests if TEST_DATABASE_URL is 
 - `tests/unit/catalog.test.ts`: the committed world passes its checks, matches `coven.config.json`, and matches `supabase/seed.sql`; pronouns render correctly for she, they and he; mood, decay and level rules.
 - `tests/unit/forbidden.test.ts`: nothing listed in `tests/forbidden-content.txt` (the original game's rooms, items, brand and flavour lines, plus hashed names and ids) appears in any preset's generated output, the committed catalog and seed, or the app, art, engine and scripts.
 - `tests/unit/motif.test.ts`: the compact renders in all three motif families, each with its signature.
+- `tests/unit/painted.test.ts`: a fresh install is painted; the painted world builds with a painting and a map spot for every room; one key (`art.theme`) switches to the flat drawn world and back, and the map renders as a picture with eight labels or as drawn tiles; the five presets and files with no `art` block stay flat; every room's painted backdrop renders and its picture is in `public/`; hotspot positions, room ids, map and painting names are checked (no paths outside `public/world/mine/`, no web addresses); the hotspot placer's saved file passes the kit's checks and builds; a scan of every shipped file, file name and picture for private names and places (the hashed list in `tests/forbidden-content.txt`); the art budget (each painting 1600 px or less on the long side, 320 KB or less, no metadata, the set under 4 MB).
 
 ## Database tests (`tests/db`, 45 tests of the real engine)
 
@@ -22,7 +23,11 @@ They need any Postgres 15+ you can throw away. The database name must end in `_t
 TEST_DATABASE_URL=postgres://postgres@localhost:5432/pocket_coven_test npm test
 ```
 Without `TEST_DATABASE_URL`, `npm test` says they were skipped.
-They were run and passed (45 of 45) against Postgres 17 while building this kit.
+They were run and passed (45 of 45) against Postgres 17 while building this kit, and again (45 of 45) after the painted world was added.
+
+## The painted theme in a browser
+
+`/gallery/painted` draws the painted map in its compact and one painted room with two witches, with no database. The README hero (`/gallery/hero`) and Playwright screenshots of the map and a room were rendered from it while building. `scripts/place-hotspots.html` was driven in headless Chrome: load the config, click the map twice, save, and the saved file built cleanly.
 
 ## End-to-end test (`tests/e2e`, not run while building)
 

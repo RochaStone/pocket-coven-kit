@@ -94,6 +94,8 @@ export interface LocationDef {
   name: string;
   blurb: string;
   backdrop: BackdropKind;
+  // Painted theme only: the scene picture, as a path served from public/ (for example /world/painted/palace.jpg).
+  painting?: string;
 }
 
 export interface CharacterDef {
@@ -184,6 +186,19 @@ export interface Flavour {
 export const MOTIFS = ["analog", "cyberpunk", "y2k-blog"] as const;
 export type Motif = (typeof MOTIFS)[number];
 
+// How the world is drawn: painted scenes and a painted map, or the flat drawings made in code.
+export const ART_THEMES = ["painted", "flat"] as const;
+export type ArtTheme = (typeof ART_THEMES)[number];
+export interface MapSpot {
+  x: number; // % from the left of the map picture
+  y: number; // % from the top
+}
+export interface WorldArt {
+  theme: ArtTheme;
+  map: string; // painted theme: the map picture, served from public/ ("" when flat)
+  hotspots: Record<string, MapSpot>; // room id -> where its label sits on the map
+}
+
 export interface WorldMeta {
   name: string;
   tagline: string;
@@ -198,6 +213,7 @@ export interface WorldMeta {
   chrome: Chrome;
   flavour: Flavour;
   startLocation: string;
+  art: WorldArt;
 }
 
 export interface AchievementDef {

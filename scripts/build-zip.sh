@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 NAME=$(basename "$PWD")
 STAGE=$(mktemp -d)
 mkdir -p dist "$STAGE/$NAME"
-rsync -a --include '.env.example' --exclude '.git' --exclude '.pre-commit-config.yaml' --exclude 'node_modules' --exclude '.venv' --exclude 'dist' --exclude 'out' --exclude 'state' --exclude 'dev' --exclude '__pycache__' --exclude '*.pyc' --exclude '.env*' --exclude '.DS_Store' --exclude 'tests/fixtures/large' ./ "$STAGE/$NAME/"
+rsync -a --include '.env.example' --exclude '.git' --exclude '.pre-commit-config.yaml' --exclude 'node_modules' --exclude '.venv' --exclude 'dist' --exclude '.next*' --exclude 'out' --exclude 'state' --exclude 'dev' --exclude '__pycache__' --exclude '*.pyc' --exclude '.env*' --exclude '.DS_Store' --exclude 'tests/fixtures/large' ./ "$STAGE/$NAME/"
 rm -f "dist/$NAME.zip"
 (cd "$STAGE" && zip -qr "$OLDPWD/dist/$NAME.zip" "$NAME")
 rm -rf "$STAGE"

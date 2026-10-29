@@ -4,6 +4,7 @@ import { ACHIEVEMENT_LIBRARY, ACTIVITY_LIBRARY, FAMILIAR_INFO, ORACLE_DECK, WARD
 import type { Preset, PresetCollectible } from "./presets.ts";
 import { roomIdOf, slugify, type CovenConfig, type PronounChoice } from "./schema.ts";
 import { DEFAULT_CHROME } from "./style.ts";
+import { resolveArt } from "./painted.ts";
 import {
   FAMILIAR_ACCESSORIES,
   HAIR_STYLES,
@@ -100,7 +101,7 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
   // ── items ──────────────────────────────────────────────────────────────
   const items: ItemDef[] = [];
   const itemIds = new Set<string>();
-  const colours = preset.wardrobeColours;
+  const colours = config.wardrobe ?? preset.wardrobeColours;
 
   for (const slot of Object.keys(WARDROBE_STYLES) as (keyof typeof WARDROBE_STYLES)[]) {
     WARDROBE_STYLES[slot].forEach((s, i) => {
@@ -166,10 +167,12 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
   // ── rooms and activities ───────────────────────────────────────────────
   const locations: LocationDef[] = [];
   const activities: ActivityDef[] = [];
+  const paintingRefs: Record<string, string> = {};
   config.rooms.forEach((r, ri) => {
     const id = roomIdOf(r);
     const fallback = preset.rooms[ri % preset.rooms.length];
     locations.push({ id, name: r.name.trim(), blurb: r.blurb?.trim() ?? "", backdrop: r.backdrop ?? fallback.backdrop });
+    if (r.painting) paintingRefs[id] = r.painting;
     r.activities.forEach((entry, j) => {
       const e = typeof entry === "string" ? { id: entry } : entry;
       const lib = ACTIVITY_LIBRARY.find((a) => a.id === e.id)!;
@@ -190,6 +193,10 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
       });
     });
   });
+
+  // Painted theme: one picture per room and a spot for each room on the map.
+  const { art, paintings } = resolveArt(config.art, locations.map((l) => ({ id: l.id, painting: paintingRefs[l.id] })));
+  for (const l of locations) if (paintings[l.id]) l.painting = paintings[l.id];
 
   // ── ceremonies ─────────────────────────────────────────────────────────
   const gems = tier("gem").map((c) => collectibleId.get(c)!);
@@ -263,6 +270,7 @@ export function buildWorld(config: CovenConfig, preset: Preset, opts: BuildOptio
       chrome: opts.chrome ?? DEFAULT_CHROME,
       flavour,
       startLocation: locations[0].id,
+      art,
     },
     characters,
     items,

@@ -415,10 +415,16 @@ export interface Hotspot {
 }
 
 // A room: the scene, tappable activity hotspots, and whatever stands in it (witches, props).
-export function Scene({ kind, palette, hotspots = [], onHotspot, children, className = "" }: { kind: BackdropKind; palette?: ThemePalette; hotspots?: Hotspot[]; onHotspot?: (id: string) => void; children?: ReactNode; className?: string }) {
+// A painted room shows its picture (portrait, like the paintings); a flat room draws its scene from the palette.
+export function Scene({ kind, painting, palette, hotspots = [], onHotspot, children, className = "" }: { kind: BackdropKind; painting?: string; palette?: ThemePalette; hotspots?: Hotspot[]; onHotspot?: (id: string) => void; children?: ReactNode; className?: string }) {
   return (
-    <div className={`scene-frame relative aspect-[4/3] w-full overflow-hidden ${className}`}>
-      <BackdropArt kind={kind} palette={palette} />
+    <div className={`scene-frame relative w-full overflow-hidden ${painting ? "aspect-[3/4]" : "aspect-[4/3]"} ${className}`} data-art={painting ? "painted" : "flat"}>
+      {painting ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={painting} alt="" aria-hidden className="absolute inset-0 h-full w-full select-none object-cover" draggable={false} />
+      ) : (
+        <BackdropArt kind={kind} palette={palette} />
+      )}
       {hotspots.map((h) => (
         <button
           key={h.id}

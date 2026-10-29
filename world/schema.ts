@@ -1,7 +1,8 @@
 // coven.config.json: the one file a founder edits (usually through the guided setup).
 // WORLD.md documents every key. parseConfig() returns a typed config or throws ConfigError with every problem listed.
 import { ACTIVITY_LIBRARY } from "./library.ts";
-import { BACKDROPS, FAMILIAR_SPECIES, MOTIFS, type BackdropKind, type FamiliarSpecies, type Flavour, type Mood, type Motif, type ThemePalette } from "../lib/game/types.ts";
+import { isMapRef, isPictureRef, isSpot, PAINTINGS, PAINTED_MAP, type ArtConfig } from "./painted.ts";
+import { ART_THEMES, BACKDROPS, FAMILIAR_SPECIES, MOTIFS, type BackdropKind, type FamiliarSpecies, type Flavour, type Mood, type Motif, type ThemePalette } from "../lib/game/types.ts";
 
 export const PRESET_IDS = ["hedge-witch", "moon-coven", "kitchen-witch", "sea-witch", "city-witch"] as const;
 export type PresetId = (typeof PRESET_IDS)[number];
@@ -18,6 +19,7 @@ export interface RoomConfig {
   id?: string; // lowercase letters, digits, underscores. Defaults to a slug of the name.
   name: string;
   backdrop?: BackdropKind;
+  painting?: string; // painted theme: a painting id from world/painted.ts, or "mine/<file>" from public/world/mine/
   blurb?: string;
   activities: (string | RoomActivityConfig)[];
 }
@@ -39,9 +41,11 @@ export interface CovenConfig {
   coven: { name: string; tagline?: string; for?: string; slug?: string };
   theme: PresetId;
   motif?: Motif;
+  art?: ArtConfig; // how the world is drawn: { "theme": "painted" | "flat", "map", "hotspots" }
   currency: { singular: string; plural: string };
   timezone?: string;
   palette?: Partial<ThemePalette>;
+  wardrobe?: { name: string; hex: string; trim: string }[]; // your own outfit colours, replacing the preset's six
   rooms: RoomConfig[];
   ceremonies?: CeremonyConfig[];
   moonRoom?: string;
@@ -114,6 +118,15 @@ export function parseConfig(raw: unknown): CovenConfig {
     else for (const [k, v] of Object.entries(raw.palette)) if (typeof v !== "string" || !HEX.test(v)) p.push(`palette.${k} must be a hex colour like #5f7a43.`);
   }
 
+  if (raw.wardrobe !== undefined) {
+    if (!Array.isArray(raw.wardrobe) || raw.wardrobe.length < 3 || raw.wardrobe.length > 8) p.push("wardrobe: list 3 to 8 colours, each { \"name\", \"hex\", \"trim\" }.");
+    else
+      raw.wardrobe.forEach((c, i) => {
+        if (!isObj(c) || typeof c.name !== "string" || !/^[\p{L}][\p{L} -]{0,15}$/u.test(c.name)) p.push(`wardrobe[${i}].name must be a colour name (letters, up to 16), for example "Rosewater".`);
+        else if (typeof c.hex !== "string" || !HEX.test(c.hex) || typeof c.trim !== "string" || !HEX.test(c.trim)) p.push(`wardrobe[${i}] "${c.name}": hex and trim must be hex colours like #c2246e.`);
+      });
+  }
+
   // rooms
   const roomIds = new Set<string>();
   if (!Array.isArray(raw.rooms) || raw.rooms.length === 0) {
@@ -132,6 +145,7 @@ export function parseConfig(raw: unknown): CovenConfig {
       roomIds.add(id);
       if (id === "full_moon" || id === "new_moon") p.push(`${where}: "${id}" is reserved.`);
       if (r.backdrop !== undefined && !BACKDROPS.includes(r.backdrop as BackdropKind)) p.push(`${where} "${r.name}": backdrop must be one of ${BACKDROPS.join(", ")}.`);
+      if (r.painting !== undefined && !isPictureRef(r.painting)) p.push(`${where} "${r.name}": painting must be one of ${PAINTINGS.join(", ")}, or "mine/your-picture.jpg" for a picture you put in public/world/mine/.`);
       if (r.blurb !== undefined && !str(r.blurb, 120)) p.push(`${where} "${r.name}": blurb must be 1 to 120 characters.`);
       if (!Array.isArray(r.activities) || r.activities.length < 2 || r.activities.length > 6) {
         p.push(`${where} "${r.name}": list 2 to 6 activities from world/library.ts.`);
@@ -169,6 +183,24 @@ export function parseConfig(raw: unknown): CovenConfig {
       });
     }
   }
+  // art: painted or flat, the map picture, and where each room sits on it
+  if (raw.art !== undefined) {
+    const a = raw.art;
+    if (!isObj(a)) p.push('art must be an object, for example { "theme": "painted" }.');
+    else {
+      if (a.theme !== undefined && !ART_THEMES.includes(a.theme as (typeof ART_THEMES)[number])) p.push(`art.theme must be "painted" or "flat".`);
+      if (a.map !== undefined && !isMapRef(a.map)) p.push(`art.map must be "${PAINTED_MAP}" or "mine/your-map.jpg" for a map you put in public/world/mine/.`);
+      if (a.hotspots !== undefined) {
+        if (!isObj(a.hotspots)) p.push("art.hotspots must be an object of room ids to { \"x\", \"y\" } positions.");
+        else
+          for (const [rid, spot] of Object.entries(a.hotspots)) {
+            if (!roomIds.has(rid)) p.push(`art.hotspots: "${rid}" is not one of your room ids.`);
+            if (!isSpot(spot)) p.push(`art.hotspots.${rid} must be { "x": 0 to 100, "y": 0 to 100 } (percent across and down the map).`);
+          }
+      }
+    }
+  }
+
   if (raw.moonRoom !== undefined && (typeof raw.moonRoom !== "string" || !roomIds.has(raw.moonRoom))) p.push(`moonRoom "${String(raw.moonRoom)}" is not one of your room ids.`);
 
   // familiars

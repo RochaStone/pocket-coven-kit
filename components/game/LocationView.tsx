@@ -67,7 +67,7 @@ export function LocationView({ id }: { id: string }) {
         </div>
       </div>
 
-      <Scene kind={loc?.backdrop ?? "cottage_room"} hotspots={hotspots} onHotspot={(aid) => perform(aid)}>
+      <Scene kind={loc?.backdrop ?? "cottage_room"} painting={loc?.painting} hotspots={hotspots} onHotspot={(aid) => perform(aid)}>
         <div className="pointer-events-none absolute inset-x-0 bottom-[4%] flex items-end justify-center gap-1">
           <AnimatePresence>
             {others.map((r) => {

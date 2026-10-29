@@ -38,6 +38,14 @@ export function validateWorld(w: World): string[] {
     if (a.flavour.length === 0) p.push(`${a.id}: needs at least one flavour line`);
     for (const f of a.flavour) for (const prob of flavourProblems(f)) p.push(`${a.id}: "${f}": ${prob}`);
   }
+  if (w.meta.art.theme === "painted") {
+    if (!w.meta.art.map) p.push("the painted world needs a map picture");
+    for (const l of w.locations) {
+      if (!l.painting) p.push(`${l.name}: the painted world needs a painting for every room`);
+      const s = w.meta.art.hotspots[l.id];
+      if (!s || s.x < 0 || s.x > 100 || s.y < 0 || s.y > 100) p.push(`${l.name}: needs a spot on the map`);
+    }
+  }
   for (const l of w.locations) {
     const n = w.activities.filter((a) => a.locationId === l.id).length;
     if (n < 2 || n > 6) p.push(`${l.name}: needs 2 to 6 activities (has ${n})`);

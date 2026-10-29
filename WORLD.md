@@ -3,7 +3,7 @@
 `coven.config.json` is the one file that makes the world yours. The guided setup writes it with you; you can also edit it by hand.
 After any change, run `npm run build:world`. It checks every key, writes `lib/game/catalog.ts` (everything the game knows) and `supabase/seed.sql` (the same, for the database), and writes nothing if something is wrong. Then `npm run test:unit`.
 
-Start a fresh file from any preset with `npm run new:world hedge-witch` (or `moon-coven`, `kitchen-witch`, `sea-witch`, `city-witch`). Add `--force` to replace an existing one.
+A fresh install ships the painted world. Start a fresh file from it with `npm run new:world painted`, or from a drawn preset with `npm run new:world hedge-witch` (or `moon-coven`, `kitchen-witch`, `sea-witch`, `city-witch`). Add `--force` to replace an existing one.
 
 ## Keys
 
@@ -14,6 +14,10 @@ Start a fresh file from any preset with `npm run new:world hedge-witch` (or `moo
 | `coven.for` | no | Who it is for, in your words. A note for you and for Claude; the game does not show it. |
 | `coven.slug` | no | Lowercase letters, digits and hyphens, used in the frame title (`slug.exe`). Made from the name if missing. |
 | `theme` | yes | One of `hedge-witch`, `moon-coven`, `kitchen-witch`, `sea-witch`, `city-witch`. Sets colours, wardrobe, furniture, treasures, treats, witch names and flavour text. |
+| `art.theme` | no | `painted` (painted map and painted rooms) or `flat` (the drawings made in code). With an `art` block and no theme, the world is painted. With no `art` block at all, it is flat, so older files and the five drawn presets keep their look. |
+| `art.map` | no | The map picture: `map-shell` (the bundled painted map) or `mine/your-map.jpg` for your own map in `public/world/mine/`. Defaults to `map-shell`. |
+| `art.hotspots` | no | Where each room's label sits on the map: `{ "room_id": { "x": 50, "y": 20 } }`, in percent across and down the picture (0 to 100). Rooms you leave out get a spot of their own. Open `scripts/place-hotspots.html` in your browser to set them with a click. |
+| `wardrobe` | no | Your own outfit colours, replacing the preset's: 3 to 8 of `{ "name", "hex", "trim" }`, for example `{ "name": "Rosewater", "hex": "#E58FB4", "trim": "#FFF7F4" }`. The name becomes part of each piece's name ("Rosewater Cloak"). |
 | `motif` | no | The frame's family: `analog`, `cyberpunk` or `y2k-blog`. Defaults to the preset's (City Witch is cyberpunk, Kitchen Witch is y2k-blog, the rest analog). |
 | `currency.singular`, `currency.plural` | yes | What your witches earn and spend: `"acorn"` and `"acorns"`. Letters and spaces, up to 24 characters. |
 | `timezone` | no | A time zone name like `Europe/London` or `America/New_York`. Daily gifts and goals reset at midnight there. Defaults to `UTC`. |
@@ -33,6 +37,7 @@ Start a fresh file from any preset with `npm run new:world hedge-witch` (or `moo
 {
   "id": "hearth",
   "name": "The Hearth Room",
+  "painting": "grotto",
   "backdrop": "hearth_kitchen",
   "blurb": "Stew on the fire, gossip at the table.",
   "activities": ["stew", "gossip", { "id": "herbal_tea", "name": "Nettle tea at noon", "flavour": ["{name} drank {their} nettle tea and felt brave."] }]
@@ -41,7 +46,8 @@ Start a fresh file from any preset with `npm run new:world hedge-witch` (or `moo
 
 - `id`: lowercase letters, digits and underscores, starting with a letter. Made from the name if missing. Ceremonies and `moonRoom` point at it.
 - `name`: up to 30 characters. `blurb`: one line, up to 120.
-- `backdrop`: one of the 18 scenes below. Defaults to the preset's backdrop for that position.
+- `painting`: painted theme only. One of the painted rooms below, or `mine/your-picture.jpg` for your own picture in `public/world/mine/` (letters, numbers, dashes and underscores; .jpg, .png or .webp). Rooms without one take the painted rooms in order. `npm run build:world` checks the picture is there.
+- `backdrop`: one of the 18 drawn scenes below, used by the flat theme. Defaults to the preset's backdrop for that position.
 - `activities`: 2 to 6 ids from the library below. Use the object form to rename one or give it your own flavour lines.
 
 ## Flavour lines
@@ -50,7 +56,28 @@ Flavour lines are what the game says after someone does something. They must wor
 `{name}` the witch's name · `{they}` `{them}` `{their}` her pronouns · `{They}` `{Their}` the same, capitalised for the start of a sentence · `{is}` `{has}` after her name · `{are}` after a pronoun ("{They} {are} glowing" reads "She is glowing" or "They are glowing").
 The build refuses any line with "she", "her", "he" or "his" written in.
 
-## Backdrops
+## Painted rooms
+
+| `painting` | What it shows | Spot on the bundled map |
+|---|---|---|
+| `palace` | a canopy bedroom with a moon at the window | top |
+| `cafe` | a tea bar with cakes, lanterns and a sea view | upper left |
+| `grotto` | a candlelit cave with a chandelier and crystal walls | upper right |
+| `lagoon` | a waterfall pouring into a glowing spring | middle |
+| `reef` | an underwater reef of jellyfish lanterns and crystals | lower left |
+| `beach` | a sunset beach with a hammock and a treasure chest | lower right |
+| `pool` | a warm pool under a glass dome | bottom |
+| `moon_deck` | a wooden deck with a telescope under a crescent moon | the clasp |
+| `lounge` | a pink sitting room with books, cushions and a crystal ball | its own spot |
+| `members-cafe` | a second tea bar with a pool behind it | its own spot |
+| `cowork` | a bright studio with desks and a pin board | its own spot |
+| `gym` | a training room with weights and palm windows | its own spot |
+| `sound-bath` | singing bowls, a gong and floor cushions | its own spot |
+| `studio` | a movement studio with mats and arched windows | its own spot |
+
+See them all at `/gallery/scenes` after `npm run gallery`. The paintings are shared under the art licence in `public/world/painted/LICENSE-ART.md`.
+
+## Backdrops (the flat theme)
 
 `cottage_room`, `forest_glade`, `mushroom_ring`, `herb_garden`, `apothecary`, `hearth_kitchen`, `observatory`, `starfield_roof`, `library`, `bath_house`, `pantry`, `tea_room`, `market`, `tide_pool`, `driftwood_shore`, `sea_cave`, `rooftop_garden`, `lantern_lane`.
 See them all, painted in your colours, at `/gallery/scenes` after `npm run gallery`.

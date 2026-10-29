@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Renders every README image from the kit itself: the pocket-coven.exe hero, the motif triptych,
+// Renders every README image from the kit itself: the pocket-coven.exe hero (painted map and room, 1600 x 900), the motif triptych,
 // one room per theme preset, and the tiny pixel badges and dividers. Needs a production build running
 // (scripts/make-readme-images.sh starts one) and Google Chrome or Chromium installed.
 //   node scripts/make-readme-images.mjs [base-url]
@@ -24,15 +24,17 @@ const executablePath = CHROME_PATHS.find((p) => existsSync(p));
 
 const browser = await chromium.launch({ executablePath, headless: true });
 const page = await browser.newPage({ viewport: { width: 1400, height: 1000 }, deviceScaleFactor: 2, reducedMotion: "reduce" });
+// The hero is drawn at its final size (1600 x 900), so it renders at 1x.
+const heroPage = await browser.newPage({ viewport: { width: 1700, height: 1000 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
 
-async function shot(route, file) {
-  await page.goto(`${BASE}${route}`, { waitUntil: "networkidle" });
-  await page.evaluate(() => document.fonts.ready);
-  await page.locator("#shot").screenshot({ path: path.join(OUT, file), animations: "disabled" });
+async function shot(route, file, on = page) {
+  await on.goto(`${BASE}${route}`, { waitUntil: "networkidle" });
+  await on.evaluate(() => document.fonts.ready);
+  await on.locator("#shot").screenshot({ path: path.join(OUT, file), animations: "disabled" });
   process.stdout.write(`  docs/img/${file}\n`);
 }
 
-await shot("/gallery/hero", "hero.png");
+await shot("/gallery/hero", "hero.png", heroPage);
 await shot("/gallery/triptych", "triptych.png");
 for (const id of ["hedge-witch", "moon-coven", "kitchen-witch", "sea-witch", "city-witch"]) await shot(`/gallery/presets/${id}`, `presets/${id}.png`);
 await browser.close();

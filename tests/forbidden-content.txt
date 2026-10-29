@@ -9,7 +9,6 @@ Baby Merwitch
 Thriving Era
 Rocheverse
 seashell
-Kairos
 Owner's Vanity
 
 # her rooms and places
@@ -61,7 +60,8 @@ Sees everything. Says little.
 A classic for a reason
 wider attitude
 
-# people and private identifiers (hashed)
+# people, private places and private identifiers (hashed)
+sha256:752115f45427e30c230603d78fa1bf560bfea9cc378e954dfd1f571540ddc184
 sha256:feab242a7baacaeb2f82898939b6c4b32c528f7c0dce59c5078835b46a0e309d
 sha256:f1ed827790a615542f9bff69afd74917efd3af71d1b5fb9baccdb3cc8f0c0a30
 sha256:0fe613e527c1ac5632c1a38def54f6a9ec523ebc79153c3595ce1fff7c1d756b

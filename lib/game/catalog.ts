@@ -3,39 +3,39 @@
 import type { AchievementDef, ActivityDef, CharacterDef, CovenGoalDef, GameConfig, GiftTreatDef, ItemDef, LocationDef, OracleCardDef, SharedEventDef, World, WorldMeta } from "./types.ts";
 
 export const WORLD: WorldMeta = {
-  "name": "The Hedgerow Coven",
-  "tagline": "A little cottage world at the edge of the wood.",
-  "slug": "the-hedgerow-coven",
-  "preset": "hedge-witch",
+  "name": "The Moonshell Coven",
+  "tagline": "A lantern-lit world tucked inside a shell, open under the real moon.",
+  "slug": "the-moonshell-coven",
+  "preset": "sea-witch",
   "timezone": "UTC",
   "currency": {
-    "singular": "acorn",
-    "plural": "acorns"
+    "singular": "sand dollar",
+    "plural": "sand dollars"
   },
   "palette": {
-    "ground": "#3d4a2f",
-    "groundDeep": "#232c1b",
-    "paper": "#f6f0e1",
-    "ink": "#2b2a1f",
-    "accent": "#7a4e2d",
-    "alt": "#56703c",
-    "mystic": "#6d5a8a",
-    "coin": "#9a6e22",
-    "warn": "#a8433a",
-    "sky": "#c9d8c0",
-    "skyDeep": "#8fa88a",
-    "wall": "#e9dcc0",
-    "wallDeep": "#c9b48f",
-    "floor": "#8a6a45",
-    "wood": "#6b4a2e",
-    "leaf": "#6f8f4a",
-    "leafDeep": "#3f5a2c",
-    "water": "#8fb3a8",
-    "stone": "#a49e8f",
-    "glow": "#f2c76b"
+    "ground": "#50163C",
+    "groundDeep": "#3B1230",
+    "paper": "#FFF7F4",
+    "ink": "#3B1230",
+    "accent": "#C2246E",
+    "alt": "#8A5A1E",
+    "mystic": "#6B4FA0",
+    "coin": "#9A6B1C",
+    "warn": "#B03A3A",
+    "sky": "#C9B6F0",
+    "skyDeep": "#3B2A6B",
+    "wall": "#F6D9E4",
+    "wallDeep": "#E3B3C6",
+    "floor": "#E8C9A8",
+    "wood": "#B8892E",
+    "leaf": "#4F9A6A",
+    "leafDeep": "#2F6A4A",
+    "water": "#5FD3C9",
+    "stone": "#CDB9C4",
+    "glow": "#F7D488"
   },
-  "displayFont": "fraunces",
-  "motif": "analog",
+  "displayFont": "cormorant",
+  "motif": "y2k-blog",
   "chrome": {
     "case": "#50163C",
     "rim": "#E9B949",
@@ -46,28 +46,66 @@ export const WORLD: WorldMeta = {
   },
   "flavour": {
     "moods": {
-      "thriving": "{name} {is} glowing like a lamp in a cottage window.",
-      "happy": "{name} {is} pottering about, humming to the kettle.",
-      "sleepy": "{name}'s eyelids are drooping. The quilt is turned down and waiting.",
-      "hungry": "{name} keeps wandering past the pantry door. Something to eat, please.",
-      "bored": "{name} {is} drumming {their} fingers on the windowsill. Time for an adventure in the wood.",
-      "magical": "{name} {is} fizzing with magic. The dried herbs are swaying on their own.",
-      "offended": "{name} {has} pulled {their} hood right down and gone quiet. A kind word and a warm drink would help."
+      "thriving": "{name} {is} wind-flushed and wild with joy.",
+      "happy": "{name} {is} mending a net on the step, watching the boats.",
+      "sleepy": "{name} keeps yawning at the waves. The hammock is swaying hopefully.",
+      "hungry": "{name} {is} eyeing the chowder pot like a gull eyes a chip.",
+      "bored": "{name} {is} skimming stones and sighing. Time for a swim or a story.",
+      "magical": "{name} {is} humming with sea magic. The tide is listening.",
+      "offended": "{name} {has} turned up {their} collar and walked off down the shore. Give {them} a while and a hot drink."
     },
-    "joined": "{name} has joined the coven. Another chair at the hearth.",
-    "ritualComplete": "The hedge rustled its approval.",
-    "dailyTitle": "Something on the doorstep",
-    "dailyBody": "A basket on the step: today's acorns and a little find from the wood.",
-    "welcome": "The cottage is yours, {name}"
+    "joined": "{name} has joined the coven. The tide brought someone good.",
+    "ritualComplete": "The sea went very quiet, then very loud.",
+    "dailyTitle": "Washed up on the step",
+    "dailyBody": "Waiting by the door at low tide: today's driftstones and a small find from the shore.",
+    "welcome": "The shore is yours, {name}"
   },
-  "startLocation": "cottage"
+  "startLocation": "bedchamber",
+  "art": {
+    "theme": "painted",
+    "map": "/world/painted/map-shell.jpg",
+    "hotspots": {
+      "bedchamber": {
+        "x": 50,
+        "y": 20
+      },
+      "terrace": {
+        "x": 26,
+        "y": 36
+      },
+      "grotto": {
+        "x": 73,
+        "y": 34
+      },
+      "spring": {
+        "x": 51,
+        "y": 50
+      },
+      "reef": {
+        "x": 22,
+        "y": 63
+      },
+      "cove": {
+        "x": 78,
+        "y": 62
+      },
+      "conservatory": {
+        "x": 50,
+        "y": 76
+      },
+      "deck": {
+        "x": 51,
+        "y": 90
+      }
+    }
+  }
 };
 
 export const CHARACTERS: CharacterDef[] = [
   {
-    "id": "bramble",
-    "name": "Bramble",
-    "title": "Keeper of the Kettle",
+    "id": "brine",
+    "name": "Brine",
+    "title": "Keeper of the Tide",
     "pronouns": {
       "subject": "they",
       "object": "them",
@@ -76,7 +114,7 @@ export const CHARACTERS: CharacterDef[] = [
     },
     "young": false,
     "isOwnerCharacter": true,
-    "description": "A witch of The Hedgerow Coven.",
+    "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
       "skin": "#f6dcc8",
@@ -102,13 +140,13 @@ export const CHARACTERS: CharacterDef[] = [
       "neck_moon_pendant",
       "hat_hood",
       "furn_bed",
-      "decor_candles"
+      "decor_lantern"
     ]
   },
   {
-    "id": "fern",
-    "name": "Fern",
-    "title": "Hedge Wanderer",
+    "id": "morwenna",
+    "name": "Morwenna",
+    "title": "Storm Reader",
     "pronouns": {
       "subject": "they",
       "object": "them",
@@ -117,7 +155,7 @@ export const CHARACTERS: CharacterDef[] = [
     },
     "young": false,
     "isOwnerCharacter": false,
-    "description": "A witch of The Hedgerow Coven.",
+    "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
       "skin": "#a8714d",
@@ -125,21 +163,21 @@ export const CHARACTERS: CharacterDef[] = [
       "hairStyle": "bob",
       "eyeColor": "#3f6a50",
       "freckles": false,
-      "familiarColour": "ginger",
+      "familiarColour": "moss",
       "familiarAcc": "bow"
     },
     "equipped": {
       "outfit": "outfit_pinafore",
       "hat": "hat_wide_brim",
       "boots": "boots_ankle",
-      "companion": "fam_toad",
+      "companion": "fam_owl",
       "hair_acc": "hair_sprig"
     },
     "starterItems": [
       "outfit_pinafore",
       "hat_wide_brim",
       "boots_ankle",
-      "fam_toad",
+      "fam_owl",
       "hair_sprig",
       "hat_beret",
       "furn_armchair",
@@ -147,9 +185,9 @@ export const CHARACTERS: CharacterDef[] = [
     ]
   },
   {
-    "id": "sorrel",
-    "name": "Sorrel",
-    "title": "Herb Whisperer",
+    "id": "isla",
+    "name": "Isla",
+    "title": "Rock Pool Scholar",
     "pronouns": {
       "subject": "they",
       "object": "them",
@@ -158,7 +196,7 @@ export const CHARACTERS: CharacterDef[] = [
     },
     "young": false,
     "isOwnerCharacter": false,
-    "description": "A witch of The Hedgerow Coven.",
+    "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
       "skin": "#f1cfb4",
@@ -166,31 +204,31 @@ export const CHARACTERS: CharacterDef[] = [
       "hairStyle": "straight_long",
       "eyeColor": "#3b5a8f",
       "freckles": true,
-      "familiarColour": "moss",
+      "familiarColour": "dusk",
       "familiarAcc": "hat"
     },
     "equipped": {
       "outfit": "outfit_wrap_dress",
       "hat": "hat_hood",
       "boots": "boots_buckled",
-      "companion": "fam_owl",
+      "companion": "fam_moth",
       "necklace": "neck_acorn"
     },
     "starterItems": [
       "outfit_wrap_dress",
       "hat_hood",
       "boots_buckled",
-      "fam_owl",
+      "fam_moth",
       "neck_acorn",
       "hat_flower_crown",
-      "furn_bookcase",
+      "furn_table",
       "decor_jars"
     ]
   },
   {
-    "id": "wren",
-    "name": "Wren",
-    "title": "Moss Listener",
+    "id": "nerys",
+    "name": "Nerys",
+    "title": "Net Mender",
     "pronouns": {
       "subject": "they",
       "object": "them",
@@ -199,7 +237,7 @@ export const CHARACTERS: CharacterDef[] = [
     },
     "young": false,
     "isOwnerCharacter": false,
-    "description": "A witch of The Hedgerow Coven.",
+    "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
       "skin": "#e9b993",
@@ -214,22 +252,22 @@ export const CHARACTERS: CharacterDef[] = [
       "outfit": "outfit_gown",
       "hat": "hat_beret",
       "boots": "boots_slippers",
-      "companion": "fam_rabbit"
+      "companion": "fam_toad"
     },
     "starterItems": [
       "outfit_gown",
       "hat_beret",
       "boots_slippers",
-      "fam_rabbit",
+      "fam_toad",
       "hat_pointed",
-      "furn_table",
-      "decor_wreath"
+      "furn_bookcase",
+      "decor_garland"
     ]
   },
   {
-    "id": "hazel",
-    "name": "Hazel",
-    "title": "Toadstool Scholar",
+    "id": "tamsin",
+    "name": "Tamsin",
+    "title": "Wind Listener",
     "pronouns": {
       "subject": "they",
       "object": "them",
@@ -238,7 +276,7 @@ export const CHARACTERS: CharacterDef[] = [
     },
     "young": false,
     "isOwnerCharacter": false,
-    "description": "A witch of The Hedgerow Coven.",
+    "description": "A witch of The Moonshell Coven.",
     "personality": "",
     "look": {
       "skin": "#7d4f33",
@@ -246,14 +284,14 @@ export const CHARACTERS: CharacterDef[] = [
       "hairStyle": "braid",
       "eyeColor": "#4a3a6a",
       "freckles": false,
-      "familiarColour": "dusk",
+      "familiarColour": "ginger",
       "familiarAcc": "bow"
     },
     "equipped": {
       "outfit": "outfit_cardigan",
       "hat": "hat_flower_crown",
       "boots": "boots_lace_up",
-      "companion": "fam_moth",
+      "companion": "fam_rabbit",
       "necklace": "neck_moon_pendant",
       "hair_acc": "hair_ribbon"
     },
@@ -261,12 +299,12 @@ export const CHARACTERS: CharacterDef[] = [
       "outfit_cardigan",
       "hat_flower_crown",
       "boots_lace_up",
-      "fam_moth",
+      "fam_rabbit",
       "neck_moon_pendant",
       "hair_ribbon",
       "hat_wide_brim",
-      "furn_cauldron",
-      "decor_lantern"
+      "furn_lamp",
+      "decor_candles"
     ]
   }
 ];
@@ -274,7 +312,7 @@ export const CHARACTERS: CharacterDef[] = [
 export const ITEMS: ItemDef[] = [
   {
     "id": "outfit_cloak",
-    "name": "Moss Cloak",
+    "name": "Rosewater Cloak",
     "category": "outfit",
     "slot": "outfit",
     "price": 120,
@@ -283,14 +321,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "cloak",
       "colours": [
-        "#5f7a43",
-        "#e9dcc0"
+        "#E58FB4",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "outfit_pinafore",
-    "name": "Bramble Pinafore",
+    "name": "Plum Pinafore",
     "category": "outfit",
     "slot": "outfit",
     "price": 70,
@@ -299,14 +337,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "pinafore",
       "colours": [
-        "#6b3a4a",
-        "#d9b48f"
+        "#682047",
+        "#E9B949"
       ]
     }
   },
   {
     "id": "outfit_wrap_dress",
-    "name": "Bark Wrap Dress",
+    "name": "Candlelight Wrap Dress",
     "category": "outfit",
     "slot": "outfit",
     "price": 110,
@@ -315,14 +353,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "wrap_dress",
       "colours": [
-        "#6b4a2e",
-        "#e0c9a0"
+        "#E9B949",
+        "#682047"
       ]
     }
   },
   {
     "id": "outfit_gown",
-    "name": "Fern Gown",
+    "name": "Lilac Gown",
     "category": "outfit",
     "slot": "outfit",
     "price": 180,
@@ -331,14 +369,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "gown",
       "colours": [
-        "#8aa35a",
-        "#3f5a2c"
+        "#9C86D9",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "outfit_cardigan",
-    "name": "Heather Cardigan Set",
+    "name": "Seaglass Cardigan Set",
     "category": "outfit",
     "slot": "outfit",
     "price": 80,
@@ -347,14 +385,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "cardigan",
       "colours": [
-        "#8a6aa0",
-        "#efe3f0"
+        "#3FB8B0",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "outfit_apron_dress",
-    "name": "Toadstool Apron Dress",
+    "name": "Blush Apron Dress",
     "category": "outfit",
     "slot": "outfit",
     "price": 90,
@@ -363,14 +401,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "apron_dress",
       "colours": [
-        "#b04a3a",
-        "#f6efe0"
+        "#F6C1D6",
+        "#C2246E"
       ]
     }
   },
   {
     "id": "boots_lace_up",
-    "name": "Bark Lace-up Boots",
+    "name": "Candlelight Lace-up Boots",
     "category": "boots",
     "slot": "boots",
     "price": 70,
@@ -379,14 +417,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "lace_up",
       "colours": [
-        "#6b4a2e",
-        "#e0c9a0"
+        "#E9B949",
+        "#682047"
       ]
     }
   },
   {
     "id": "boots_ankle",
-    "name": "Fern Ankle Boots",
+    "name": "Lilac Ankle Boots",
     "category": "boots",
     "slot": "boots",
     "price": 60,
@@ -395,14 +433,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "ankle",
       "colours": [
-        "#8aa35a",
-        "#3f5a2c"
+        "#9C86D9",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "boots_buckled",
-    "name": "Heather Buckled Boots",
+    "name": "Seaglass Buckled Boots",
     "category": "boots",
     "slot": "boots",
     "price": 90,
@@ -411,14 +449,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "buckled",
       "colours": [
-        "#8a6aa0",
-        "#efe3f0"
+        "#3FB8B0",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "boots_slippers",
-    "name": "Toadstool Felt Slippers",
+    "name": "Blush Felt Slippers",
     "category": "boots",
     "slot": "boots",
     "price": 40,
@@ -427,14 +465,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "slippers",
       "colours": [
-        "#b04a3a",
-        "#f6efe0"
+        "#F6C1D6",
+        "#C2246E"
       ]
     }
   },
   {
     "id": "hat_pointed",
-    "name": "Bramble Pointed Hat",
+    "name": "Plum Pointed Hat",
     "category": "hat",
     "slot": "hat",
     "price": 70,
@@ -443,14 +481,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "pointed",
       "colours": [
-        "#6b3a4a",
-        "#d9b48f"
+        "#682047",
+        "#E9B949"
       ]
     }
   },
   {
     "id": "hat_wide_brim",
-    "name": "Bark Wide-brim Hat",
+    "name": "Candlelight Wide-brim Hat",
     "category": "hat",
     "slot": "hat",
     "price": 90,
@@ -459,14 +497,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "wide_brim",
       "colours": [
-        "#6b4a2e",
-        "#e0c9a0"
+        "#E9B949",
+        "#682047"
       ]
     }
   },
   {
     "id": "hat_hood",
-    "name": "Fern Hood",
+    "name": "Lilac Hood",
     "category": "hat",
     "slot": "hat",
     "price": 50,
@@ -475,14 +513,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "hood",
       "colours": [
-        "#8aa35a",
-        "#3f5a2c"
+        "#9C86D9",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "hat_beret",
-    "name": "Heather Beret",
+    "name": "Seaglass Beret",
     "category": "hat",
     "slot": "hat",
     "price": 45,
@@ -491,14 +529,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "beret",
       "colours": [
-        "#8a6aa0",
-        "#efe3f0"
+        "#3FB8B0",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "hat_flower_crown",
-    "name": "Toadstool Crown",
+    "name": "Blush Crown",
     "category": "hat",
     "slot": "hat",
     "price": 80,
@@ -507,14 +545,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "flower_crown",
       "colours": [
-        "#b04a3a",
-        "#f6efe0"
+        "#F6C1D6",
+        "#C2246E"
       ]
     }
   },
   {
     "id": "neck_moon_pendant",
-    "name": "Fern Moon Pendant",
+    "name": "Lilac Moon Pendant",
     "category": "jewellery",
     "slot": "necklace",
     "price": 80,
@@ -523,14 +561,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "moon_pendant",
       "colours": [
-        "#b8862f",
-        "#8aa35a"
+        "#b39a6a",
+        "#9C86D9"
       ]
     }
   },
   {
     "id": "neck_crystal",
-    "name": "Heather Crystal Point",
+    "name": "Seaglass Crystal Point",
     "category": "jewellery",
     "slot": "necklace",
     "price": 90,
@@ -539,14 +577,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "crystal",
       "colours": [
-        "#b8862f",
-        "#8a6aa0"
+        "#b39a6a",
+        "#3FB8B0"
       ]
     }
   },
   {
     "id": "neck_acorn",
-    "name": "Toadstool Acorn Locket",
+    "name": "Blush Acorn Locket",
     "category": "jewellery",
     "slot": "necklace",
     "price": 50,
@@ -555,14 +593,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "acorn",
       "colours": [
-        "#b8862f",
-        "#b04a3a"
+        "#b39a6a",
+        "#F6C1D6"
       ]
     }
   },
   {
     "id": "neck_key",
-    "name": "Moss Key Charm",
+    "name": "Rosewater Key Charm",
     "category": "jewellery",
     "slot": "necklace",
     "price": 60,
@@ -571,14 +609,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "key",
       "colours": [
-        "#b8862f",
-        "#5f7a43"
+        "#b39a6a",
+        "#E58FB4"
       ]
     }
   },
   {
     "id": "ear_hoops",
-    "name": "Heather Hoops",
+    "name": "Seaglass Hoops",
     "category": "jewellery",
     "slot": "earrings",
     "price": 40,
@@ -587,14 +625,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "hoops",
       "colours": [
-        "#b8862f",
-        "#8a6aa0"
+        "#b39a6a",
+        "#3FB8B0"
       ]
     }
   },
   {
     "id": "ear_stars",
-    "name": "Toadstool Star Studs",
+    "name": "Blush Star Studs",
     "category": "jewellery",
     "slot": "earrings",
     "price": 45,
@@ -603,14 +641,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "stars",
       "colours": [
-        "#b8862f",
-        "#b04a3a"
+        "#b39a6a",
+        "#F6C1D6"
       ]
     }
   },
   {
     "id": "ear_drops",
-    "name": "Moss Drops",
+    "name": "Rosewater Drops",
     "category": "jewellery",
     "slot": "earrings",
     "price": 50,
@@ -619,14 +657,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "drops",
       "colours": [
-        "#b8862f",
-        "#5f7a43"
+        "#b39a6a",
+        "#E58FB4"
       ]
     }
   },
   {
     "id": "ear_leaves",
-    "name": "Bramble Leaf Dangles",
+    "name": "Plum Leaf Dangles",
     "category": "jewellery",
     "slot": "earrings",
     "price": 45,
@@ -635,14 +673,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "leaves",
       "colours": [
-        "#b8862f",
-        "#6b3a4a"
+        "#b39a6a",
+        "#682047"
       ]
     }
   },
   {
     "id": "hair_ribbon",
-    "name": "Toadstool Ribbon",
+    "name": "Blush Ribbon",
     "category": "hair_acc",
     "slot": "hair_acc",
     "price": 30,
@@ -651,14 +689,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "ribbon",
       "colours": [
-        "#b04a3a",
-        "#f6efe0"
+        "#F6C1D6",
+        "#C2246E"
       ]
     }
   },
   {
     "id": "hair_sprig",
-    "name": "Moss Sprig",
+    "name": "Rosewater Sprig",
     "category": "hair_acc",
     "slot": "hair_acc",
     "price": 30,
@@ -667,14 +705,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "sprig",
       "colours": [
-        "#5f7a43",
-        "#e9dcc0"
+        "#E58FB4",
+        "#FFF7F4"
       ]
     }
   },
   {
     "id": "hair_clip",
-    "name": "Bramble Moon Clip",
+    "name": "Plum Moon Clip",
     "category": "hair_acc",
     "slot": "hair_acc",
     "price": 35,
@@ -683,14 +721,14 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "clip",
       "colours": [
-        "#6b3a4a",
-        "#d9b48f"
+        "#682047",
+        "#E9B949"
       ]
     }
   },
   {
     "id": "hair_pins",
-    "name": "Bark Star Pins",
+    "name": "Candlelight Star Pins",
     "category": "hair_acc",
     "slot": "hair_acc",
     "price": 40,
@@ -699,8 +737,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "pins",
       "colours": [
-        "#6b4a2e",
-        "#e0c9a0"
+        "#E9B949",
+        "#682047"
       ]
     }
   },
@@ -718,19 +756,6 @@ export const ITEMS: ItemDef[] = [
     }
   },
   {
-    "id": "fam_toad",
-    "name": "Toad",
-    "category": "companion",
-    "slot": "companion",
-    "price": 140,
-    "rarity": "common",
-    "description": "Golden-eyed and patient. Knows where the rain is coming from.",
-    "art": {
-      "style": "toad",
-      "colours": []
-    }
-  },
-  {
     "id": "fam_owl",
     "name": "Owl",
     "category": "companion",
@@ -744,19 +769,6 @@ export const ITEMS: ItemDef[] = [
     }
   },
   {
-    "id": "fam_rabbit",
-    "name": "Rabbit",
-    "category": "companion",
-    "slot": "companion",
-    "price": 160,
-    "rarity": "common",
-    "description": "Thumps once for yes, twice for snacks.",
-    "art": {
-      "style": "rabbit",
-      "colours": []
-    }
-  },
-  {
     "id": "fam_moth",
     "name": "Moth",
     "category": "companion",
@@ -766,6 +778,32 @@ export const ITEMS: ItemDef[] = [
     "description": "Dusty velvet wings. Follows you to every lamp.",
     "art": {
       "style": "moth",
+      "colours": []
+    }
+  },
+  {
+    "id": "fam_toad",
+    "name": "Toad",
+    "category": "companion",
+    "slot": "companion",
+    "price": 140,
+    "rarity": "common",
+    "description": "Golden-eyed and patient. Knows where the rain is coming from.",
+    "art": {
+      "style": "toad",
+      "colours": []
+    }
+  },
+  {
+    "id": "fam_rabbit",
+    "name": "Rabbit",
+    "category": "companion",
+    "slot": "companion",
+    "price": 160,
+    "rarity": "common",
+    "description": "Thumps once for yes, twice for snacks.",
+    "art": {
+      "style": "rabbit",
       "colours": []
     }
   },
@@ -784,359 +822,359 @@ export const ITEMS: ItemDef[] = [
   },
   {
     "id": "furn_bed",
-    "name": "Patchwork Bed",
+    "name": "Hammock Bed",
     "category": "furniture",
-    "price": 150,
+    "price": 130,
     "placeable": true,
     "rarity": "rare",
-    "description": "Six quilts deep. Nobody gets up on time.",
+    "description": "Rocks you to sleep like a small boat.",
     "art": {
       "style": "bed",
       "colours": [
-        "#6b4a2e",
-        "#5f7a43",
-        "#f2c76b"
+        "#B8892E",
+        "#E58FB4",
+        "#F7D488"
       ]
     }
   },
   {
     "id": "furn_armchair",
-    "name": "Mossy Armchair",
+    "name": "Driftwood Chair",
     "category": "furniture",
-    "price": 70,
+    "price": 75,
     "placeable": true,
     "rarity": "common",
-    "description": "Sit down. Stay a while. Possibly forever.",
+    "description": "Every curve shaped by the sea.",
     "art": {
       "style": "armchair",
       "colours": [
-        "#6b4a2e",
-        "#6b3a4a",
-        "#f2c76b"
-      ]
-    }
-  },
-  {
-    "id": "furn_bookcase",
-    "name": "Crooked Bookcase",
-    "category": "furniture",
-    "price": 90,
-    "placeable": true,
-    "rarity": "common",
-    "description": "Spellbooks, seed catalogues and a jar of buttons.",
-    "art": {
-      "style": "bookcase",
-      "colours": [
-        "#6b4a2e",
-        "#6b4a2e",
-        "#f2c76b"
+        "#B8892E",
+        "#682047",
+        "#F7D488"
       ]
     }
   },
   {
     "id": "furn_table",
-    "name": "Oak Table",
+    "name": "Sea Chest Table",
     "category": "furniture",
-    "price": 80,
+    "price": 90,
     "placeable": true,
     "rarity": "common",
-    "description": "Ring marks from a hundred teapots.",
+    "description": "Smells of tar and old maps.",
     "art": {
       "style": "table",
       "colours": [
-        "#6b4a2e",
-        "#8aa35a",
-        "#f2c76b"
+        "#B8892E",
+        "#E9B949",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "furn_cauldron",
-    "name": "Iron Cauldron",
+    "id": "furn_bookcase",
+    "name": "Chart Shelf",
     "category": "furniture",
-    "price": 130,
+    "price": 95,
     "placeable": true,
-    "rarity": "rare",
-    "description": "Bubbles when it is happy.",
+    "rarity": "common",
+    "description": "Tide tables, sea stories, one cookbook.",
     "art": {
-      "style": "cauldron",
+      "style": "bookcase",
       "colours": [
-        "#6b4a2e",
-        "#8a6aa0",
-        "#f2c76b"
+        "#B8892E",
+        "#9C86D9",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "furn_dresser",
-    "name": "Painted Dresser",
+    "id": "furn_lamp",
+    "name": "Storm Lamp",
+    "category": "furniture",
+    "price": 70,
+    "placeable": true,
+    "rarity": "common",
+    "description": "Never blows out. Has tried.",
+    "art": {
+      "style": "lamp",
+      "colours": [
+        "#B8892E",
+        "#3FB8B0",
+        "#F7D488"
+      ]
+    }
+  },
+  {
+    "id": "furn_bench",
+    "name": "Boat Bench",
     "category": "furniture",
     "price": 110,
     "placeable": true,
-    "rarity": "common",
-    "description": "Every drawer sticks a little differently.",
+    "rarity": "rare",
+    "description": "Half a rowing boat, turned into a seat.",
     "art": {
-      "style": "dresser",
+      "style": "bench",
       "colours": [
-        "#6b4a2e",
-        "#b04a3a",
-        "#f2c76b"
-      ]
-    }
-  },
-  {
-    "id": "decor_candles",
-    "name": "Beeswax Candles",
-    "category": "decor",
-    "price": 35,
-    "placeable": true,
-    "rarity": "common",
-    "description": "Smell faintly of summer.",
-    "art": {
-      "style": "candles",
-      "colours": [
-        "#6b4a2e",
-        "#5f7a43",
-        "#f2c76b"
-      ]
-    }
-  },
-  {
-    "id": "decor_plant",
-    "name": "Potted Fern",
-    "category": "decor",
-    "price": 40,
-    "placeable": true,
-    "rarity": "common",
-    "description": "Thrives on neglect and compliments.",
-    "art": {
-      "style": "plant",
-      "colours": [
-        "#6b4a2e",
-        "#6b3a4a",
-        "#f2c76b"
-      ]
-    }
-  },
-  {
-    "id": "decor_jars",
-    "name": "Herb Jars",
-    "category": "decor",
-    "price": 45,
-    "placeable": true,
-    "rarity": "common",
-    "description": "Labelled in three different handwritings.",
-    "art": {
-      "style": "jars",
-      "colours": [
-        "#6b4a2e",
-        "#6b4a2e",
-        "#f2c76b"
-      ]
-    }
-  },
-  {
-    "id": "decor_wreath",
-    "name": "Ivy Wreath",
-    "category": "decor",
-    "price": 55,
-    "placeable": true,
-    "rarity": "common",
-    "description": "Hung on the door to keep the gossip in.",
-    "art": {
-      "style": "wreath",
-      "colours": [
-        "#6b4a2e",
-        "#8aa35a",
-        "#f2c76b"
+        "#B8892E",
+        "#F6C1D6",
+        "#F7D488"
       ]
     }
   },
   {
     "id": "decor_lantern",
-    "name": "Toadstool Lantern",
-    "category": "decor",
-    "price": 65,
-    "placeable": true,
-    "rarity": "rare",
-    "description": "A soft red glow with white spots.",
-    "art": {
-      "style": "lantern",
-      "colours": [
-        "#6b4a2e",
-        "#8a6aa0",
-        "#f2c76b"
-      ]
-    }
-  },
-  {
-    "id": "decor_broom",
-    "name": "Birch Broom",
+    "name": "Glass Float Lamp",
     "category": "decor",
     "price": 60,
     "placeable": true,
     "rarity": "common",
-    "description": "Sweeps the floor and, on good nights, the sky.",
+    "description": "A fishing float with a candle inside.",
     "art": {
-      "style": "broom",
+      "style": "lantern",
       "colours": [
-        "#6b4a2e",
-        "#b04a3a",
-        "#f2c76b"
+        "#B8892E",
+        "#E58FB4",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "col_lucky_acorn",
-    "name": "Lucky Acorn",
-    "category": "collectible",
+    "id": "decor_plant",
+    "name": "Sea Holly Pot",
+    "category": "decor",
+    "price": 40,
     "placeable": true,
     "rarity": "common",
-    "description": "Fat, glossy and quietly smug.",
+    "description": "Spiky, silvery, unbothered by salt.",
     "art": {
-      "style": "acorn",
+      "style": "plant",
       "colours": [
-        "#9a6e22"
+        "#B8892E",
+        "#682047",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "col_jay_feather",
-    "name": "Jay Feather",
+    "id": "decor_jars",
+    "name": "Storm Glass",
+    "category": "decor",
+    "price": 85,
+    "placeable": true,
+    "rarity": "rare",
+    "description": "The crystals inside forecast the weather.",
+    "art": {
+      "style": "jars",
+      "colours": [
+        "#B8892E",
+        "#E9B949",
+        "#F7D488"
+      ]
+    }
+  },
+  {
+    "id": "decor_garland",
+    "name": "Rope Garland",
+    "category": "decor",
+    "price": 35,
+    "placeable": true,
+    "rarity": "common",
+    "description": "Knots tied by every witch in the coven.",
+    "art": {
+      "style": "garland",
+      "colours": [
+        "#B8892E",
+        "#9C86D9",
+        "#F7D488"
+      ]
+    }
+  },
+  {
+    "id": "decor_candles",
+    "name": "Tallow Candles",
+    "category": "decor",
+    "price": 30,
+    "placeable": true,
+    "rarity": "common",
+    "description": "Smoky, honest light.",
+    "art": {
+      "style": "candles",
+      "colours": [
+        "#B8892E",
+        "#3FB8B0",
+        "#F7D488"
+      ]
+    }
+  },
+  {
+    "id": "decor_mirror",
+    "name": "Porthole Mirror",
+    "category": "decor",
+    "price": 75,
+    "placeable": true,
+    "rarity": "common",
+    "description": "Brass rim, slightly green.",
+    "art": {
+      "style": "mirror",
+      "colours": [
+        "#B8892E",
+        "#F6C1D6",
+        "#F7D488"
+      ]
+    }
+  },
+  {
+    "id": "col_kelp_ribbon",
+    "name": "Kelp Ribbon",
     "category": "collectible",
     "placeable": true,
     "rarity": "common",
-    "description": "A flash of blue from the hedge.",
+    "description": "Long, glossy, smells of the deep.",
+    "art": {
+      "style": "sprig",
+      "colours": [
+        "#4f8a70"
+      ]
+    }
+  },
+  {
+    "id": "col_gull_feather",
+    "name": "Gull Feather",
+    "category": "collectible",
+    "placeable": true,
+    "rarity": "common",
+    "description": "Taken in fair trade for a chip.",
     "art": {
       "style": "feather",
       "colours": [
-        "#4f7fb3"
+        "#dfe4e2"
       ]
     }
   },
   {
-    "id": "col_golden_oak_leaf",
-    "name": "Golden Oak Leaf",
+    "id": "col_smooth_pebble",
+    "name": "Smooth Pebble",
     "category": "collectible",
     "placeable": true,
     "rarity": "common",
-    "description": "Pressed flat. Still warm somehow.",
-    "art": {
-      "style": "leaf",
-      "colours": [
-        "#c9952f"
-      ]
-    }
-  },
-  {
-    "id": "col_rosehip",
-    "name": "Rosehip",
-    "category": "collectible",
-    "placeable": true,
-    "rarity": "common",
-    "description": "Good for tea, better for luck.",
-    "art": {
-      "style": "berry",
-      "colours": [
-        "#b04a3a"
-      ]
-    }
-  },
-  {
-    "id": "col_moss_agate",
-    "name": "Moss Agate",
-    "category": "collectible",
-    "placeable": true,
-    "rarity": "common",
-    "description": "A whole forest frozen in stone.",
-    "art": {
-      "style": "crystal",
-      "colours": [
-        "#6f8f4a"
-      ]
-    }
-  },
-  {
-    "id": "col_hag_stone",
-    "name": "Hag Stone",
-    "category": "collectible",
-    "placeable": true,
-    "rarity": "rare",
-    "description": "Look through the hole. See true things.",
+    "description": "Worn perfect by a thousand tides.",
     "art": {
       "style": "stone",
       "colours": [
-        "#a49e8f"
+        "#8a9a96"
       ]
     }
   },
   {
-    "id": "col_fairy_ring_cap",
-    "name": "Fairy Ring Cap",
+    "id": "col_fishing_float",
+    "name": "Fishing Float",
     "category": "collectible",
     "placeable": true,
     "rarity": "common",
-    "description": "Do not eat. Do admire.",
+    "description": "Green glass ball, escaped from a net.",
     "art": {
-      "style": "mushroom",
+      "style": "glass",
       "colours": [
-        "#d9643a"
+        "#5aa39a"
       ]
     }
   },
   {
-    "id": "col_old_iron_key",
-    "name": "Old Iron Key",
+    "id": "col_amber_bead",
+    "name": "Amber Bead",
+    "category": "collectible",
+    "placeable": true,
+    "rarity": "common",
+    "description": "Old sunlight, washed ashore.",
+    "art": {
+      "style": "crystal",
+      "colours": [
+        "#d9973a"
+      ]
+    }
+  },
+  {
+    "id": "col_old_coin",
+    "name": "Old Coin",
+    "category": "collectible",
+    "placeable": true,
+    "rarity": "rare",
+    "description": "From a ship that never arrived.",
+    "art": {
+      "style": "coin",
+      "colours": [
+        "#b39a6a"
+      ]
+    }
+  },
+  {
+    "id": "col_message_bottle",
+    "name": "Message Bottle",
+    "category": "collectible",
+    "placeable": true,
+    "rarity": "common",
+    "description": "The note inside is just a recipe.",
+    "art": {
+      "style": "bottle",
+      "colours": [
+        "#6fa39a"
+      ]
+    }
+  },
+  {
+    "id": "col_ship_s_key",
+    "name": "Ship's Key",
     "category": "collectible",
     "placeable": true,
     "rarity": "mythic",
-    "description": "Opens a door nobody has found yet.",
+    "description": "Opens a cabin somewhere under the waves.",
     "art": {
       "style": "key",
       "colours": [
-        "#5a5048"
+        "#7a6a4a"
       ]
     }
   },
   {
     "id": "col_full_moon",
-    "name": "Moon-silvered Acorn",
+    "name": "Moon Tide Stone",
     "category": "collectible",
     "placeable": true,
     "rarity": "mythic",
-    "description": "Only falls on a full moon. Glows faintly.",
+    "description": "Only washes up on a full-moon tide.",
     "art": {
       "style": "moonstone",
       "colours": [
-        "#dfe4ef"
+        "#dfe8ea"
       ]
     }
   },
   {
     "id": "col_new_moon",
-    "name": "Dark Moon Seed",
+    "name": "Deep Water Glass",
     "category": "collectible",
     "placeable": true,
     "rarity": "mythic",
-    "description": "Plant an intention. See what grows.",
+    "description": "Dark as the sea on a new moon night.",
     "art": {
-      "style": "stone",
+      "style": "glass",
       "colours": [
-        "#3a3550"
+        "#1f4a4f"
       ]
     }
   },
   {
     "id": "col_goal_charm",
-    "name": "Hedge Charm",
+    "name": "Sea Charm",
     "category": "collectible",
     "placeable": true,
     "rarity": "mythic",
-    "description": "A twist of ivy, a bead per witch. Earned together.",
+    "description": "A knot per witch, tied in one rope.",
     "art": {
       "style": "charm",
       "colours": [
-        "#9a6e22"
+        "#b39a6a"
       ]
     }
   },
@@ -1155,7 +1193,7 @@ export const ITEMS: ItemDef[] = [
       "style": "pumpkin",
       "colours": [
         "#c9752f",
-        "#f2c76b"
+        "#F7D488"
       ]
     }
   },
@@ -1173,8 +1211,8 @@ export const ITEMS: ItemDef[] = [
     "art": {
       "style": "star_tree",
       "colours": [
-        "#3f5a2c",
-        "#f2c76b"
+        "#2F6A4A",
+        "#F7D488"
       ]
     }
   }
@@ -1182,47 +1220,67 @@ export const ITEMS: ItemDef[] = [
 
 export const LOCATIONS: LocationDef[] = [
   {
-    "id": "cottage",
-    "name": "Thornback Cottage",
-    "blurb": "Your bedroom: patchwork quilt, a window full of ivy.",
-    "backdrop": "cottage_room"
+    "id": "bedchamber",
+    "name": "Starlit Bedchamber",
+    "blurb": "A canopy bed, a moon at the window, a familiar on every pillow.",
+    "backdrop": "cottage_room",
+    "painting": "/world/painted/palace.jpg"
   },
   {
-    "id": "glade",
-    "name": "The Mossy Glade",
-    "blurb": "Ferns, birdsong and paths that move when you are not looking.",
-    "backdrop": "forest_glade"
+    "id": "terrace",
+    "name": "Tea Leaf Terrace",
+    "blurb": "Tea under the vines, cakes on the stand, leaves to read after.",
+    "backdrop": "tea_room",
+    "painting": "/world/painted/cafe.jpg"
   },
   {
-    "id": "ring",
-    "name": "Toadstool Ring",
-    "blurb": "Where the coven gathers when the moon is up.",
-    "backdrop": "mushroom_ring"
+    "id": "grotto",
+    "name": "Candlelit Grotto",
+    "blurb": "Crystals in the walls and a chandelier dripping light.",
+    "backdrop": "sea_cave",
+    "painting": "/world/painted/grotto.jpg"
   },
   {
-    "id": "garden",
-    "name": "The Physic Garden",
-    "blurb": "Rosemary, feverfew, and one very bossy marrow.",
-    "backdrop": "herb_garden"
+    "id": "spring",
+    "name": "Wishing Spring",
+    "blurb": "A waterfall pours into a pool that grants small wishes.",
+    "backdrop": "tide_pool",
+    "painting": "/world/painted/lagoon.jpg"
   },
   {
-    "id": "apothecary",
-    "name": "Hollow Oak Apothecary",
-    "blurb": "Jars, labels, and a shop counter inside an old oak.",
-    "backdrop": "apothecary"
+    "id": "reef",
+    "name": "Glimmer Reef",
+    "blurb": "Jellyfish lanterns drift over coral and crystal.",
+    "backdrop": "sea_cave",
+    "painting": "/world/painted/reef.jpg"
   },
   {
-    "id": "hearth",
-    "name": "The Hearth Room",
-    "blurb": "Stew on the fire, gossip at the table.",
-    "backdrop": "hearth_kitchen"
+    "id": "cove",
+    "name": "Hammock Cove",
+    "blurb": "A hammock, a half-buried chest, and a stall for trading finds.",
+    "backdrop": "driftwood_shore",
+    "painting": "/world/painted/beach.jpg"
+  },
+  {
+    "id": "conservatory",
+    "name": "Glass Conservatory",
+    "blurb": "Warm water under a glass dome. Bring a book.",
+    "backdrop": "bath_house",
+    "painting": "/world/painted/pool.jpg"
+  },
+  {
+    "id": "deck",
+    "name": "Stargazer's Deck",
+    "blurb": "A telescope, a rug and the whole sky.",
+    "backdrop": "starfield_roof",
+    "painting": "/world/painted/moon_deck.jpg"
   }
 ];
 
 export const ACTIVITIES: ActivityDef[] = [
   {
-    "id": "cottage_nap",
-    "locationId": "cottage",
+    "id": "bedchamber_nap",
+    "locationId": "bedchamber",
     "name": "Nap under the quilt",
     "category": "rest",
     "effects": {
@@ -1243,31 +1301,30 @@ export const ACTIVITIES: ActivityDef[] = [
     ]
   },
   {
-    "id": "cottage_herbal_tea",
-    "locationId": "cottage",
-    "name": "Brew a pot of herbal tea",
-    "category": "nourish",
+    "id": "bedchamber_daydream",
+    "locationId": "bedchamber",
+    "name": "Daydream by the window",
+    "category": "rest",
     "effects": {
-      "nourishment": 15,
-      "joy": 15,
-      "energy": 10
+      "energy": 15,
+      "joy": 10
     },
-    "coins": -8,
-    "xp": 4,
-    "cooldownSeconds": 180,
-    "animation": "drink",
+    "coins": 0,
+    "xp": 3,
+    "cooldownSeconds": 300,
+    "animation": "sleep",
     "spot": {
       "x": 74,
       "y": 58
     },
     "flavour": [
-      "{name} let the tea steep exactly as long as the kettle suggested.",
-      "Two cups in, {name} could hear {their} own thoughts again."
+      "{name} watched a raindrop race another raindrop. {Their} favourite won.",
+      "{name} gazed out of the window and planned nothing at all, on purpose."
     ]
   },
   {
-    "id": "cottage_cuddle",
-    "locationId": "cottage",
+    "id": "bedchamber_cuddle",
+    "locationId": "bedchamber",
     "name": "Cuddle the familiar",
     "category": "rest",
     "effects": {
@@ -1288,8 +1345,257 @@ export const ACTIVITIES: ActivityDef[] = [
     ]
   },
   {
-    "id": "glade_forage",
-    "locationId": "glade",
+    "id": "terrace_herbal_tea",
+    "locationId": "terrace",
+    "name": "Brew a pot of herbal tea",
+    "category": "nourish",
+    "effects": {
+      "nourishment": 15,
+      "joy": 15,
+      "energy": 10
+    },
+    "coins": -8,
+    "xp": 4,
+    "cooldownSeconds": 180,
+    "animation": "drink",
+    "spot": {
+      "x": 24,
+      "y": 60
+    },
+    "flavour": [
+      "{name} let the tea steep exactly as long as the kettle suggested.",
+      "Two cups in, {name} could hear {their} own thoughts again."
+    ]
+  },
+  {
+    "id": "terrace_honey_cake",
+    "locationId": "terrace",
+    "name": "Nibble a honey cake",
+    "category": "nourish",
+    "effects": {
+      "nourishment": 20,
+      "joy": 12
+    },
+    "coins": -7,
+    "xp": 3,
+    "cooldownSeconds": 180,
+    "animation": "eat",
+    "spot": {
+      "x": 74,
+      "y": 58
+    },
+    "flavour": [
+      "{name} ate the honey cake slowly so it would last. It did not last.",
+      "Golden, sticky, gone. {name} licks {their} fingers without shame."
+    ]
+  },
+  {
+    "id": "terrace_read_cards",
+    "locationId": "terrace",
+    "name": "Read the cards",
+    "category": "magic",
+    "effects": {
+      "magic": 15,
+      "joy": 10
+    },
+    "coins": 2,
+    "xp": 6,
+    "cooldownSeconds": 600,
+    "animation": "read",
+    "spot": {
+      "x": 50,
+      "y": 34
+    },
+    "flavour": [
+      "{name} laid out three cards and raised one eyebrow at the middle one.",
+      "The cards told {name} to rest and to be brave. In that order."
+    ]
+  },
+  {
+    "id": "grotto_candle_magic",
+    "locationId": "grotto",
+    "name": "Light an intention candle",
+    "category": "magic",
+    "effects": {
+      "magic": 18,
+      "joy": 6
+    },
+    "coins": 2,
+    "xp": 6,
+    "cooldownSeconds": 600,
+    "animation": "spell",
+    "spot": {
+      "x": 24,
+      "y": 60
+    },
+    "flavour": [
+      "{name} carved a wish into the wax and lit the wick with a steady hand.",
+      "The flame stood tall and did not flicker once. {name} takes that as a yes."
+    ]
+  },
+  {
+    "id": "grotto_gossip",
+    "locationId": "grotto",
+    "name": "Gossip by the fire",
+    "category": "social",
+    "effects": {
+      "social": 25,
+      "joy": 10
+    },
+    "coins": 0,
+    "xp": 4,
+    "cooldownSeconds": 600,
+    "animation": "sing",
+    "spot": {
+      "x": 74,
+      "y": 58
+    },
+    "flavour": [
+      "{name} leaned in, lowered {their} voice and made the fire crackle on cue.",
+      "News was swapped, secrets were kept, mostly. {name} {is} fully informed."
+    ]
+  },
+  {
+    "id": "grotto_elderflower_toast",
+    "locationId": "grotto",
+    "name": "Elderflower wine toast",
+    "category": "social",
+    "effects": {
+      "joy": 25,
+      "social": 15,
+      "energy": -5
+    },
+    "coins": 0,
+    "xp": 6,
+    "cooldownSeconds": 900,
+    "adultOnly": true,
+    "animation": "toast",
+    "spot": {
+      "x": 50,
+      "y": 34
+    },
+    "flavour": [
+      "{name} raised a glass of last summer's elderflower wine to the whole coven.",
+      "Glasses clinked, toasts were made, one was rhymed. {name} glows."
+    ]
+  },
+  {
+    "id": "spring_swim",
+    "locationId": "spring",
+    "name": "Wild swim",
+    "category": "play",
+    "effects": {
+      "joy": 20,
+      "energy": -10,
+      "magic": 5
+    },
+    "coins": 2,
+    "xp": 6,
+    "cooldownSeconds": 300,
+    "loot": [
+      {
+        "itemId": "col_kelp_ribbon",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_gull_feather",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_smooth_pebble",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_fishing_float",
+        "chance": 0.3
+      }
+    ],
+    "animation": "swim",
+    "spot": {
+      "x": 24,
+      "y": 60
+    },
+    "flavour": [
+      "{name} gasped at the cold, laughed at the gasp, and swam out anyway.",
+      "Out past the reeds and back. {name} {is} pink-cheeked and very awake."
+    ]
+  },
+  {
+    "id": "spring_scry",
+    "locationId": "spring",
+    "name": "Scry in the water bowl",
+    "category": "magic",
+    "effects": {
+      "magic": 22,
+      "energy": -6
+    },
+    "coins": 3,
+    "xp": 8,
+    "cooldownSeconds": 900,
+    "loot": [
+      {
+        "itemId": "col_kelp_ribbon",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_ship_s_key",
+        "chance": 0.03
+      }
+    ],
+    "animation": "spell",
+    "spot": {
+      "x": 74,
+      "y": 58
+    },
+    "flavour": [
+      "{name} stared into the dark water until it showed a door, slightly open.",
+      "Ripples, then a shape, then a clear little picture. {name} keeps it secret."
+    ]
+  },
+  {
+    "id": "reef_rock_pool",
+    "locationId": "reef",
+    "name": "Peer into the rock pools",
+    "category": "play",
+    "effects": {
+      "joy": 12,
+      "magic": 6,
+      "energy": -5
+    },
+    "coins": 3,
+    "xp": 5,
+    "cooldownSeconds": 300,
+    "loot": [
+      {
+        "itemId": "col_kelp_ribbon",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_gull_feather",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_smooth_pebble",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_fishing_float",
+        "chance": 0.3
+      }
+    ],
+    "animation": "explore",
+    "spot": {
+      "x": 24,
+      "y": 60
+    },
+    "flavour": [
+      "{name} lay on {their} front and watched a tiny shrimp go about its business.",
+      "Every pool a little kingdom. {name} visited four and was welcomed in all of them."
+    ]
+  },
+  {
+    "id": "reef_forage",
+    "locationId": "reef",
     "name": "Forage for treasures",
     "category": "play",
     "effects": {
@@ -1302,26 +1608,26 @@ export const ACTIVITIES: ActivityDef[] = [
     "cooldownSeconds": 600,
     "loot": [
       {
-        "itemId": "col_lucky_acorn",
+        "itemId": "col_kelp_ribbon",
         "chance": 0.3
       },
       {
-        "itemId": "col_jay_feather",
+        "itemId": "col_gull_feather",
         "chance": 0.3
       },
       {
-        "itemId": "col_golden_oak_leaf",
+        "itemId": "col_smooth_pebble",
         "chance": 0.3
       },
       {
-        "itemId": "col_rosehip",
+        "itemId": "col_fishing_float",
         "chance": 0.3
       }
     ],
     "animation": "explore",
     "spot": {
-      "x": 24,
-      "y": 60
+      "x": 74,
+      "y": 58
     },
     "flavour": [
       "{name} came home with full pockets and twigs in {their} hair.",
@@ -1329,125 +1635,44 @@ export const ACTIVITIES: ActivityDef[] = [
     ]
   },
   {
-    "id": "glade_sing",
-    "locationId": "glade",
-    "name": "Sing to the room",
-    "category": "play",
-    "effects": {
-      "joy": 18,
-      "magic": 8
-    },
-    "coins": 1,
-    "xp": 5,
-    "cooldownSeconds": 600,
-    "animation": "sing",
-    "spot": {
-      "x": 74,
-      "y": 58
-    },
-    "flavour": [
-      "{name} sang an old song and the room hummed the chorus back.",
-      "Every verse a little louder. By the end, {name} has an audience of moths."
-    ]
-  },
-  {
-    "id": "ring_moon_bath",
-    "locationId": "ring",
-    "name": "Moon bathe",
+    "id": "reef_crystal_cleanse",
+    "locationId": "reef",
+    "name": "Cleanse the crystals",
     "category": "magic",
     "effects": {
-      "magic": 30,
-      "energy": -10
+      "magic": 15,
+      "joy": 8
     },
-    "coins": 4,
-    "xp": 10,
-    "cooldownSeconds": 1800,
+    "coins": 2,
+    "xp": 5,
+    "cooldownSeconds": 600,
     "loot": [
       {
-        "itemId": "col_lucky_acorn",
-        "chance": 0.3
+        "itemId": "col_amber_bead",
+        "chance": 0.25
       },
       {
-        "itemId": "col_old_iron_key",
-        "chance": 0.03
+        "itemId": "col_old_coin",
+        "chance": 0.1
+      },
+      {
+        "itemId": "col_message_bottle",
+        "chance": 0.25
       }
     ],
     "animation": "spell",
     "spot": {
-      "x": 24,
-      "y": 60
+      "x": 50,
+      "y": 34
     },
     "flavour": [
-      "{name} sat very still in the silver light until {they} felt full to the brim.",
-      "The moon poured out and {name} held out both hands to catch it."
+      "{name} rinsed each stone in rainwater and lined them up in the sun to dry.",
+      "Smoke, a bell, a long breath. The crystals sparkle like they mean it now."
     ]
   },
   {
-    "id": "ring_read_cards",
-    "locationId": "ring",
-    "name": "Read the cards",
-    "category": "magic",
-    "effects": {
-      "magic": 15,
-      "joy": 10
-    },
-    "coins": 2,
-    "xp": 6,
-    "cooldownSeconds": 600,
-    "animation": "read",
-    "spot": {
-      "x": 74,
-      "y": 58
-    },
-    "flavour": [
-      "{name} laid out three cards and raised one eyebrow at the middle one.",
-      "The cards told {name} to rest and to be brave. In that order."
-    ]
-  },
-  {
-    "id": "garden_garden",
-    "locationId": "garden",
-    "name": "Tend the garden",
-    "category": "play",
-    "effects": {
-      "joy": 15,
-      "energy": -8,
-      "nourishment": 5
-    },
-    "coins": 3,
-    "xp": 6,
-    "cooldownSeconds": 600,
-    "loot": [
-      {
-        "itemId": "col_lucky_acorn",
-        "chance": 0.3
-      },
-      {
-        "itemId": "col_jay_feather",
-        "chance": 0.3
-      },
-      {
-        "itemId": "col_golden_oak_leaf",
-        "chance": 0.3
-      },
-      {
-        "itemId": "col_rosehip",
-        "chance": 0.3
-      }
-    ],
-    "animation": "garden",
-    "spot": {
-      "x": 24,
-      "y": 60
-    },
-    "flavour": [
-      "{name} pulled the weeds, praised the beans and had a word with the slugs.",
-      "Muddy knees, green fingers. {name}'s seedlings stand a little straighter."
-    ]
-  },
-  {
-    "id": "garden_dig",
-    "locationId": "garden",
+    "id": "cove_dig",
+    "locationId": "cove",
     "name": "Dig for buried things",
     "category": "play",
     "effects": {
@@ -1459,18 +1684,18 @@ export const ACTIVITIES: ActivityDef[] = [
     "cooldownSeconds": 600,
     "loot": [
       {
-        "itemId": "col_lucky_acorn",
+        "itemId": "col_kelp_ribbon",
         "chance": 0.3
       },
       {
-        "itemId": "col_old_iron_key",
+        "itemId": "col_ship_s_key",
         "chance": 0.03
       }
     ],
     "animation": "dig",
     "spot": {
-      "x": 74,
-      "y": 58
+      "x": 24,
+      "y": 60
     },
     "flavour": [
       "{name} dug down past the worms and found something that clinked.",
@@ -1478,45 +1703,8 @@ export const ACTIVITIES: ActivityDef[] = [
     ]
   },
   {
-    "id": "apothecary_brew_potion",
-    "locationId": "apothecary",
-    "name": "Brew a potion",
-    "category": "magic",
-    "effects": {
-      "magic": 25,
-      "energy": -8,
-      "joy": 5
-    },
-    "coins": 4,
-    "xp": 9,
-    "cooldownSeconds": 900,
-    "loot": [
-      {
-        "itemId": "col_moss_agate",
-        "chance": 0.25
-      },
-      {
-        "itemId": "col_hag_stone",
-        "chance": 0.1
-      },
-      {
-        "itemId": "col_fairy_ring_cap",
-        "chance": 0.25
-      }
-    ],
-    "animation": "brew",
-    "spot": {
-      "x": 24,
-      "y": 60
-    },
-    "flavour": [
-      "{name} brewed something the colour of dusk and labelled it 'for emergencies'.",
-      "Three herbs, one secret, a long patient stir. The potion winked at {name}."
-    ]
-  },
-  {
-    "id": "apothecary_market_stall",
-    "locationId": "apothecary",
+    "id": "cove_market_stall",
+    "locationId": "cove",
     "name": "Run the market stall",
     "category": "work",
     "effects": {
@@ -1539,79 +1727,191 @@ export const ACTIVITIES: ActivityDef[] = [
     ]
   },
   {
-    "id": "hearth_stew",
-    "locationId": "hearth",
-    "name": "Eat a bowl of hedgerow stew",
-    "category": "nourish",
+    "id": "cove_sing",
+    "locationId": "cove",
+    "name": "Sing to the room",
+    "category": "play",
     "effects": {
-      "nourishment": 30,
-      "energy": 5
+      "joy": 18,
+      "magic": 8
     },
-    "coins": -6,
-    "xp": 4,
-    "cooldownSeconds": 180,
-    "animation": "eat",
-    "spot": {
-      "x": 24,
-      "y": 60
-    },
-    "flavour": [
-      "{name} wiped the bowl clean with a crust and declared the day saved.",
-      "Thick, hot and full of things from the garden. {name} {is} stew-powered now."
-    ]
-  },
-  {
-    "id": "hearth_gossip",
-    "locationId": "hearth",
-    "name": "Gossip by the fire",
-    "category": "social",
-    "effects": {
-      "social": 25,
-      "joy": 10
-    },
-    "coins": 0,
-    "xp": 4,
+    "coins": 1,
+    "xp": 5,
     "cooldownSeconds": 600,
     "animation": "sing",
-    "spot": {
-      "x": 74,
-      "y": 58
-    },
-    "flavour": [
-      "{name} leaned in, lowered {their} voice and made the fire crackle on cue.",
-      "News was swapped, secrets were kept, mostly. {name} {is} fully informed."
-    ]
-  },
-  {
-    "id": "hearth_elderflower_toast",
-    "locationId": "hearth",
-    "name": "Elderflower wine toast",
-    "category": "social",
-    "effects": {
-      "joy": 25,
-      "social": 15,
-      "energy": -5
-    },
-    "coins": 0,
-    "xp": 6,
-    "cooldownSeconds": 900,
-    "adultOnly": true,
-    "animation": "toast",
     "spot": {
       "x": 50,
       "y": 34
     },
     "flavour": [
-      "{name} raised a glass of last summer's elderflower wine to the whole coven.",
-      "Glasses clinked, toasts were made, one was rhymed. {name} glows."
+      "{name} sang an old song and the room hummed the chorus back.",
+      "Every verse a little louder. By the end, {name} has an audience of moths."
+    ]
+  },
+  {
+    "id": "conservatory_bath",
+    "locationId": "conservatory",
+    "name": "Soak in a herb bath",
+    "category": "rest",
+    "effects": {
+      "joy": 20,
+      "magic": 10,
+      "energy": 5
+    },
+    "coins": 0,
+    "xp": 6,
+    "cooldownSeconds": 900,
+    "animation": "bathe",
+    "spot": {
+      "x": 24,
+      "y": 60
+    },
+    "flavour": [
+      "{name} soaked in rosemary steam until every worry went soft at the edges.",
+      "Toes wrinkled, mind smoothed. {name} climbs out smelling of a summer hedge."
+    ]
+  },
+  {
+    "id": "conservatory_write_almanac",
+    "locationId": "conservatory",
+    "name": "Write the almanac",
+    "category": "work",
+    "effects": {
+      "energy": -15,
+      "magic": 6
+    },
+    "coins": 20,
+    "xp": 11,
+    "cooldownSeconds": 1200,
+    "animation": "read",
+    "spot": {
+      "x": 74,
+      "y": 58
+    },
+    "flavour": [
+      "{name} predicted rain on Thursday and a good year for plums.",
+      "Ink-stained fingers, a finished page. {name} sends it to the printer with a flourish."
+    ]
+  },
+  {
+    "id": "conservatory_sketch",
+    "locationId": "conservatory",
+    "name": "Sketch in the journal",
+    "category": "play",
+    "effects": {
+      "joy": 15,
+      "magic": 5
+    },
+    "coins": 2,
+    "xp": 5,
+    "cooldownSeconds": 600,
+    "animation": "read",
+    "spot": {
+      "x": 50,
+      "y": 34
+    },
+    "flavour": [
+      "{name} drew the view from the window and added one small dragon.",
+      "Pencil smudges, a pressed leaf, a half-finished moon. {name}'s journal grows."
+    ]
+  },
+  {
+    "id": "deck_stargaze",
+    "locationId": "deck",
+    "name": "Stargaze",
+    "category": "magic",
+    "effects": {
+      "magic": 20,
+      "joy": 10
+    },
+    "coins": 2,
+    "xp": 6,
+    "cooldownSeconds": 600,
+    "loot": [
+      {
+        "itemId": "col_amber_bead",
+        "chance": 0.25
+      },
+      {
+        "itemId": "col_old_coin",
+        "chance": 0.1
+      },
+      {
+        "itemId": "col_message_bottle",
+        "chance": 0.25
+      }
+    ],
+    "animation": "stargaze",
+    "spot": {
+      "x": 24,
+      "y": 60
+    },
+    "flavour": [
+      "{name} found the plough, then a teapot, then a constellation nobody has named yet.",
+      "{name} lay back and let the whole sky happen."
+    ]
+  },
+  {
+    "id": "deck_moon_bath",
+    "locationId": "deck",
+    "name": "Moon bathe",
+    "category": "magic",
+    "effects": {
+      "magic": 30,
+      "energy": -10
+    },
+    "coins": 4,
+    "xp": 10,
+    "cooldownSeconds": 1800,
+    "loot": [
+      {
+        "itemId": "col_kelp_ribbon",
+        "chance": 0.3
+      },
+      {
+        "itemId": "col_ship_s_key",
+        "chance": 0.03
+      }
+    ],
+    "animation": "spell",
+    "spot": {
+      "x": 74,
+      "y": 58
+    },
+    "flavour": [
+      "{name} sat very still in the silver light until {they} felt full to the brim.",
+      "The moon poured out and {name} held out both hands to catch it."
+    ]
+  },
+  {
+    "id": "deck_spellbook",
+    "locationId": "deck",
+    "name": "Study the spellbook",
+    "category": "magic",
+    "effects": {
+      "magic": 15,
+      "energy": -5,
+      "joy": 5
+    },
+    "coins": 3,
+    "xp": 8,
+    "cooldownSeconds": 600,
+    "animation": "read",
+    "spot": {
+      "x": 50,
+      "y": 34
+    },
+    "flavour": [
+      "{name} found a spell for finding lost buttons and memorised it immediately.",
+      "A pressed violet fell out of chapter nine. {name} reads chapter nine twice."
     ]
   }
 ];
 
 export const SHARED_EVENTS: Record<string, SharedEventDef> = {
-  "hedgerow_circle": {
-    "name": "Hedgerow Circle",
-    "locationId": "ring",
+  "lantern_circle": {
+    "name": "Lantern Circle",
+    "locationId": "spring",
     "minParticipants": 2,
     "effects": {
       "magic": 30,
@@ -1620,11 +1920,11 @@ export const SHARED_EVENTS: Record<string, SharedEventDef> = {
     },
     "coins": 30,
     "xp": 25,
-    "lootItemId": "col_moss_agate"
+    "lootItemId": "col_amber_bead"
   },
-  "harvest_supper": {
-    "name": "Harvest Supper",
-    "locationId": "hearth",
+  "tea_leaf_supper": {
+    "name": "Tea Leaf Supper",
+    "locationId": "terrace",
     "minParticipants": 2,
     "effects": {
       "magic": 25,
@@ -1633,11 +1933,11 @@ export const SHARED_EVENTS: Record<string, SharedEventDef> = {
     },
     "coins": 25,
     "xp": 20,
-    "lootItemId": "col_hag_stone"
+    "lootItemId": "col_old_coin"
   },
   "full_moon": {
     "name": "Full Moon Ceremony",
-    "locationId": "ring",
+    "locationId": "deck",
     "minParticipants": 2,
     "effects": {
       "magic": 40,
@@ -1651,7 +1951,7 @@ export const SHARED_EVENTS: Record<string, SharedEventDef> = {
   },
   "new_moon": {
     "name": "New Moon Intentions",
-    "locationId": "ring",
+    "locationId": "deck",
     "minParticipants": 2,
     "effects": {
       "magic": 35,
@@ -1699,7 +1999,7 @@ export const ACHIEVEMENTS: AchievementDef[] = [
   {
     "id": "hoarder",
     "name": "Treasury",
-    "description": "Hold 300 acorns at once."
+    "description": "Hold 300 sand dollars at once."
   },
   {
     "id": "generous_witch",
@@ -1721,7 +2021,7 @@ export const ACHIEVEMENTS: AchievementDef[] = [
 export const GIFT_TREATS: GiftTreatDef[] = [
   {
     "id": "treat_tea",
-    "name": "Nettle tea",
+    "name": "Strong builder's tea",
     "cost": 8,
     "effects": {
       "nourishment": 15,
@@ -1731,46 +2031,46 @@ export const GIFT_TREATS: GiftTreatDef[] = [
     "art": {
       "style": "cup",
       "colours": [
-        "#7a4e2d",
-        "#f2c76b"
+        "#C2246E",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "treat_pie",
-    "name": "Blackberry pie",
+    "id": "treat_chowder",
+    "name": "Smoky chowder",
     "cost": 6,
     "effects": {
       "nourishment": 30,
       "energy": 5
     },
     "art": {
-      "style": "pie",
+      "style": "bowl",
       "colours": [
-        "#7a4e2d",
-        "#f2c76b"
+        "#C2246E",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "treat_honey",
-    "name": "Wild honey",
+    "id": "treat_bread",
+    "name": "Seaweed bread",
     "cost": 5,
     "effects": {
       "nourishment": 25,
       "joy": 8
     },
     "art": {
-      "style": "jar",
+      "style": "bread",
       "colours": [
-        "#7a4e2d",
-        "#f2c76b"
+        "#C2246E",
+        "#F7D488"
       ]
     }
   },
   {
-    "id": "treat_posy",
-    "name": "Lavender posy",
+    "id": "treat_thrift",
+    "name": "Sea thrift posy",
     "cost": 10,
     "effects": {
       "joy": 25,
@@ -1779,8 +2079,8 @@ export const GIFT_TREATS: GiftTreatDef[] = [
     "art": {
       "style": "bouquet",
       "colours": [
-        "#7a4e2d",
-        "#f2c76b"
+        "#C2246E",
+        "#F7D488"
       ]
     }
   }
@@ -1789,7 +2089,7 @@ export const GIFT_TREATS: GiftTreatDef[] = [
 export const COVEN_GOALS: CovenGoalDef[] = [
   {
     "kind": "nourish",
-    "name": "Soup Season",
+    "name": "Chowder Season",
     "description": "Eat and drink well together",
     "target": 30
   },
@@ -1801,13 +2101,13 @@ export const COVEN_GOALS: CovenGoalDef[] = [
   },
   {
     "kind": "gifts",
-    "name": "Generous Hedgerow",
+    "name": "Washed Ashore",
     "description": "Send gifts to each other",
     "target": 15
   },
   {
     "kind": "activities",
-    "name": "Busy Bees",
+    "name": "All Hands",
     "description": "Do anything at all, together",
     "target": 60
   }
@@ -1929,10 +2229,10 @@ export const GAME_CONFIG: GameConfig = {
   "decay_max_hours": 72,
   "daily_coins": 30,
   "daily_loot": [
-    "col_lucky_acorn",
-    "col_jay_feather",
-    "col_golden_oak_leaf",
-    "col_rosehip"
+    "col_kelp_ribbon",
+    "col_gull_feather",
+    "col_smooth_pebble",
+    "col_fishing_float"
   ],
   "gift_daily_limit": 12,
   "starting_coins": 120,

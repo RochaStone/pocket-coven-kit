@@ -43,7 +43,9 @@ Ask these one at a time, in this order. Suggest gently, never decide for her.
 
 1. **The name.** "What is your coven called?" (up to 40 characters). Offer three ideas only if she asks.
 2. **Who it is for.** "Who will play? Your clients, your circle, your team, your family?" Use this to suggest the number of witches and a tagline. Keep it in `coven.for`.
-3. **The world.** Describe the five presets in one line each and ask which feels like home:
+3. **The world.** Tell her warmly that her world already opens painted: a lantern-lit shell map with eight painted rooms (she can see it at http://localhost:3000/gallery/painted while `npm run gallery` runs). Ask: "Shall we keep the painted world and make it yours, or start from one of five drawn worlds?"
+   - **Painted (the default).** Keep `"art": { "theme": "painted" }`. The wardrobe, treasures and treats come from the Sea Witch preset unless she picks another `theme` for them; the painted look stays either way. If she has her own pictures, they go in `public/world/mine/` (see Step 3b).
+   - **Drawn.** Describe the five presets in one line each and ask which feels like home, then set `"art": { "theme": "flat" }` (or run `npm run new:world <preset> --force` and build from there):
    - Hedge Witch: a cottage at the edge of the wood, moss greens, toadstools.
    - Moon Coven: an observatory on a hill, midnight blues, silver.
    - Kitchen Witch: a warm hearth, copper pans, herbs, a scrapbook-blog look.
@@ -52,7 +54,7 @@ Ask these one at a time, in this order. Suggest gently, never decide for her.
    Mention she can see them all later in the gallery.
 4. **The frame.** "Should the little case your world opens from feel like paper you could hold, a girly terminal, or a 2003 blog window?" (`analog`, `cyberpunk`, `y2k-blog`). The preset has a default if she has no preference.
 5. **The money.** "What do your witches earn and spend? Acorns, moonstones, embers, buttons, anything." Get the singular and the plural.
-6. **The rooms.** "Name four to eight places in your world, and tell me what happens in each, in your own words." For each room, pick a backdrop from WORLD.md that fits, and choose two to six activities from `world/library.ts` that match what she said. If her words name an activity better than the library does, keep her name for it (`{ "id": "herbal_tea", "name": "Nettle tea at noon" }`). Read the plan back as a short list and let her change anything.
+6. **The rooms.** "Name four to eight places in your world, and tell me what happens in each, in your own words." In the painted world, pick a `painting` for each room from the Painted rooms table in WORLD.md (read her the one-line descriptions so she can choose), and keep a `backdrop` too so the flat theme still works. For a drawn world, pick a backdrop from WORLD.md that fits, and choose two to six activities from `world/library.ts` that match what she said. If her words name an activity better than the library does, keep her name for it (`{ "id": "herbal_tea", "name": "Nettle tea at noon" }`). Read the plan back as a short list and let her change anything.
    Make sure the world has at least one place to earn money (a `work` activity), one to eat or drink, and one to rest.
 7. **Ceremonies.** "Which room do you gather in, and what is the gathering called?" One or two ceremonies. The full and new moon ceremonies are added for her automatically, in the room she picks for the moon.
 8. **Familiars.** "Which familiars should your witches be able to adopt?" Cat, owl, moth, fox, toad, raven, snake, rabbit. Each witch can then choose colours and a bell, a bow or a tiny hat in the wardrobe.
@@ -74,12 +76,24 @@ npm run test:unit
 ```
 She will see "Tests" and all of them "passed".
 
+## Step 3b: her own pictures and her map (painted world, optional)
+
+Ask once: "Would you like any room to use a picture of your own, or your own map?"
+If yes, tell her to put each picture in the kit's `public/world/mine/` folder, with a simple file name (letters, numbers, dashes or underscores, ending in .jpg, .png or .webp). Point the room at it with `"painting": "mine/her-picture.jpg"`, or the map with `"art": { "map": "mine/her-map.jpg" }`.
+When the map is hers, or she wants the labels somewhere else, she places them herself:
+1. "Open the file `scripts/place-hotspots.html` in your browser (double-click it in the kit folder)."
+2. "Choose your coven.config.json, and your map picture if it is your own."
+3. "Click a room on the right, then click the map where its label should sit. Every room, one click each."
+4. "Press Save. It lands in your Downloads: move it into the kit folder in place of the old one."
+Then run `npm run build:world` for her. She will see "painted world" in what it prints. If a picture is missing it names the file kindly; help her move it into `public/world/mine/`.
+The paintings that ship with the kit are shared under their own art licence (`public/world/painted/LICENSE-ART.md`): free inside this kit for her coven, never for resale or use outside it. Mention it in one line if she asks about using them elsewhere.
+
 ## Step 4: show her
 
 ```sh
 npm run gallery
 ```
-Tell her to open http://localhost:3000/gallery (her witches, familiars, wardrobe) and http://localhost:3000/gallery/scenes (her rooms). Ask what she would change. Edit the config, rebuild, refresh. Repeat until she smiles.
+Tell her to open http://localhost:3000/gallery (her witches, familiars, wardrobe), http://localhost:3000/gallery/painted (the painted map and a room) and http://localhost:3000/gallery/scenes (every painted room and drawn backdrop). Ask what she would change. Edit the config, rebuild, refresh. Repeat until she smiles.
 If she has Docker Desktop and wants to play before deploying, offer `npm run demo` (it uses the Hedge Witch demo world, then `npm run build:world` brings hers back).
 
 ## Step 5: put it online, on her accounts

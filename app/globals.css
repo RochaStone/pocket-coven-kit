@@ -156,6 +156,36 @@ body {
   opacity: 0.55;
 }
 
+/* The painted map: a cream label pinned on each room, printed-on-the-page shadow, no glow. */
+.painted-map {
+  border-radius: 14px;
+}
+.map-pin {
+  cursor: pointer;
+}
+.map-pin-label {
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--pc-ink);
+  background: var(--pc-paper);
+  border: 1.5px solid var(--pc-coin);
+  box-shadow: 0 2px 0 color-mix(in oklab, var(--pc-ink) 35%, transparent);
+  transition: transform 0.15s ease;
+}
+.map-pin:hover .map-pin-label,
+.map-pin:focus-visible .map-pin-label {
+  transform: translateY(-2px);
+  background: var(--pc-accent);
+  color: #fff;
+}
+.scene-frame[data-art="painted"] .hotspot-label {
+  border: 1.5px solid var(--pc-coin);
+}
+
 /* ─── motif: analog (paper you could hold) ─── */
 [data-motif="analog"] .panel {
   border-radius: 6px;

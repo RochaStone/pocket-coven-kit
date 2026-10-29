@@ -20,7 +20,7 @@ function fail(msg: string): never {
   process.exit(1);
 }
 
-if (!existsSync(configPath)) fail(`No config at ${path.relative(ROOT, configPath)}. Start one with: npm run new:world hedge-witch`);
+if (!existsSync(configPath)) fail(`No config at ${path.relative(ROOT, configPath)}. Start one with: npm run new:world painted`);
 
 let raw: unknown;
 try {
@@ -34,6 +34,11 @@ try {
   const style = resolveStyle(process.cwd());
   const world = buildWorld(config, loadPreset(config.theme), { chrome: chromeFromStyle(style) });
   const problems = validateWorld(world);
+  // Painted pictures must be in public/ for the browser to find them.
+  const pictures = world.meta.art.theme === "painted" ? [world.meta.art.map, ...world.locations.map((l) => l.painting ?? "")] : [];
+  for (const url of new Set(pictures)) {
+    if (url && !existsSync(path.join(ROOT, "public", url))) problems.push(`the picture public${url} is missing. Put it in public/world/mine/ (or check the spelling in coven.config.json).`);
+  }
   if (problems.length) fail(`The world did not pass its checks:\n- ${problems.join("\n- ")}`);
   writeFileSync(path.join(ROOT, "lib/game/catalog.ts"), catalogSource(world, path.basename(configPath)));
   writeFileSync(path.join(ROOT, "supabase/seed.sql"), buildSeedSql(world));
@@ -42,6 +47,7 @@ try {
     `  ${world.locations.length} rooms, ${world.activities.length} activities, ${Object.keys(world.sharedEvents).length} ceremonies`,
     `  ${world.characters.length} witches: ${world.characters.map((c) => c.name).join(", ")}`,
     `  ${world.items.length} items, currency: ${world.meta.currency.plural}`,
+    world.meta.art.theme === "painted" ? `  painted world on ${world.meta.art.map.split("/").pop()} (place room labels with scripts/place-hotspots.html)` : "  flat drawn world",
     `  compact chrome from ${path.relative(ROOT, style.source) || style.source}`,
     "Wrote lib/game/catalog.ts and supabase/seed.sql.",
   ];

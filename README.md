@@ -2,10 +2,11 @@
 
 *Free tools from the Rocheverse.*
 
-![pocket-coven.exe: the compact open onto a Hedge Witch cottage, three witches and their familiars, with a blog sidebar and a hit counter](docs/img/hero.png)
+![pocket-coven.exe: the painted shell map with a label on every room, the painted bedchamber with a witch and her cat standing in it, and a blog sidebar with a hit counter](docs/img/hero.png)
 
 Build your own witchy pocket world.
 Name your coven, theme your rooms, pick your familiars and outfits, invite your people.
+Your world opens painted: a lantern-lit map and eight painted rooms, ready the moment you install it.
 
 It is a tiny multiplayer game for your community.
 Everyone gets their own witch, with a familiar, a wardrobe and a room of her own.
@@ -19,6 +20,7 @@ I built a pocket coven for my own people, and everyone asked for one.
 So here is the kit.
 It's a kit, not a clone of my coven.
 Keep it witchy.
+You start with my painted look and feel, then you make every witch yours.
 You choose the familiars and the outfits, you name the rooms and theme the spaces, you decide what your people call their money.
 Your world, your witches, your rules.
 
@@ -26,8 +28,8 @@ Your world, your witches, your rules.
 
 ## Start here
 
-Five steps. The first four take about fifteen minutes and happen on your computer, with nothing online yet.
-You need a Mac or Windows computer, [Claude Code](https://claude.com/claude-code), and two free helpers it uses: **Node** (the engine that runs the game on your computer, from [nodejs.org](https://nodejs.org), version 22 or newer) and **git** (it copies projects from GitHub; Macs ask to install it the first time you use it).
+Five steps. The first three take under ten minutes and happen on your computer, with nothing online yet.
+You need a Mac or Windows computer, [Claude Code](https://claude.com/claude-code), and two free tools it uses: **Node** (the engine that runs the game on your computer, from [nodejs.org](https://nodejs.org), version 22 or newer) and **git** (it copies projects from GitHub; Macs ask to install it the first time you use it).
 
 The **terminal** is the window where you type instructions to your computer.
 On a Mac, press Command and Space together, type Terminal, and press Enter.
@@ -45,19 +47,19 @@ cd ~/.claude/skills/pocket-coven-kit && npm install
 ```
 You will see "added" and a number of packages. A few yellow "warn" lines are normal.
 
-![step 3](docs/img/step-03.svg) **Open Claude Code in that folder and ask for your coven.**
+![step 3](docs/img/step-03.svg) **Look at your painted world.** This starts the game on your own computer. The painted world is already built, so there is nothing to set up first.
+```sh
+npm run gallery
+```
+Open [localhost:3000/gallery/painted](http://localhost:3000/gallery/painted) in your browser. You will see the painted map with a label on every room, and a room with two witches standing in it. Press Control and C in the terminal to stop it.
+
+![step 4](docs/img/step-04.svg) **Make it yours with Claude.** Open Claude Code in the kit folder:
 ```sh
 claude
 ```
 Then type: `build my pocket coven`.
-Claude asks you one question at a time: your coven's name, who it is for, which of the five worlds you like, what your people call their money, your rooms and what happens in each, which familiars to offer, and how many witches.
+Claude asks you one question at a time: your coven's name, who it is for, whether to keep the painted world or start from a drawn one, what your people call their money, your rooms and what happens in each, which familiars to offer, and how many witches.
 It writes your answers into one file, `coven.config.json`, and builds your world from it. You will see "Built" and your coven's name.
-
-![step 4](docs/img/step-04.svg) **Look at your world.** This starts the game on your own computer.
-```sh
-npm run gallery
-```
-Open [localhost:3000/gallery](http://localhost:3000/gallery) in your browser. You will see your witches, every familiar, the wardrobe and all your rooms, painted in your colours. Press Control and C in the terminal to stop it.
 
 ![step 5](docs/img/step-05.svg) **Put it online on your own accounts.** When you are happy, tell Claude `let's put my coven online`. It walks you through making a free Supabase project and a free Vercel project, step by step, and sends your first invitation to you. The [Deploy](#deploy-on-your-own-accounts) section below has the same steps written out.
 
@@ -65,10 +67,19 @@ Want to play before you deploy? `npm run demo` starts a whole coven on your comp
 
 ![divider](docs/img/divider.svg)
 
-## Five worlds to start from
+## Your painted world
 
+A fresh install opens on **The Moonshell Coven**: a lantern-lit shell world with eight painted rooms on a painted map.
+A starlit bedchamber, a tea leaf terrace, a candlelit grotto, a wishing spring, a glimmer reef, a hammock cove, a glass conservatory and a stargazer's deck, with sand dollars for money.
+Every name, line and witch is yours to change. Six more paintings ship spare, so any room can wear a different one.
+
+**Make it yours:** swap any painting for your own picture. Drop it into `public/world/mine/`, point the room at it in `coven.config.json` (`"painting": "mine/my-garden.jpg"`), and run `npm run build:world`. Your own map works the same way, and `scripts/place-hotspots.html` (open it in your browser) lets you click where each room's label sits.
+
+## Or start from a drawn world
+
+Prefer drawings? Set `"art": { "theme": "flat" }` in `coven.config.json`, or start fresh from one of five drawn worlds with `npm run new:world hedge-witch` (or `moon-coven`, `kitchen-witch`, `sea-witch`, `city-witch`).
 Each one comes with its own colours, six rooms with names, fourteen things to do, two ceremonies, its own flavour text, and its own money.
-Pick one, then rename and rearrange everything.
+Pick one, then rename and rearrange everything. `npm run new:world painted` brings the painted world back.
 
 | | |
 |---|---|
@@ -87,6 +98,7 @@ Set `"motif"` in `coven.config.json` to choose. The look changes shape, your col
 
 `SKILL.md` is the guide Claude follows. It asks one thing at a time, says back what it heard, and tells you what it is about to do before it does it.
 Everything you choose lands in `coven.config.json`, which `WORLD.md` explains key by key.
+See every painted room and every drawn backdrop at [localhost:3000/gallery/scenes](http://localhost:3000/gallery/scenes) while `npm run gallery` is running.
 After any change, this rebuilds your world and checks it:
 ```sh
 npm run build:world
@@ -145,26 +157,36 @@ When it finishes it prints a login. Run `npm run dev` and open [localhost:3000](
 
 - **The game.** Needs that fall over time and never to zero, seven moods, cooldowns, a ledger for your money, a seven-slot wardrobe, a room to decorate on a grid, live presence, chat with stickers, gifts, a daily oracle card, weekly coven goals, ceremonies that need two witches or more, full and new moon ceremonies on the real moon, family logins for a grown-up and a young witch, and an Owner screen for invites, moderation and settings.
 - **The world builder.** `coven.config.json` plus a theme preset becomes the game's whole catalogue and its database seed. 18 room backdrops, 40 activities to choose from, 16 oracle cards.
-- **The art.** Original drawings made in code: a witch builder (eight hairstyles, skin, eyes, freckles, moods, every wardrobe piece), a familiar builder (cat, owl, moth, fox, toad, raven, snake, rabbit, in six colours with a bell, a bow or a tiny hat), 30 or more wearables per world, furniture, treasures and treats.
+- **The painted world.** A painted map and fourteen painted rooms, under the art licence below. Room labels sit wherever `coven.config.json` says, and `scripts/place-hotspots.html` sets them with a click.
+- **The drawings.** Original drawings made in code: a witch builder (eight hairstyles, skin, eyes, freckles, moods, every wardrobe piece), a familiar builder (cat, owl, moth, fox, toad, raven, snake, rabbit, in six colours with a bell, a bow or a tiny hat), 30 or more wearables per world, furniture, treasures and treats.
 - **Safety.** Every action is checked on the server. Players can read only what their coven may see and can never write a row directly. Invite links are single-use and stored only as a scrambled fingerprint.
-- **Tests.** The world builder, every preset, the config checks, pronoun-neutral flavour text, a scan that nothing from my own coven leaks in, and 45 database tests of the game engine. `tests/TESTING.md` has the details.
+- **Tests.** The world builder, every preset, the config checks, the painted and flat themes, the hotspot placer, the art size budget, pronoun-neutral flavour text, a scan of every shipped file so nothing private from my own coven leaks in, and 45 database tests of the game engine. `tests/TESTING.md` has the details.
 
 ## If it goes wrong (everyone's first time) ![heart](docs/img/heart.svg)
 
 - **"command not found: npm" or "node".** Node is not installed yet. Install the LTS version from [nodejs.org](https://nodejs.org), close the terminal, open a new one, and try again.
 - **`npm run build:world` lists problems.** Nothing is broken. It is telling you which line of `coven.config.json` to change, in plain words. Ask Claude "fix my coven config" and it will.
+- **A painted room shows a blank space.** The picture it points at is not in the kit. `npm run build:world` names the missing file: put it in `public/world/mine/`, or check the spelling in `coven.config.json`.
 - **The game says the database is not connected yet.** It cannot find your Supabase settings. Locally, check `.env.local` has the three `NEXT_PUBLIC_` lines filled in. On Vercel, check the three environment variables, then redeploy.
 
 ## Make it yours
 
+Swap any painted room for your own picture in `public/world/mine/`, and move the room labels on your map with `scripts/place-hotspots.html`.
 The game's colours come from your theme preset and anything you set under `"palette"` in `coven.config.json`.
 `style.json` is the one style file shared by every Rocha Coded tool. In this kit it colours the compact's case, rim and lining and this README's images: copy `style.example.json` to `style.json` and fill in your own.
 Two examples ship: `examples/style.rocha-coded.json` (mine) and `style.example.json` (blank). `STYLE.md` explains every key.
 
+## Art licence
+
+Painted world art © Rochelle Livingstone 2026. Free to use inside this kit for your own coven, including public covens you host. Not for resale, not for use outside this kit, not for training AI models. Code is MIT; the art is not.
+
+The full note lives in `public/world/painted/LICENSE-ART.md`. Pictures you add to `public/world/mine/` are yours.
+
 ## Where it came from
 
 This kit was built from my own pocket coven game.
-My witches, rooms, art and words stayed home.
+My witches, room names and words stayed home.
+The painted look is mine, shared so your world starts beautiful, under the art licence above.
 The engine is shared under the MIT licence, so it is yours to change.
 
 [Sign my guestbook](https://github.com/RochaStone/pocket-coven-kit/issues)

@@ -1,113 +1,227 @@
 {
   "coven": {
-    "name": "The Hedgerow Coven",
-    "tagline": "A little cottage world at the edge of the wood."
+    "name": "The Moonshell Coven",
+    "tagline": "A lantern-lit world tucked inside a shell, open under the real moon."
   },
-  "theme": "hedge-witch",
-  "motif": "analog",
+  "theme": "sea-witch",
+  "motif": "y2k-blog",
+  "art": {
+    "theme": "painted",
+    "map": "map-shell",
+    "hotspots": {
+      "bedchamber": {
+        "x": 50,
+        "y": 20
+      },
+      "terrace": {
+        "x": 26,
+        "y": 36
+      },
+      "grotto": {
+        "x": 73,
+        "y": 34
+      },
+      "spring": {
+        "x": 51,
+        "y": 50
+      },
+      "reef": {
+        "x": 22,
+        "y": 63
+      },
+      "cove": {
+        "x": 78,
+        "y": 62
+      },
+      "conservatory": {
+        "x": 50,
+        "y": 76
+      },
+      "deck": {
+        "x": 51,
+        "y": 90
+      }
+    }
+  },
   "currency": {
-    "singular": "acorn",
-    "plural": "acorns"
+    "singular": "sand dollar",
+    "plural": "sand dollars"
   },
   "timezone": "UTC",
+  "palette": {
+    "ground": "#50163C",
+    "groundDeep": "#3B1230",
+    "paper": "#FFF7F4",
+    "ink": "#3B1230",
+    "accent": "#C2246E",
+    "alt": "#8A5A1E",
+    "mystic": "#6B4FA0",
+    "coin": "#9A6B1C",
+    "warn": "#B03A3A",
+    "sky": "#C9B6F0",
+    "skyDeep": "#3B2A6B",
+    "wall": "#F6D9E4",
+    "wallDeep": "#E3B3C6",
+    "floor": "#E8C9A8",
+    "wood": "#B8892E",
+    "leaf": "#4F9A6A",
+    "leafDeep": "#2F6A4A",
+    "water": "#5FD3C9",
+    "stone": "#CDB9C4",
+    "glow": "#F7D488"
+  },
+  "wardrobe": [
+    {
+      "name": "Rosewater",
+      "hex": "#E58FB4",
+      "trim": "#FFF7F4"
+    },
+    {
+      "name": "Plum",
+      "hex": "#682047",
+      "trim": "#E9B949"
+    },
+    {
+      "name": "Candlelight",
+      "hex": "#E9B949",
+      "trim": "#682047"
+    },
+    {
+      "name": "Lilac",
+      "hex": "#9C86D9",
+      "trim": "#FFF7F4"
+    },
+    {
+      "name": "Seaglass",
+      "hex": "#3FB8B0",
+      "trim": "#FFF7F4"
+    },
+    {
+      "name": "Blush",
+      "hex": "#F6C1D6",
+      "trim": "#C2246E"
+    }
+  ],
   "rooms": [
     {
-      "id": "cottage",
-      "name": "Thornback Cottage",
+      "id": "bedchamber",
+      "name": "Starlit Bedchamber",
+      "painting": "palace",
       "backdrop": "cottage_room",
-      "blurb": "Your bedroom: patchwork quilt, a window full of ivy.",
+      "blurb": "A canopy bed, a moon at the window, a familiar on every pillow.",
       "activities": [
         "nap",
-        "herbal_tea",
+        "daydream",
         "cuddle"
       ]
     },
     {
-      "id": "glade",
-      "name": "The Mossy Glade",
-      "backdrop": "forest_glade",
-      "blurb": "Ferns, birdsong and paths that move when you are not looking.",
+      "id": "terrace",
+      "name": "Tea Leaf Terrace",
+      "painting": "cafe",
+      "backdrop": "tea_room",
+      "blurb": "Tea under the vines, cakes on the stand, leaves to read after.",
       "activities": [
-        "forage",
-        "sing"
-      ]
-    },
-    {
-      "id": "ring",
-      "name": "Toadstool Ring",
-      "backdrop": "mushroom_ring",
-      "blurb": "Where the coven gathers when the moon is up.",
-      "activities": [
-        "moon_bath",
+        "herbal_tea",
+        "honey_cake",
         "read_cards"
       ]
     },
     {
-      "id": "garden",
-      "name": "The Physic Garden",
-      "backdrop": "herb_garden",
-      "blurb": "Rosemary, feverfew, and one very bossy marrow.",
+      "id": "grotto",
+      "name": "Candlelit Grotto",
+      "painting": "grotto",
+      "backdrop": "sea_cave",
+      "blurb": "Crystals in the walls and a chandelier dripping light.",
       "activities": [
-        "garden",
-        "dig"
-      ]
-    },
-    {
-      "id": "apothecary",
-      "name": "Hollow Oak Apothecary",
-      "backdrop": "apothecary",
-      "blurb": "Jars, labels, and a shop counter inside an old oak.",
-      "activities": [
-        "brew_potion",
-        "market_stall"
-      ]
-    },
-    {
-      "id": "hearth",
-      "name": "The Hearth Room",
-      "backdrop": "hearth_kitchen",
-      "blurb": "Stew on the fire, gossip at the table.",
-      "activities": [
-        "stew",
+        "candle_magic",
         "gossip",
         "elderflower_toast"
+      ]
+    },
+    {
+      "id": "spring",
+      "name": "Wishing Spring",
+      "painting": "lagoon",
+      "backdrop": "tide_pool",
+      "blurb": "A waterfall pours into a pool that grants small wishes.",
+      "activities": [
+        "swim",
+        "scry"
+      ]
+    },
+    {
+      "id": "reef",
+      "name": "Glimmer Reef",
+      "painting": "reef",
+      "backdrop": "sea_cave",
+      "blurb": "Jellyfish lanterns drift over coral and crystal.",
+      "activities": [
+        "rock_pool",
+        "forage",
+        "crystal_cleanse"
+      ]
+    },
+    {
+      "id": "cove",
+      "name": "Hammock Cove",
+      "painting": "beach",
+      "backdrop": "driftwood_shore",
+      "blurb": "A hammock, a half-buried chest, and a stall for trading finds.",
+      "activities": [
+        "dig",
+        "market_stall",
+        "sing"
+      ]
+    },
+    {
+      "id": "conservatory",
+      "name": "Glass Conservatory",
+      "painting": "pool",
+      "backdrop": "bath_house",
+      "blurb": "Warm water under a glass dome. Bring a book.",
+      "activities": [
+        "bath",
+        "write_almanac",
+        "sketch"
+      ]
+    },
+    {
+      "id": "deck",
+      "name": "Stargazer's Deck",
+      "painting": "moon_deck",
+      "backdrop": "starfield_roof",
+      "blurb": "A telescope, a rug and the whole sky.",
+      "activities": [
+        "stargaze",
+        "moon_bath",
+        "spellbook"
       ]
     }
   ],
   "ceremonies": [
     {
-      "id": "hedgerow_circle",
-      "name": "Hedgerow Circle",
-      "room": "ring"
+      "id": "lantern_circle",
+      "name": "Lantern Circle",
+      "room": "spring"
     },
     {
-      "id": "harvest_supper",
-      "name": "Harvest Supper",
-      "room": "hearth"
+      "id": "tea_leaf_supper",
+      "name": "Tea Leaf Supper",
+      "room": "terrace"
     }
   ],
-  "moonRoom": "ring",
+  "moonRoom": "deck",
   "familiars": [
     "cat",
-    "toad",
     "owl",
-    "rabbit",
     "moth",
+    "toad",
+    "rabbit",
     "fox"
   ],
   "witches": {
     "count": 5,
-    "defaultPronouns": "they",
-    "slots": [
-      {
-        "name": "Bramble"
-      },
-      {
-        "name": "Fern"
-      },
-      {
-        "name": "Sorrel"
-      }
-    ]
+    "defaultPronouns": "they"
   }
 }

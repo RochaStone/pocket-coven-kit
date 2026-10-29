@@ -51,7 +51,7 @@ export function moodLine(name: string, p: Pronouns, mood: Mood, lines: Record<Mo
 }
 
 // Fills pronoun tokens: {name} {they} {them} {their} {They} {Their}.
-// {is}/{has} follow the name, so they are always singular ("Lizz is").
+// {is}/{has} follow the name, so they are always singular ("Bramble is").
 // {are} follows the pronoun and agrees with it ("she is" / "they are").
 export function renderFlavour(template: string, name: string, p: Pronouns): string {
   const cap = (x: string) => x.charAt(0).toUpperCase() + x.slice(1);
