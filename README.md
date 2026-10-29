@@ -198,7 +198,7 @@ The engine is shared under the MIT licence, so it is yours to change.
 
 Rocha \
 Brand Alchemist & AI Architect \
-Author of *Brand Alchemy in the Thriving Era* \
+Author of *Brand Alchemy in the Thriving Era* and *Thriving in Transformational Times* \
 Creator of [Conscious Founder Operating System](https://founders.thrivingera.com) \
 Founder, [Thriving Era Studio](https://thrivingera.com)
 
